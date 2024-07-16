@@ -1,9 +1,13 @@
-# LaTeX intermediate files
+
+
+```plaintext
+# LaTeX intermediate and output files
 *.aux
 *.bbl
 *.blg
-*.brf
-*.idx
+*.dvi
+*.fdb_latexmk
+*.fls
 *.ilg
 *.ind
 *.lof
@@ -11,35 +15,55 @@
 *.lot
 *.out
 *.toc
+*.synctex.gz
+*.synctex(busy)
 
-# Generated files
+# Editors specific files
+*~
+*.swp
+*.swo
+.*.swp
+.*.swo
+*.bak
+*.backup
+*.tmp
+
+# PDF files (uncomment if you don't want to track PDFs)
+#*.pdf
+
+# Directories
+_build/
+_build*/
+output/
+output*/
+
+# Specific files
+*.run.xml
+*.bcf
+*.blg
+*.glo
+*.ist
 *.acn
 *.acr
 *.alg
 *.glg
-*.glo
 *.gls
-*.fls
-*.fdb_latexmk
-*.snm
-*.synctex.gz
-*.nav
-*.vrb
+*.thm
+*.xdy
+*.tdo
 
-# PDF files
-*.pdf
+# Generated images and figures
+*.ps
+*.eps
+*.png
+*.jpg
+*.jpeg
 
-# Temporary files
-*.dvi
-*.xdv
+# Bibliography files
+*.bbl
+*.blg
 
-# Backup files
-*~
-*.bak
-*.backup
-*.rel
+# Auto-generated files from arXiv submission
+*.gz
+```
 
-# Editors
-.vscode/
-*.swp
-*.swo

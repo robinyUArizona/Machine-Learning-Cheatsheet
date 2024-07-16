@@ -233,7 +233,21 @@ $\rightarrow$ \textbf{Discriminative Model}: It focuses on predicting the labels
 $\rightarrow$ \textbf{Generative Model}: It focuses on explaining how the data was generated. A generative model learns parameters by maximizing the \textbf{joint probability} of $P(X, Y)$.
 \vspace{-5pt}
 
- 
+\vspace{-5pt}
+\begin{center}
+    \begin{minipage}{0.8\linewidth}
+    \includegraphics[width=\textwidth]{figures/Discriminant_Generative_Illustration.PNG}
+    \end{minipage}
+\end{center}
+\vspace{-7pt}
+
+The discriminative model learns to distinguish between two classes, i.e., pictures of cats or dogs. The generative model estimates the underlying distribution of a dataset (pictures of cats) and randomly generate realistic, yet synthetic, samples according to their estimated distribution.
+
+
+
+\vspace{-7pt}
+
+
 
 \begin{center}
     \footnotesize
@@ -241,8 +255,8 @@ $\rightarrow$ \textbf{Generative Model}: It focuses on explaining how the data w
     \begin{tabularx}{3.5in}{X|X}
     \textbf{\textcolor{purple}{Discriminative model}} & \textbf{\textcolor{purple}{Generative model}}\\
     \hline
-    \RaggedRight{\includegraphics[scale = .47]{figures/Discriminant_model_figure.PNG}}&
-    \RaggedRight{\includegraphics[scale = .47] {figures/Generative_model_figures.PNG}} \\
+    \RaggedRight{\includegraphics[scale = .44]{figures/Discriminant_model_figure.PNG}}&
+    \RaggedRight{\includegraphics[scale = .36] {figures/Generative_model_figures.PNG}} \\
     \hline
     Learns the decision boundary between classes &
     Learns the input distribution \\
@@ -257,7 +271,7 @@ $\rightarrow$ \textbf{Generative Model}: It focuses on explaining how the data w
     Typically, their purpose is not classification \\
     \hline
     Logistic Regression, Random Forests, SVM, Neural Networks, Decision Tree, kNN &
-    Hidden Markov Models, Naive Bayes, Gaussian Mixture Models, Gaussian Discriminant Analysis, LDAm Bayesian Networks
+    Hidden Markov Models, Naive Bayes, Gaussian Mixture Models, Gaussian Discriminant Analysis, LDA, Bayesian Networks
     \end{tabularx}}
 \end{center}
 

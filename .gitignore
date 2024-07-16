@@ -1,6 +1,9 @@
 
 
-```plaintext
+# Force include .tex files
+!*.tex
+
+
 # LaTeX intermediate and output files
 *.aux
 *.bbl
@@ -19,7 +22,7 @@
 *.synctex(busy)
 
 # Editors specific files
-*~
+# *~
 *.swp
 *.swo
 .*.swp

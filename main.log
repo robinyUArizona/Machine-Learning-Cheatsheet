@@ -1,0 +1,1917 @@
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 22.3) (preloaded format=pdflatex 2022.9.26)  15 JUL 2024 23:08
+entering extended mode
+ restricted \write18 enabled.
+ %&-line parsing enabled.
+**./main.tex
+(main.tex
+LaTeX2e <2022-06-01> patch level 3
+L3 programming layer <2022-06-16>
+(C:\Users\yrobi\AppData\Local\Programs\MiKTeX\tex/latex/base\article.cls
+Document Class: article 2021/10/04 v1.4n Standard LaTeX document class
+(C:\Users\yrobi\AppData\Local\Programs\MiKTeX\tex/latex/base\size10.clo
+File: size10.clo 2021/10/04 v1.4n Standard LaTeX file (size option)
+)
+\c@part=\count185
+\c@section=\count186
+\c@subsection=\count187
+\c@subsubsection=\count188
+\c@paragraph=\count189
+\c@subparagraph=\count190
+\c@figure=\count191
+\c@table=\count192
+\abovecaptionskip=\skip47
+\belowcaptionskip=\skip48
+\bibindent=\dimen138
+)
+(C:\Users\yrobi\AppData\Local\Programs\MiKTeX\tex/latex/tools\multicol.sty
+Package: multicol 2021/10/28 v1.9b multicolumn formatting (FMi)
+\c@tracingmulticols=\count193
+\mult@box=\box51
+\multicol@leftmargin=\dimen139
+\c@unbalance=\count194
+\c@collectmore=\count195
+\doublecol@number=\count196
+\multicoltolerance=\count197
+\multicolpretolerance=\count198
+\full@width=\dimen140
+\page@free=\dimen141
+\premulticols=\dimen142
+\postmulticols=\dimen143
+\multicolsep=\skip49
+\multicolbaselineskip=\skip50
+\partial@page=\box52
+\last@line=\box53
+\maxbalancingoverflow=\dimen144
+\mult@rightbox=\box54
+\mult@grightbox=\box55
+\mult@firstbox=\box56
+\mult@gfirstbox=\box57
+\@tempa=\box58
+\@tempa=\box59
+\@tempa=\box60
+\@tempa=\box61
+\@tempa=\box62
+\@tempa=\box63
+\@tempa=\box64
+\@tempa=\box65
+\@tempa=\box66
+\@tempa=\box67
+\@tempa=\box68
+\@tempa=\box69
+\@tempa=\box70
+\@tempa=\box71
+\@tempa=\box72
+\@tempa=\box73
+\@tempa=\box74
+\@tempa=\box75
+\@tempa=\box76
+\@tempa=\box77
+\@tempa=\box78
+\@tempa=\box79
+\@tempa=\box80
+\@tempa=\box81
+\@tempa=\box82
+\@tempa=\box83
+\@tempa=\box84
+\@tempa=\box85
+\@tempa=\box86
+\@tempa=\box87
+\@tempa=\box88
+\@tempa=\box89
+\@tempa=\box90
+\@tempa=\box91
+\@tempa=\box92
+\@tempa=\box93
+\c@minrows=\count199
+\c@columnbadness=\count266
+\c@finalcolumnbadness=\count267
+\last@try=\dimen145
+\multicolovershoot=\dimen146
+\multicolundershoot=\dimen147
+\mult@nat@firstbox=\box94
+\colbreak@box=\box95
+\mc@col@check@num=\count268
+)
+(C:\Users\yrobi\AppData\Local\Programs\MiKTeX\tex/latex/tools\calc.sty
+Package: calc 2017/05/25 v4.3 Infix arithmetic (KKT,FJ)
+\calc@Acount=\count269
+\calc@Bcount=\count270
+\calc@Adimen=\dimen148
+\calc@Bdimen=\dimen149
+\calc@Askip=\skip51
+\calc@Bskip=\skip52
+LaTeX Info: Redefining \setlength on input line 80.
+LaTeX Info: Redefining \addtolength on input line 81.
+\calc@Ccount=\count271
+\calc@Cskip=\skip53
+)
+(C:\Users\yrobi\AppData\Local\Programs\MiKTeX\tex/latex/base\ifthen.sty
+Package: ifthen 2022/04/13 v1.1d Standard LaTeX ifthen package (DPC)
+)
+(C:\Users\yrobi\AppData\Local\Programs\MiKTeX\tex/latex/graphics\color.sty
+Package: color 2022/01/06 v1.3d Standard LaTeX Color (DPC)
+
+(C:\Users\yrobi\AppData\Local\Programs\MiKTeX\tex/latex/graphics-cfg\color.cfg
+File: color.cfg 2016/01/02 v1.6 sample color configuration
+)
+Package color Info: Driver file: pdftex.def on input line 149.
+
+(C:\Users\yrobi\AppData\Local\Programs\MiKTeX\tex/latex/graphics-def\pdftex.def
+File: pdftex.def 2020/10/05 v1.2a Graphics/color driver for pdftex
+) (C:\Users\yrobi\AppData\Local\Programs\MiKTeX\tex/latex/graphics\dvipsnam.def
+File: dvipsnam.def 2016/06/17 v3.0m Driver-dependent file (DPC,SPQR)
+)
+(C:\Users\yrobi\AppData\Local\Programs\MiKTeX\tex/latex-dev/graphics\mathcolor.
+ltx))
+(C:\Users\yrobi\AppData\Local\Programs\MiKTeX\tex/latex/geometry\geometry.sty
+Package: geometry 2020/01/02 v5.9 Page Geometry
+
+(C:\Users\yrobi\AppData\Local\Programs\MiKTeX\tex/latex/graphics\keyval.sty
+Package: keyval 2022/05/29 v1.15 key=value parser (DPC)
+\KV@toks@=\toks16
+)
+(C:\Users\yrobi\AppData\Local\Programs\MiKTeX\tex/generic/iftex\ifvtex.sty
+Package: ifvtex 2019/10/25 v1.7 ifvtex legacy package. Use iftex instead.
+
+(C:\Users\yrobi\AppData\Local\Programs\MiKTeX\tex/generic/iftex\iftex.sty
+Package: iftex 2022/02/03 v1.0f TeX engine tests
+))
+\Gm@cnth=\count272
+\Gm@cntv=\count273
+\c@Gm@tempcnt=\count274
+\Gm@bindingoffset=\dimen150
+\Gm@wd@mp=\dimen151
+\Gm@odd@mp=\dimen152
+\Gm@even@mp=\dimen153
+\Gm@layoutwidth=\dimen154
+\Gm@layoutheight=\dimen155
+\Gm@layouthoffset=\dimen156
+\Gm@layoutvoffset=\dimen157
+\Gm@dimlist=\toks17
+
+(C:\Users\yrobi\AppData\Local\Programs\MiKTeX\tex/latex/geometry\geometry.cfg))
+(C:\Users\yrobi\AppData\Local\Programs\MiKTeX\tex/latex/svg\svg.sty
+Package: svg 2020/11/26 v2.02k (include SVG pictures)
+
+(C:\Users\yrobi\AppData\Local\Programs\MiKTeX\tex/latex/koma-script\scrbase.sty
+Package: scrbase 2023/07/07 v3.41 KOMA-Script package (KOMA-Script-independent 
+basics and keyval usage)
+
+(C:\Users\yrobi\AppData\Local\Programs\MiKTeX\tex/latex/koma-script\scrlfile.st
+y
+Package: scrlfile 2023/07/07 v3.41 KOMA-Script package (file load hooks)
+
+(C:\Users\yrobi\AppData\Local\Programs\MiKTeX\tex/latex/koma-script\scrlfile-ho
+ok.sty
+Package: scrlfile-hook 2023/07/07 v3.41 KOMA-Script package (using LaTeX hooks)
+
+
+(C:\Users\yrobi\AppData\Local\Programs\MiKTeX\tex/latex/koma-script\scrlogo.sty
+Package: scrlogo 2023/07/07 v3.41 KOMA-Script package (logo)
+)))
+Applying: [2021/05/01] Usage of raw or classic option list on input line 252.
+Already applied: [0000/00/00] Usage of raw or classic option list on input line
+ 368.
+)
+(C:\Users\yrobi\AppData\Local\Programs\MiKTeX\tex/generic/pdftexcmds\pdftexcmds
+.sty
+Package: pdftexcmds 2020-06-27 v0.33 Utility functions of pdfTeX for LuaTeX (HO
+)
+
+(C:\Users\yrobi\AppData\Local\Programs\MiKTeX\tex/generic/infwarerr\infwarerr.s
+ty
+Package: infwarerr 2019/12/03 v1.5 Providing info/warning/error messages (HO)
+)
+(C:\Users\yrobi\AppData\Local\Programs\MiKTeX\tex/generic/ltxcmds\ltxcmds.sty
+Package: ltxcmds 2020-05-10 v1.25 LaTeX kernel commands for general use (HO)
+)
+Package pdftexcmds Info: \pdf@primitive is available.
+Package pdftexcmds Info: \pdf@ifprimitive is available.
+Package pdftexcmds Info: \pdfdraftmode found.
+)
+(C:\Users\yrobi\AppData\Local\Programs\MiKTeX\tex/latex/trimspaces\trimspaces.s
+ty
+Package: trimspaces 2009/09/17 v1.1 Trim spaces around a token list
+)
+(C:\Users\yrobi\AppData\Local\Programs\MiKTeX\tex/latex/graphics\graphicx.sty
+Package: graphicx 2021/09/16 v1.2d Enhanced LaTeX Graphics (DPC,SPQR)
+
+(C:\Users\yrobi\AppData\Local\Programs\MiKTeX\tex/latex/graphics\graphics.sty
+Package: graphics 2022/03/10 v1.4e Standard LaTeX Graphics (DPC,SPQR)
+
+(C:\Users\yrobi\AppData\Local\Programs\MiKTeX\tex/latex/graphics\trig.sty
+Package: trig 2021/08/11 v1.11 sin cos tan (DPC)
+)
+(C:\Users\yrobi\AppData\Local\Programs\MiKTeX\tex/latex/graphics-cfg\graphics.c
+fg
+File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
+)
+Package graphics Info: Driver file: pdftex.def on input line 107.
+)
+\Gin@req@height=\dimen158
+\Gin@req@width=\dimen159
+)
+(C:\Users\yrobi\AppData\Local\Programs\MiKTeX\tex/latex/tools\shellesc.sty
+Package: shellesc 2019/11/08 v1.0c unified shell escape interface for LaTeX
+Package shellesc Info: Restricted shell escape enabled on input line 77.
+)
+\c@svg@param@lastpage=\count275
+\svg@box=\box96
+\c@svg@param@currpage=\count276
+)
+(C:\Users\yrobi\AppData\Local\Programs\MiKTeX\tex/latex/xcolor\xcolor.sty
+Package: xcolor 2022/06/12 v2.14 LaTeX color extensions (UK)
+
+(C:\Users\yrobi\AppData\Local\Programs\MiKTeX\tex/latex/graphics-cfg\color.cfg
+File: color.cfg 2016/01/02 v1.6 sample color configuration
+)
+Package xcolor Info: Driver file: pdftex.def on input line 227.
+LaTeX Info: Redefining \color on input line 711.
+
+(C:\Users\yrobi\AppData\Local\Programs\MiKTeX\tex/latex-dev/graphics\mathcolor.
+ltx)
+Package xcolor Info: Model `cmy' substituted by `cmy0' on input line 1353.
+Package xcolor Info: Model `hsb' substituted by `rgb' on input line 1357.
+Package xcolor Info: Model `RGB' extended on input line 1369.
+Package xcolor Info: Model `HTML' substituted by `rgb' on input line 1371.
+Package xcolor Info: Model `Hsb' substituted by `hsb' on input line 1372.
+Package xcolor Info: Model `tHsb' substituted by `hsb' on input line 1373.
+Package xcolor Info: Model `HSB' substituted by `hsb' on input line 1374.
+Package xcolor Info: Model `Gray' substituted by `gray' on input line 1375.
+Package xcolor Info: Model `wave' substituted by `hsb' on input line 1376.
+)
+(C:\Users\yrobi\AppData\Local\Programs\MiKTeX\tex/latex/transparent\transparent
+.sty
+Package: transparent 2022-10-27 v1.5 Transparency with color stacks
+
+(C:\Users\yrobi\AppData\Local\Programs\MiKTeX\tex/latex/transparent\transparent
+-nometadata.sty
+Package: transparent-nometadata 2022-10-27 v1.5 Transparency via pdfTeX's color
+ stack (HO)
+
+(C:\Users\yrobi\AppData\Local\Programs\MiKTeX\tex/latex/auxhook\auxhook.sty
+Package: auxhook 2019-12-17 v1.6 Hooks for auxiliary files (HO)
+)))
+(C:\Users\yrobi\AppData\Local\Programs\MiKTeX\tex/latex/pgf/systemlayer\pgfsys.
+sty
+(C:\Users\yrobi\AppData\Local\Programs\MiKTeX\tex/latex/pgf/utilities\pgfrcs.st
+y
+(C:\Users\yrobi\AppData\Local\Programs\MiKTeX\tex/generic/pgf/utilities\pgfutil
+-common.tex
+\pgfutil@everybye=\toks18
+\pgfutil@tempdima=\dimen160
+\pgfutil@tempdimb=\dimen161
+
+(C:\Users\yrobi\AppData\Local\Programs\MiKTeX\tex/generic/pgf/utilities\pgfutil
+-common-lists.tex))
+(C:\Users\yrobi\AppData\Local\Programs\MiKTeX\tex/generic/pgf/utilities\pgfutil
+-latex.def
+\pgfutil@abb=\box97
+)
+(C:\Users\yrobi\AppData\Local\Programs\MiKTeX\tex/generic/pgf/utilities\pgfrcs.
+code.tex
+(C:\Users\yrobi\AppData\Local\Programs\MiKTeX\tex/generic/pgf\pgf.revision.tex)
+Package: pgfrcs 2021/05/15 v3.1.9a (3.1.9a)
+))
+(C:\Users\yrobi\AppData\Local\Programs\MiKTeX\tex/generic/pgf/systemlayer\pgfsy
+s.code.tex
+Package: pgfsys 2021/05/15 v3.1.9a (3.1.9a)
+
+(C:\Users\yrobi\AppData\Local\Programs\MiKTeX\tex/generic/pgf/utilities\pgfkeys
+.code.tex
+\pgfkeys@pathtoks=\toks19
+\pgfkeys@temptoks=\toks20
+
+(C:\Users\yrobi\AppData\Local\Programs\MiKTeX\tex/generic/pgf/utilities\pgfkeys
+filtered.code.tex
+\pgfkeys@tmptoks=\toks21
+))
+\pgf@x=\dimen162
+\pgf@y=\dimen163
+\pgf@xa=\dimen164
+\pgf@ya=\dimen165
+\pgf@xb=\dimen166
+\pgf@yb=\dimen167
+\pgf@xc=\dimen168
+\pgf@yc=\dimen169
+\pgf@xd=\dimen170
+\pgf@yd=\dimen171
+\w@pgf@writea=\write3
+\r@pgf@reada=\read2
+\c@pgf@counta=\count277
+\c@pgf@countb=\count278
+\c@pgf@countc=\count279
+\c@pgf@countd=\count280
+\t@pgf@toka=\toks22
+\t@pgf@tokb=\toks23
+\t@pgf@tokc=\toks24
+\pgf@sys@id@count=\count281
+
+(C:\Users\yrobi\AppData\Local\Programs\MiKTeX\tex/generic/pgf/systemlayer\pgf.c
+fg
+File: pgf.cfg 2021/05/15 v3.1.9a (3.1.9a)
+)
+Driver file for pgf: pgfsys-pdftex.def
+
+(C:\Users\yrobi\AppData\Local\Programs\MiKTeX\tex/generic/pgf/systemlayer\pgfsy
+s-pdftex.def
+File: pgfsys-pdftex.def 2021/05/15 v3.1.9a (3.1.9a)
+
+(C:\Users\yrobi\AppData\Local\Programs\MiKTeX\tex/generic/pgf/systemlayer\pgfsy
+s-common-pdf.def
+File: pgfsys-common-pdf.def 2021/05/15 v3.1.9a (3.1.9a)
+)))
+(C:\Users\yrobi\AppData\Local\Programs\MiKTeX\tex/generic/pgf/systemlayer\pgfsy
+ssoftpath.code.tex
+File: pgfsyssoftpath.code.tex 2021/05/15 v3.1.9a (3.1.9a)
+\pgfsyssoftpath@smallbuffer@items=\count282
+\pgfsyssoftpath@bigbuffer@items=\count283
+)
+(C:\Users\yrobi\AppData\Local\Programs\MiKTeX\tex/generic/pgf/systemlayer\pgfsy
+sprotocol.code.tex
+File: pgfsysprotocol.code.tex 2021/05/15 v3.1.9a (3.1.9a)
+))
+(C:\Users\yrobi\AppData\Local\Programs\MiKTeX\tex/latex/biblatex\biblatex.sty
+Package: biblatex 2022/06/22 v3.18 programmable bibliographies (PK/MW)
+
+(C:\Users\yrobi\AppData\Local\Programs\MiKTeX\tex/latex/etoolbox\etoolbox.sty
+Package: etoolbox 2020/10/05 v2.5k e-TeX tools for LaTeX (JAW)
+\etb@tempcnta=\count284
+)
+(C:\Users\yrobi\AppData\Local\Programs\MiKTeX\tex/latex/kvoptions\kvoptions.sty
+Package: kvoptions 2022-06-15 v3.15 Key value format for package options (HO)
+
+(C:\Users\yrobi\AppData\Local\Programs\MiKTeX\tex/generic/kvsetkeys\kvsetkeys.s
+ty
+Package: kvsetkeys 2019/12/15 v1.18 Key value parser (HO)
+)) (C:\Users\yrobi\AppData\Local\Programs\MiKTeX\tex/latex/logreq\logreq.sty
+Package: logreq 2010/08/04 v1.0 xml request logger
+\lrq@indent=\count285
+
+(C:\Users\yrobi\AppData\Local\Programs\MiKTeX\tex/latex/logreq\logreq.def
+File: logreq.def 2010/08/04 v1.0 logreq spec v1.0
+))
+(C:\Users\yrobi\AppData\Local\Programs\MiKTeX\tex/latex/url\url.sty
+\Urlmuskip=\muskip16
+Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
+)
+\c@tabx@nest=\count286
+\c@listtotal=\count287
+\c@listcount=\count288
+\c@liststart=\count289
+\c@liststop=\count290
+\c@citecount=\count291
+\c@citetotal=\count292
+\c@multicitecount=\count293
+\c@multicitetotal=\count294
+\c@instcount=\count295
+\c@maxnames=\count296
+\c@minnames=\count297
+\c@maxitems=\count298
+\c@minitems=\count299
+\c@citecounter=\count300
+\c@maxcitecounter=\count301
+\c@savedcitecounter=\count302
+\c@uniquelist=\count303
+\c@uniquename=\count304
+\c@refsection=\count305
+\c@refsegment=\count306
+\c@maxextratitle=\count307
+\c@maxextratitleyear=\count308
+\c@maxextraname=\count309
+\c@maxextradate=\count310
+\c@maxextraalpha=\count311
+\c@abbrvpenalty=\count312
+\c@highnamepenalty=\count313
+\c@lownamepenalty=\count314
+\c@maxparens=\count315
+\c@parenlevel=\count316
+\blx@tempcnta=\count317
+\blx@tempcntb=\count318
+\blx@tempcntc=\count319
+\c@blx@maxsection=\count320
+\blx@maxsegment@0=\count321
+\blx@notetype=\count322
+\blx@parenlevel@text=\count323
+\blx@parenlevel@foot=\count324
+\blx@sectionciteorder@0=\count325
+\blx@sectionciteorderinternal@0=\count326
+\blx@entrysetcounter=\count327
+\blx@biblioinstance=\count328
+\labelnumberwidth=\skip54
+\labelalphawidth=\skip55
+\biblabelsep=\skip56
+\bibitemsep=\skip57
+\bibnamesep=\skip58
+\bibinitsep=\skip59
+\bibparsep=\skip60
+\bibhang=\skip61
+\blx@bcfin=\read3
+\blx@bcfout=\write4
+\blx@langwohyphens=\language79
+\c@mincomprange=\count329
+\c@maxcomprange=\count330
+\c@mincompwidth=\count331
+Package biblatex Info: Trying to load biblatex default data model...
+Package biblatex Info: ... file 'blx-dm.def' found.
+
+(C:\Users\yrobi\AppData\Local\Programs\MiKTeX\tex/latex/biblatex\blx-dm.def
+File: blx-dm.def 2022/06/22 v3.18 biblatex localization (PK/MW)
+)
+Package biblatex Info: Trying to load biblatex style data model...
+Package biblatex Info: ... file 'numeric.dbx' not found.
+Package biblatex Info: Trying to load biblatex custom data model...
+Package biblatex Info: ... file 'biblatex-dm.cfg' not found.
+\c@afterword=\count332
+\c@savedafterword=\count333
+\c@annotator=\count334
+\c@savedannotator=\count335
+\c@author=\count336
+\c@savedauthor=\count337
+\c@bookauthor=\count338
+\c@savedbookauthor=\count339
+\c@commentator=\count340
+\c@savedcommentator=\count341
+\c@editor=\count342
+\c@savededitor=\count343
+\c@editora=\count344
+\c@savededitora=\count345
+\c@editorb=\count346
+\c@savededitorb=\count347
+\c@editorc=\count348
+\c@savededitorc=\count349
+\c@foreword=\count350
+\c@savedforeword=\count351
+\c@holder=\count352
+\c@savedholder=\count353
+\c@introduction=\count354
+\c@savedintroduction=\count355
+\c@namea=\count356
+\c@savednamea=\count357
+\c@nameb=\count358
+\c@savednameb=\count359
+\c@namec=\count360
+\c@savednamec=\count361
+\c@translator=\count362
+\c@savedtranslator=\count363
+\c@shortauthor=\count364
+\c@savedshortauthor=\count365
+\c@shorteditor=\count366
+\c@savedshorteditor=\count367
+\c@labelname=\count368
+\c@savedlabelname=\count369
+\c@institution=\count370
+\c@savedinstitution=\count371
+\c@lista=\count372
+\c@savedlista=\count373
+\c@listb=\count374
+\c@savedlistb=\count375
+\c@listc=\count376
+\c@savedlistc=\count377
+\c@listd=\count378
+\c@savedlistd=\count379
+\c@liste=\count380
+\c@savedliste=\count381
+\c@listf=\count382
+\c@savedlistf=\count383
+\c@location=\count384
+\c@savedlocation=\count385
+\c@organization=\count386
+\c@savedorganization=\count387
+\c@origlocation=\count388
+\c@savedoriglocation=\count389
+\c@origpublisher=\count390
+\c@savedorigpublisher=\count391
+\c@publisher=\count392
+\c@savedpublisher=\count393
+\c@language=\count394
+\c@savedlanguage=\count395
+\c@origlanguage=\count396
+\c@savedoriglanguage=\count397
+\c@pageref=\count398
+\c@savedpageref=\count399
+\shorthandwidth=\skip62
+\shortjournalwidth=\skip63
+\shortserieswidth=\skip64
+\shorttitlewidth=\skip65
+\shortauthorwidth=\skip66
+\shorteditorwidth=\skip67
+\locallabelnumberwidth=\skip68
+\locallabelalphawidth=\skip69
+\localshorthandwidth=\skip70
+\localshortjournalwidth=\skip71
+\localshortserieswidth=\skip72
+\localshorttitlewidth=\skip73
+\localshortauthorwidth=\skip74
+\localshorteditorwidth=\skip75
+Package biblatex Info: Trying to load compatibility code...
+Package biblatex Info: ... file 'blx-compat.def' found.
+
+(C:\Users\yrobi\AppData\Local\Programs\MiKTeX\tex/latex/biblatex\blx-compat.def
+File: blx-compat.def 2022/06/22 v3.18 biblatex compatibility (PK/MW)
+)
+Package biblatex Info: Trying to load generic definitions...
+Package biblatex Info: ... file 'biblatex.def' found.
+ (C:\Users\yrobi\AppData\Local\Programs\MiKTeX\tex/latex/biblatex\biblatex.def
+File: biblatex.def 2022/06/22 v3.18 biblatex compatibility (PK/MW)
+\c@textcitecount=\count400
+\c@textcitetotal=\count401
+\c@textcitemaxnames=\count402
+\c@biburlbigbreakpenalty=\count403
+\c@biburlbreakpenalty=\count404
+\c@biburlnumpenalty=\count405
+\c@biburlucpenalty=\count406
+\c@biburllcpenalty=\count407
+\biburlbigskip=\muskip17
+\biburlnumskip=\muskip18
+\biburlucskip=\muskip19
+\biburllcskip=\muskip20
+\c@smartand=\count408
+)
+Package biblatex Info: Trying to load bibliography style 'numeric'...
+Package biblatex Info: ... file 'numeric.bbx' found.
+
+(C:\Users\yrobi\AppData\Local\Programs\MiKTeX\tex/latex/biblatex/bbx\numeric.bb
+x
+File: numeric.bbx 2022/06/22 v3.18 biblatex bibliography style (PK/MW)
+Package biblatex Info: Trying to load bibliography style 'standard'...
+Package biblatex Info: ... file 'standard.bbx' found.
+
+(C:\Users\yrobi\AppData\Local\Programs\MiKTeX\tex/latex/biblatex/bbx\standard.b
+bx
+File: standard.bbx 2022/06/22 v3.18 biblatex bibliography style (PK/MW)
+\c@bbx:relatedcount=\count409
+\c@bbx:relatedtotal=\count410
+))
+Package biblatex Info: Trying to load citation style 'numeric'...
+Package biblatex Info: ... file 'numeric.cbx' found.
+
+(C:\Users\yrobi\AppData\Local\Programs\MiKTeX\tex/latex/biblatex/cbx\numeric.cb
+x
+File: numeric.cbx 2022/06/22 v3.18 biblatex citation style (PK/MW)
+Package biblatex Info: Redefining '\cite'.
+Package biblatex Info: Redefining '\parencite'.
+Package biblatex Info: Redefining '\footcite'.
+Package biblatex Info: Redefining '\footcitetext'.
+Package biblatex Info: Redefining '\smartcite'.
+Package biblatex Info: Redefining '\supercite'.
+Package biblatex Info: Redefining '\textcite'.
+Package biblatex Info: Redefining '\textcites'.
+Package biblatex Info: Redefining '\cites'.
+Package biblatex Info: Redefining '\parencites'.
+Package biblatex Info: Redefining '\smartcites'.
+)
+Package biblatex Info: Trying to load configuration file...
+Package biblatex Info: ... file 'biblatex.cfg' found.
+
+(C:\Users\yrobi\AppData\Local\Programs\MiKTeX\tex/latex/biblatex\biblatex.cfg
+File: biblatex.cfg 
+)
+Package biblatex Info: Input encoding 'utf8' detected.
+Package biblatex Info: Document encoding is UTF8 ....
+
+(C:\Users\yrobi\AppData\Local\Programs\MiKTeX\tex/latex/l3kernel\expl3.sty
+Package: expl3 2022-06-16 L3 programming layer (loader) 
+
+(C:\Users\yrobi\AppData\Local\Programs\MiKTeX\tex/latex/l3backend\l3backend-pdf
+tex.def
+File: l3backend-pdftex.def 2022-04-20 L3 backend support: PDF output (pdfTeX)
+\l__color_backend_stack_int=\count411
+\l__pdf_internal_box=\box98
+))
+Package biblatex Info: ... and expl3
+(biblatex)             2022-06-16 L3 programming layer (loader) 
+(biblatex)             is new enough (at least 2020/04/06),
+(biblatex)             setting 'casechanger=expl3'.
+
+(C:\Users\yrobi\AppData\Local\Programs\MiKTeX\tex/latex/biblatex\blx-case-expl3
+.sty
+(C:\Users\yrobi\AppData\Local\Programs\MiKTeX\tex/latex/l3packages/xparse\xpars
+e.sty
+Package: xparse 2022-06-22 L3 Experimental document command parser
+)
+Package: blx-case-expl3 2022/06/22 v3.18 expl3 case changing code for biblatex
+))
+(C:\Users\yrobi\AppData\Local\Programs\MiKTeX\tex/latex/ragged2e\ragged2e.sty
+Package: ragged2e 2021/12/15 v3.1 ragged2e Package
+\CenteringLeftskip=\skip76
+\RaggedLeftLeftskip=\skip77
+\RaggedRightLeftskip=\skip78
+\CenteringRightskip=\skip79
+\RaggedLeftRightskip=\skip80
+\RaggedRightRightskip=\skip81
+\CenteringParfillskip=\skip82
+\RaggedLeftParfillskip=\skip83
+\RaggedRightParfillskip=\skip84
+\JustifyingParfillskip=\skip85
+\CenteringParindent=\skip86
+\RaggedLeftParindent=\skip87
+\RaggedRightParindent=\skip88
+\JustifyingParindent=\skip89
+)
+(C:\Users\yrobi\AppData\Local\Programs\MiKTeX\tex/latex/tools\tabularx.sty
+Package: tabularx 2020/01/15 v2.11c `tabularx' package (DPC)
+
+(C:\Users\yrobi\AppData\Local\Programs\MiKTeX\tex/latex/tools\array.sty
+Package: array 2021/10/04 v2.5f Tabular extension package (FMi)
+\col@sep=\dimen172
+\ar@mcellbox=\box99
+\extrarowheight=\dimen173
+\NC@list=\toks25
+\extratabsurround=\skip90
+\backup@length=\skip91
+\ar@cellbox=\box100
+)
+\TX@col@width=\dimen174
+\TX@old@table=\dimen175
+\TX@old@col=\dimen176
+\TX@target=\dimen177
+\TX@delta=\dimen178
+\TX@cols=\count412
+\TX@ftn=\toks26
+)
+(C:\Users\yrobi\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amsmath.sty
+Package: amsmath 2022/04/08 v2.17n AMS math features
+\@mathmargin=\skip92
+
+For additional information on amsmath, use the `?' option.
+(C:\Users\yrobi\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amstext.sty
+Package: amstext 2021/08/26 v2.01 AMS text
+
+(C:\Users\yrobi\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amsgen.sty
+File: amsgen.sty 1999/11/30 v2.0 generic functions
+\@emptytoks=\toks27
+\ex@=\dimen179
+))
+(C:\Users\yrobi\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amsbsy.sty
+Package: amsbsy 1999/11/29 v1.2d Bold Symbols
+\pmbraise@=\dimen180
+)
+(C:\Users\yrobi\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amsopn.sty
+Package: amsopn 2022/04/08 v2.04 operator names
+)
+\inf@bad=\count413
+LaTeX Info: Redefining \frac on input line 234.
+\uproot@=\count414
+\leftroot@=\count415
+LaTeX Info: Redefining \overline on input line 399.
+LaTeX Info: Redefining \colon on input line 410.
+\classnum@=\count416
+\DOTSCASE@=\count417
+LaTeX Info: Redefining \ldots on input line 496.
+LaTeX Info: Redefining \dots on input line 499.
+LaTeX Info: Redefining \cdots on input line 620.
+\Mathstrutbox@=\box101
+\strutbox@=\box102
+LaTeX Info: Redefining \big on input line 722.
+LaTeX Info: Redefining \Big on input line 723.
+LaTeX Info: Redefining \bigg on input line 724.
+LaTeX Info: Redefining \Bigg on input line 725.
+\big@size=\dimen181
+LaTeX Font Info:    Redeclaring font encoding OML on input line 743.
+LaTeX Font Info:    Redeclaring font encoding OMS on input line 744.
+\macc@depth=\count418
+LaTeX Info: Redefining \bmod on input line 905.
+LaTeX Info: Redefining \pmod on input line 910.
+LaTeX Info: Redefining \smash on input line 940.
+LaTeX Info: Redefining \relbar on input line 970.
+LaTeX Info: Redefining \Relbar on input line 971.
+\c@MaxMatrixCols=\count419
+\dotsspace@=\muskip21
+\c@parentequation=\count420
+\dspbrk@lvl=\count421
+\tag@help=\toks28
+\row@=\count422
+\column@=\count423
+\maxfields@=\count424
+\andhelp@=\toks29
+\eqnshift@=\dimen182
+\alignsep@=\dimen183
+\tagshift@=\dimen184
+\tagwidth@=\dimen185
+\totwidth@=\dimen186
+\lineht@=\dimen187
+\@envbody=\toks30
+\multlinegap=\skip93
+\multlinetaggap=\skip94
+\mathdisplay@stack=\toks31
+LaTeX Info: Redefining \[ on input line 2953.
+LaTeX Info: Redefining \] on input line 2954.
+)
+(C:\Users\yrobi\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\amssymb.sty
+Package: amssymb 2013/01/14 v3.01 AMS font symbols
+
+(C:\Users\yrobi\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\amsfonts.sty
+Package: amsfonts 2013/01/14 v3.01 Basic AMSFonts support
+\symAMSa=\mathgroup4
+\symAMSb=\mathgroup5
+LaTeX Font Info:    Redeclaring math symbol \hbar on input line 98.
+LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
+(Font)                  U/euf/m/n --> U/euf/b/n on input line 106.
+)) (C:\Users\yrobi\AppData\Local\Programs\MiKTeX\tex/latex/amscls\amsthm.sty
+Package: amsthm 2020/05/29 v2.20.6
+\thm@style=\toks32
+\thm@bodyfont=\toks33
+\thm@headfont=\toks34
+\thm@notefont=\toks35
+\thm@headpunct=\toks36
+\thm@preskip=\skip95
+\thm@postskip=\skip96
+\thm@headsep=\skip97
+\dth@everypar=\toks37
+)
+(C:\Users\yrobi\AppData\Local\Programs\MiKTeX\tex/latex/blkarray\blkarray.sty
+Package: blkarray 2015/02/27 v0.07 Block array (dpc)
+\c@BAenumi=\count425
+\BA@col=\count426
+\BA@block@cnt=\count427
+\BA@final@box=\box103
+\BA@first@box=\box104
+\BA@colsep=\dimen188
+\BA@ftn=\toks38
+\BAextrarowheight=\dimen189
+\BAextraheightafterhline=\dimen190
+\BAarrayrulewidth=\dimen191
+\BAdoublerulesep=\dimen192
+\BAfootskip=\dimen193
+\BA@dashbox=\box105
+\BA@ddashbox=\box106
+)
+(C:\Users\yrobi\AppData\Local\Programs\MiKTeX\tex/latex/base\latexsym.sty
+Package: latexsym 1998/08/17 v2.2e Standard LaTeX package (lasy symbols)
+\symlasy=\mathgroup6
+LaTeX Font Info:    Overwriting symbol font `lasy' in version `bold'
+(Font)                  U/lasy/m/n --> U/lasy/b/n on input line 52.
+)
+(C:\Users\yrobi\AppData\Local\Programs\MiKTeX\tex/latex/marvosym\marvosym.sty
+Package: marvosym 2011/07/20 v2.2 Martin Vogel's Symbols font definitions
+)
+(C:\Users\yrobi\AppData\Local\Programs\MiKTeX\tex/latex/psnfss\pifont.sty
+Package: pifont 2020/03/25 PSNFSS-v9.3 Pi font support (SPQR) 
+LaTeX Font Info:    Trying to load font information for U+pzd on input line 63.
+
+
+(C:\Users\yrobi\AppData\Local\Programs\MiKTeX\tex/latex/psnfss\upzd.fd
+File: upzd.fd 2001/06/04 font definitions for U/pzd.
+)
+LaTeX Font Info:    Trying to load font information for U+psy on input line 64.
+
+
+(C:\Users\yrobi\AppData\Local\Programs\MiKTeX\tex/latex/psnfss\upsy.fd
+File: upsy.fd 2001/06/04 font definitions for U/psy.
+))
+(C:\Users\yrobi\AppData\Local\Programs\MiKTeX\tex/latex/graphics\lscape.sty
+Package: lscape 2020/05/28 v3.02 Landscape Pages (DPC)
+)
+(C:\Users\yrobi\AppData\Local\Programs\MiKTeX\tex/latex/booktabs\booktabs.sty
+Package: booktabs 2020/01/12 v1.61803398 Publication quality tables
+\heavyrulewidth=\dimen194
+\lightrulewidth=\dimen195
+\cmidrulewidth=\dimen196
+\belowrulesep=\dimen197
+\belowbottomsep=\dimen198
+\aboverulesep=\dimen199
+\abovetopsep=\dimen256
+\cmidrulesep=\dimen257
+\cmidrulekern=\dimen258
+\defaultaddspace=\dimen259
+\@cmidla=\count428
+\@cmidlb=\count429
+\@aboverulesep=\dimen260
+\@belowrulesep=\dimen261
+\@thisruleclass=\count430
+\@lastruleclass=\count431
+\@thisrulewidth=\dimen262
+)
+(C:\Users\yrobi\AppData\Local\Programs\MiKTeX\tex/latex/footmisc\footmisc.sty
+Package: footmisc 2022/03/08 v6.0d a miscellany of footnote facilities
+\FN@temptoken=\toks39
+\footnotemargin=\dimen263
+\@outputbox@depth=\dimen264
+Package footmisc Info: Declaring symbol style bringhurst on input line 695.
+Package footmisc Info: Declaring symbol style chicago on input line 703.
+Package footmisc Info: Declaring symbol style wiley on input line 712.
+Package footmisc Info: Declaring symbol style lamport-robust on input line 723.
+
+Package footmisc Info: Declaring symbol style lamport* on input line 743.
+Package footmisc Info: Declaring symbol style lamport*-robust on input line 764
+.
+)
+(C:\Users\yrobi\AppData\Local\Programs\MiKTeX\tex/latex/pgf/frontendlayer\tikz.
+sty
+(C:\Users\yrobi\AppData\Local\Programs\MiKTeX\tex/latex/pgf/basiclayer\pgf.sty
+Package: pgf 2021/05/15 v3.1.9a (3.1.9a)
+
+(C:\Users\yrobi\AppData\Local\Programs\MiKTeX\tex/latex/pgf/basiclayer\pgfcore.
+sty
+(C:\Users\yrobi\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcor
+e.code.tex
+Package: pgfcore 2021/05/15 v3.1.9a (3.1.9a)
+
+(C:\Users\yrobi\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfmath.code
+.tex
+(C:\Users\yrobi\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfmathcalc.
+code.tex
+(C:\Users\yrobi\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfmathutil.
+code.tex)
+(C:\Users\yrobi\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfmathparse
+r.code.tex
+\pgfmath@dimen=\dimen265
+\pgfmath@count=\count432
+\pgfmath@box=\box107
+\pgfmath@toks=\toks40
+\pgfmath@stack@operand=\toks41
+\pgfmath@stack@operation=\toks42
+)
+(C:\Users\yrobi\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfmathfunct
+ions.code.tex
+(C:\Users\yrobi\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfmathfunct
+ions.basic.code.tex)
+(C:\Users\yrobi\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfmathfunct
+ions.trigonometric.code.tex)
+(C:\Users\yrobi\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfmathfunct
+ions.random.code.tex)
+(C:\Users\yrobi\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfmathfunct
+ions.comparison.code.tex)
+(C:\Users\yrobi\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfmathfunct
+ions.base.code.tex)
+(C:\Users\yrobi\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfmathfunct
+ions.round.code.tex)
+(C:\Users\yrobi\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfmathfunct
+ions.misc.code.tex)
+(C:\Users\yrobi\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfmathfunct
+ions.integerarithmetics.code.tex)))
+(C:\Users\yrobi\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfmathfloat
+.code.tex
+\c@pgfmathroundto@lastzeros=\count433
+))
+(C:\Users\yrobi\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfint.code.
+tex)
+(C:\Users\yrobi\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcor
+epoints.code.tex
+File: pgfcorepoints.code.tex 2021/05/15 v3.1.9a (3.1.9a)
+\pgf@picminx=\dimen266
+\pgf@picmaxx=\dimen267
+\pgf@picminy=\dimen268
+\pgf@picmaxy=\dimen269
+\pgf@pathminx=\dimen270
+\pgf@pathmaxx=\dimen271
+\pgf@pathminy=\dimen272
+\pgf@pathmaxy=\dimen273
+\pgf@xx=\dimen274
+\pgf@xy=\dimen275
+\pgf@yx=\dimen276
+\pgf@yy=\dimen277
+\pgf@zx=\dimen278
+\pgf@zy=\dimen279
+)
+(C:\Users\yrobi\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcor
+epathconstruct.code.tex
+File: pgfcorepathconstruct.code.tex 2021/05/15 v3.1.9a (3.1.9a)
+\pgf@path@lastx=\dimen280
+\pgf@path@lasty=\dimen281
+)
+(C:\Users\yrobi\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcor
+epathusage.code.tex
+File: pgfcorepathusage.code.tex 2021/05/15 v3.1.9a (3.1.9a)
+\pgf@shorten@end@additional=\dimen282
+\pgf@shorten@start@additional=\dimen283
+)
+(C:\Users\yrobi\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcor
+escopes.code.tex
+File: pgfcorescopes.code.tex 2021/05/15 v3.1.9a (3.1.9a)
+\pgfpic=\box108
+\pgf@hbox=\box109
+\pgf@layerbox@main=\box110
+\pgf@picture@serial@count=\count434
+)
+(C:\Users\yrobi\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcor
+egraphicstate.code.tex
+File: pgfcoregraphicstate.code.tex 2021/05/15 v3.1.9a (3.1.9a)
+\pgflinewidth=\dimen284
+)
+(C:\Users\yrobi\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcor
+etransformations.code.tex
+File: pgfcoretransformations.code.tex 2021/05/15 v3.1.9a (3.1.9a)
+\pgf@pt@x=\dimen285
+\pgf@pt@y=\dimen286
+\pgf@pt@temp=\dimen287
+)
+(C:\Users\yrobi\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcor
+equick.code.tex
+File: pgfcorequick.code.tex 2021/05/15 v3.1.9a (3.1.9a)
+)
+(C:\Users\yrobi\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcor
+eobjects.code.tex
+File: pgfcoreobjects.code.tex 2021/05/15 v3.1.9a (3.1.9a)
+)
+(C:\Users\yrobi\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcor
+epathprocessing.code.tex
+File: pgfcorepathprocessing.code.tex 2021/05/15 v3.1.9a (3.1.9a)
+)
+(C:\Users\yrobi\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcor
+earrows.code.tex
+File: pgfcorearrows.code.tex 2021/05/15 v3.1.9a (3.1.9a)
+\pgfarrowsep=\dimen288
+)
+(C:\Users\yrobi\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcor
+eshade.code.tex
+File: pgfcoreshade.code.tex 2021/05/15 v3.1.9a (3.1.9a)
+\pgf@max=\dimen289
+\pgf@sys@shading@range@num=\count435
+\pgf@shadingcount=\count436
+)
+(C:\Users\yrobi\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcor
+eimage.code.tex
+File: pgfcoreimage.code.tex 2021/05/15 v3.1.9a (3.1.9a)
+
+(C:\Users\yrobi\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcor
+eexternal.code.tex
+File: pgfcoreexternal.code.tex 2021/05/15 v3.1.9a (3.1.9a)
+\pgfexternal@startupbox=\box111
+))
+(C:\Users\yrobi\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcor
+elayers.code.tex
+File: pgfcorelayers.code.tex 2021/05/15 v3.1.9a (3.1.9a)
+)
+(C:\Users\yrobi\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcor
+etransparency.code.tex
+File: pgfcoretransparency.code.tex 2021/05/15 v3.1.9a (3.1.9a)
+)
+(C:\Users\yrobi\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcor
+epatterns.code.tex
+File: pgfcorepatterns.code.tex 2021/05/15 v3.1.9a (3.1.9a)
+)
+(C:\Users\yrobi\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcor
+erdf.code.tex
+File: pgfcorerdf.code.tex 2021/05/15 v3.1.9a (3.1.9a)
+)))
+(C:\Users\yrobi\AppData\Local\Programs\MiKTeX\tex/generic/pgf/modules\pgfmodule
+shapes.code.tex
+File: pgfmoduleshapes.code.tex 2021/05/15 v3.1.9a (3.1.9a)
+\pgfnodeparttextbox=\box112
+)
+(C:\Users\yrobi\AppData\Local\Programs\MiKTeX\tex/generic/pgf/modules\pgfmodule
+plot.code.tex
+File: pgfmoduleplot.code.tex 2021/05/15 v3.1.9a (3.1.9a)
+)
+(C:\Users\yrobi\AppData\Local\Programs\MiKTeX\tex/latex/pgf/compatibility\pgfco
+mp-version-0-65.sty
+Package: pgfcomp-version-0-65 2021/05/15 v3.1.9a (3.1.9a)
+\pgf@nodesepstart=\dimen290
+\pgf@nodesepend=\dimen291
+)
+(C:\Users\yrobi\AppData\Local\Programs\MiKTeX\tex/latex/pgf/compatibility\pgfco
+mp-version-1-18.sty
+Package: pgfcomp-version-1-18 2021/05/15 v3.1.9a (3.1.9a)
+))
+(C:\Users\yrobi\AppData\Local\Programs\MiKTeX\tex/latex/pgf/utilities\pgffor.st
+y
+(C:\Users\yrobi\AppData\Local\Programs\MiKTeX\tex/latex/pgf/utilities\pgfkeys.s
+ty
+(C:\Users\yrobi\AppData\Local\Programs\MiKTeX\tex/generic/pgf/utilities\pgfkeys
+.code.tex))
+(C:\Users\yrobi\AppData\Local\Programs\MiKTeX\tex/latex/pgf/math\pgfmath.sty
+(C:\Users\yrobi\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfmath.code
+.tex))
+(C:\Users\yrobi\AppData\Local\Programs\MiKTeX\tex/generic/pgf/utilities\pgffor.
+code.tex
+Package: pgffor 2021/05/15 v3.1.9a (3.1.9a)
+
+(C:\Users\yrobi\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfmath.code
+.tex)
+\pgffor@iter=\dimen292
+\pgffor@skip=\dimen293
+\pgffor@stack=\toks43
+\pgffor@toks=\toks44
+))
+(C:\Users\yrobi\AppData\Local\Programs\MiKTeX\tex/generic/pgf/frontendlayer/tik
+z\tikz.code.tex
+Package: tikz 2021/05/15 v3.1.9a (3.1.9a)
+
+(C:\Users\yrobi\AppData\Local\Programs\MiKTeX\tex/generic/pgf/libraries\pgflibr
+aryplothandlers.code.tex
+File: pgflibraryplothandlers.code.tex 2021/05/15 v3.1.9a (3.1.9a)
+\pgf@plot@mark@count=\count437
+\pgfplotmarksize=\dimen294
+)
+\tikz@lastx=\dimen295
+\tikz@lasty=\dimen296
+\tikz@lastxsaved=\dimen297
+\tikz@lastysaved=\dimen298
+\tikz@lastmovetox=\dimen299
+\tikz@lastmovetoy=\dimen300
+\tikzleveldistance=\dimen301
+\tikzsiblingdistance=\dimen302
+\tikz@figbox=\box113
+\tikz@figbox@bg=\box114
+\tikz@tempbox=\box115
+\tikz@tempbox@bg=\box116
+\tikztreelevel=\count438
+\tikznumberofchildren=\count439
+\tikznumberofcurrentchild=\count440
+\tikz@fig@count=\count441
+
+(C:\Users\yrobi\AppData\Local\Programs\MiKTeX\tex/generic/pgf/modules\pgfmodule
+matrix.code.tex
+File: pgfmodulematrix.code.tex 2021/05/15 v3.1.9a (3.1.9a)
+\pgfmatrixcurrentrow=\count442
+\pgfmatrixcurrentcolumn=\count443
+\pgf@matrix@numberofcolumns=\count444
+)
+\tikz@expandcount=\count445
+
+(C:\Users\yrobi\AppData\Local\Programs\MiKTeX\tex/generic/pgf/frontendlayer/tik
+z/libraries\tikzlibrarytopaths.code.tex
+File: tikzlibrarytopaths.code.tex 2021/05/15 v3.1.9a (3.1.9a)
+)))
+(C:\Users\yrobi\AppData\Local\Programs\MiKTeX\tex/generic/pgf/frontendlayer/tik
+z/libraries\tikzlibraryshapes.code.tex
+File: tikzlibraryshapes.code.tex 2021/05/15 v3.1.9a (3.1.9a)
+
+(C:\Users\yrobi\AppData\Local\Programs\MiKTeX\tex/generic/pgf/frontendlayer/tik
+z/libraries\tikzlibraryshapes.geometric.code.tex
+File: tikzlibraryshapes.geometric.code.tex 2021/05/15 v3.1.9a (3.1.9a)
+
+(C:\Users\yrobi\AppData\Local\Programs\MiKTeX\tex/generic/pgf/libraries/shapes\
+pgflibraryshapes.geometric.code.tex
+File: pgflibraryshapes.geometric.code.tex 2021/05/15 v3.1.9a (3.1.9a)
+))
+(C:\Users\yrobi\AppData\Local\Programs\MiKTeX\tex/generic/pgf/frontendlayer/tik
+z/libraries\tikzlibraryshapes.misc.code.tex
+File: tikzlibraryshapes.misc.code.tex 2021/05/15 v3.1.9a (3.1.9a)
+
+(C:\Users\yrobi\AppData\Local\Programs\MiKTeX\tex/generic/pgf/libraries/shapes\
+pgflibraryshapes.misc.code.tex
+File: pgflibraryshapes.misc.code.tex 2021/05/15 v3.1.9a (3.1.9a)
+))
+(C:\Users\yrobi\AppData\Local\Programs\MiKTeX\tex/generic/pgf/frontendlayer/tik
+z/libraries\tikzlibraryshapes.symbols.code.tex
+File: tikzlibraryshapes.symbols.code.tex 2021/05/15 v3.1.9a (3.1.9a)
+
+(C:\Users\yrobi\AppData\Local\Programs\MiKTeX\tex/generic/pgf/libraries/shapes\
+pgflibraryshapes.symbols.code.tex
+File: pgflibraryshapes.symbols.code.tex 2021/05/15 v3.1.9a (3.1.9a)
+))
+(C:\Users\yrobi\AppData\Local\Programs\MiKTeX\tex/generic/pgf/frontendlayer/tik
+z/libraries\tikzlibraryshapes.arrows.code.tex
+File: tikzlibraryshapes.arrows.code.tex 2021/05/15 v3.1.9a (3.1.9a)
+
+(C:\Users\yrobi\AppData\Local\Programs\MiKTeX\tex/generic/pgf/libraries/shapes\
+pgflibraryshapes.arrows.code.tex
+File: pgflibraryshapes.arrows.code.tex 2021/05/15 v3.1.9a (3.1.9a)
+))
+(C:\Users\yrobi\AppData\Local\Programs\MiKTeX\tex/generic/pgf/frontendlayer/tik
+z/libraries\tikzlibraryshapes.callouts.code.tex
+(C:\Users\yrobi\AppData\Local\Programs\MiKTeX\tex/generic/pgf/libraries/shapes\
+pgflibraryshapes.callouts.code.tex))
+(C:\Users\yrobi\AppData\Local\Programs\MiKTeX\tex/generic/pgf/frontendlayer/tik
+z/libraries\tikzlibraryshapes.multipart.code.tex
+File: tikzlibraryshapes.multipart.code.tex 2021/05/15 v3.1.9a (3.1.9a)
+
+(C:\Users\yrobi\AppData\Local\Programs\MiKTeX\tex/generic/pgf/libraries/shapes\
+pgflibraryshapes.multipart.code.tex
+File: pgflibraryshapes.multipart.code.tex 2021/05/15 v3.1.9a (3.1.9a)
+\pgfnodepartlowerbox=\box117
+\pgfnodeparttwobox=\box118
+\pgfnodepartthreebox=\box119
+\pgfnodepartfourbox=\box120
+\pgfnodeparttwentybox=\box121
+\pgfnodepartnineteenbox=\box122
+\pgfnodeparteighteenbox=\box123
+\pgfnodepartseventeenbox=\box124
+\pgfnodepartsixteenbox=\box125
+\pgfnodepartfifteenbox=\box126
+\pgfnodepartfourteenbox=\box127
+\pgfnodepartthirteenbox=\box128
+\pgfnodeparttwelvebox=\box129
+\pgfnodepartelevenbox=\box130
+\pgfnodeparttenbox=\box131
+\pgfnodepartninebox=\box132
+\pgfnodeparteightbox=\box133
+\pgfnodepartsevenbox=\box134
+\pgfnodepartsixbox=\box135
+\pgfnodepartfivebox=\box136
+)))
+(C:\Users\yrobi\AppData\Local\Programs\MiKTeX\tex/latex/pdfpages\pdfpages.sty
+Package: pdfpages 2022/05/22 v0.5v Insert pages of external PDF documents (AM)
+
+(C:\Users\yrobi\AppData\Local\Programs\MiKTeX\tex/latex/eso-pic\eso-pic.sty
+Package: eso-pic 2020/10/14 v3.0a eso-pic (RN)
+\ESO@tempdima=\dimen303
+\ESO@tempdimb=\dimen304
+)
+\AM@pagewidth=\dimen305
+\AM@pageheight=\dimen306
+\AM@fboxrule=\dimen307
+
+(C:\Users\yrobi\AppData\Local\Programs\MiKTeX\tex/latex/pdfpages\pppdftex.def
+File: pppdftex.def 2022/05/22 v0.5v Pdfpages driver for pdfTeX (AM)
+)
+\pdfpages@includegraphics@status=\count446
+\AM@pagebox=\box137
+\AM@global@opts=\toks45
+\AM@pagecnt=\count447
+\AM@toc@title=\toks46
+\c@AM@survey=\count448
+\AM@templatesizebox=\box138
+) (C:\Users\yrobi\AppData\Local\Programs\MiKTeX\tex/latex/wrapfig\wrapfig.sty
+\wrapoverhang=\dimen308
+\WF@size=\dimen309
+\c@WF@wrappedlines=\count449
+\WF@box=\box139
+\WF@everypar=\toks47
+Package: wrapfig 2003/01/31  v 3.6
+)
+(C:\Users\yrobi\AppData\Local\Programs\MiKTeX\tex/latex/enumitem\enumitem.sty
+Package: enumitem 2019/06/20 v3.9 Customized lists
+\labelindent=\skip98
+\enit@outerparindent=\dimen310
+\enit@toks=\toks48
+\enit@inbox=\box140
+\enit@count@id=\count450
+\enitdp@description=\count451
+)
+(C:\Users\yrobi\AppData\Local\Programs\MiKTeX\tex/latex/l3packages/xfrac\xfrac.
+sty
+(C:\Users\yrobi\AppData\Local\Programs\MiKTeX\tex/latex/l3packages/l3keys2e\l3k
+eys2e.sty
+Package: l3keys2e 2022-06-22 LaTeX2e option processing using LaTeX3 keys
+)
+(C:\Users\yrobi\AppData\Local\Programs\MiKTeX\tex/latex/base\textcomp.sty
+Package: textcomp 2020/02/02 v2.0n Standard LaTeX package
+)
+(C:\Users\yrobi\AppData\Local\Programs\MiKTeX\tex/latex/l3packages/xtemplate\xt
+emplate.sty
+Package: xtemplate 2022-06-22 L3 Experimental prototype document functions
+\l__xtemplate_tmp_dim=\dimen311
+\l__xtemplate_tmp_int=\count452
+\l__xtemplate_tmp_muskip=\muskip22
+\l__xtemplate_tmp_skip=\skip99
+)
+Package: xfrac 2022-06-22 L3 Experimental split-level fractions
+\l__xfrac_slash_box=\box141
+\l__xfrac_tmp_box=\box142
+\l__xfrac_denominator_bot_sep_dim=\dimen312
+\l__xfrac_numerator_bot_sep_dim=\dimen313
+\l__xfrac_numerator_top_sep_dim=\dimen314
+\l__xfrac_slash_left_sep_dim=\dimen315
+\l__xfrac_slash_right_sep_dim=\dimen316
+\l__xfrac_slash_left_muskip=\muskip23
+\l__xfrac_slash_right_muskip=\muskip24
+
+Package xtemplate Info: Declaring object type 'xfrac' taking 3 argument(s) on
+(xtemplate)             line 80.
+
+)
+(C:\Users\yrobi\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\hyperref.sty
+Package: hyperref 2022-06-20 v7.00s Hypertext links for LaTeX
+
+(C:\Users\yrobi\AppData\Local\Programs\MiKTeX\tex/generic/kvdefinekeys\kvdefine
+keys.sty
+Package: kvdefinekeys 2019-12-19 v1.6 Define keys (HO)
+)
+(C:\Users\yrobi\AppData\Local\Programs\MiKTeX\tex/generic/pdfescape\pdfescape.s
+ty
+Package: pdfescape 2019/12/09 v1.15 Implements pdfTeX's escape features (HO)
+) (C:\Users\yrobi\AppData\Local\Programs\MiKTeX\tex/latex/hycolor\hycolor.sty
+Package: hycolor 2020-01-27 v1.10 Color options for hyperref/bookmark (HO)
+)
+(C:\Users\yrobi\AppData\Local\Programs\MiKTeX\tex/latex/letltxmacro\letltxmacro
+.sty
+Package: letltxmacro 2019/12/03 v1.6 Let assignment for LaTeX macros (HO)
+)
+(C:\Users\yrobi\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\nameref.sty
+Package: nameref 2022-05-17 v2.50 Cross-referencing by name of section
+
+(C:\Users\yrobi\AppData\Local\Programs\MiKTeX\tex/latex/refcount\refcount.sty
+Package: refcount 2019/12/15 v3.6 Data extraction from label references (HO)
+)
+(C:\Users\yrobi\AppData\Local\Programs\MiKTeX\tex/generic/gettitlestring\gettit
+lestring.sty
+Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
+)
+\c@section@level=\count453
+)
+\@linkdim=\dimen317
+\Hy@linkcounter=\count454
+\Hy@pagecounter=\count455
+
+(C:\Users\yrobi\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\pd1enc.def
+File: pd1enc.def 2022-06-20 v7.00s Hyperref: PDFDocEncoding definition (HO)
+Now handling font encoding PD1 ...
+... no UTF-8 mapping file for font encoding PD1
+)
+(C:\Users\yrobi\AppData\Local\Programs\MiKTeX\tex/generic/intcalc\intcalc.sty
+Package: intcalc 2019/12/15 v1.3 Expandable calculations with integers (HO)
+)
+(C:\Users\yrobi\AppData\Local\Programs\MiKTeX\tex/generic/etexcmds\etexcmds.sty
+Package: etexcmds 2019/12/15 v1.7 Avoid name clashes with e-TeX commands (HO)
+)
+\Hy@SavedSpaceFactor=\count456
+ (C:\Users\yrobi\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\puenc.def
+File: puenc.def 2022-06-20 v7.00s Hyperref: PDF Unicode definition (HO)
+Now handling font encoding PU ...
+... no UTF-8 mapping file for font encoding PU
+)
+Package hyperref Info: Hyper figures OFF on input line 4162.
+Package hyperref Info: Link nesting OFF on input line 4167.
+Package hyperref Info: Hyper index ON on input line 4170.
+Package hyperref Info: Plain pages OFF on input line 4177.
+Package hyperref Info: Backreferencing OFF on input line 4182.
+Package hyperref Info: Implicit mode ON; LaTeX internals redefined.
+Package hyperref Info: Bookmarks ON on input line 4408.
+\c@Hy@tempcnt=\count457
+LaTeX Info: Redefining \url on input line 4746.
+\XeTeXLinkMargin=\dimen318
+
+(C:\Users\yrobi\AppData\Local\Programs\MiKTeX\tex/generic/bitset\bitset.sty
+Package: bitset 2019/12/09 v1.3 Handle bit-vector datatype (HO)
+
+(C:\Users\yrobi\AppData\Local\Programs\MiKTeX\tex/generic/bigintcalc\bigintcalc
+.sty
+Package: bigintcalc 2019/12/15 v1.5 Expandable calculations on big integers (HO
+)
+))
+\Fld@menulength=\count458
+\Field@Width=\dimen319
+\Fld@charsize=\dimen320
+Package hyperref Info: Hyper figures OFF on input line 6024.
+Package hyperref Info: Link nesting OFF on input line 6029.
+Package hyperref Info: Hyper index ON on input line 6032.
+Package hyperref Info: backreferencing OFF on input line 6039.
+Package hyperref Info: Link coloring OFF on input line 6044.
+Package hyperref Info: Link coloring with OCG OFF on input line 6049.
+Package hyperref Info: PDF/A mode OFF on input line 6054.
+
+(C:\Users\yrobi\AppData\Local\Programs\MiKTeX\tex/latex/base\atbegshi-ltx.sty
+Package: atbegshi-ltx 2021/01/10 v1.0c Emulation of the original atbegshi
+package with kernel methods
+)
+\Hy@abspage=\count459
+\c@Item=\count460
+\c@Hfootnote=\count461
+)
+Package hyperref Info: Driver: hpdftex.
+(C:\Users\yrobi\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\hpdftex.def
+File: hpdftex.def 2022-06-20 v7.00s Hyperref driver for pdfTeX
+
+(C:\Users\yrobi\AppData\Local\Programs\MiKTeX\tex/latex/base\atveryend-ltx.sty
+Package: atveryend-ltx 2020/08/19 v1.0a Emulation of the original atveryend pac
+kage
+with kernel methods
+)
+\Fld@listcount=\count462
+\c@bookmark@seq@number=\count463
+
+(C:\Users\yrobi\AppData\Local\Programs\MiKTeX\tex/latex/rerunfilecheck\rerunfil
+echeck.sty
+Package: rerunfilecheck 2019/12/05 v1.9 Rerun checks for auxiliary files (HO)
+
+(C:\Users\yrobi\AppData\Local\Programs\MiKTeX\tex/generic/uniquecounter\uniquec
+ounter.sty
+Package: uniquecounter 2019/12/15 v1.4 Provide unlimited unique counter (HO)
+)
+Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 2
+86.
+)
+\Hy@SectionHShift=\skip100
+)
+(C:\Users\yrobi\AppData\Local\Programs\MiKTeX\tex/latex/bookmark\bookmark.sty
+Package: bookmark 2020-11-06 v1.29 PDF bookmarks (HO)
+
+(C:\Users\yrobi\AppData\Local\Programs\MiKTeX\tex/latex/bookmark\bkm-pdftex.def
+File: bkm-pdftex.def 2020-11-06 v1.29 bookmark driver for pdfTeX (HO)
+\BKM@id=\count464
+)) (C:\Users\yrobi\AppData\Local\Programs\MiKTeX\tex/latex/relsize\relsize.sty
+Package: relsize 2013/03/29 ver 4.1
+) (C:\Users\yrobi\AppData\Local\Programs\MiKTeX\tex/latex/graphics\rotating.sty
+Package: rotating 2016/08/11 v2.16d rotated objects in LaTeX
+\c@r@tfl@t=\count465
+\rotFPtop=\skip101
+\rotFPbot=\skip102
+\rot@float@box=\box143
+\rot@mess@toks=\toks49
+) (C:\Users\yrobi\AppData\Local\Programs\MiKTeX\tex/latex/titlesec\titlesec.sty
+Package: titlesec 2021/07/05 v2.14 Sectioning titles
+\ttl@box=\box144
+\beforetitleunit=\skip103
+\aftertitleunit=\skip104
+\ttl@plus=\dimen321
+\ttl@minus=\dimen322
+\ttl@toksa=\toks50
+\titlewidth=\dimen323
+\titlewidthlast=\dimen324
+\titlewidthfirst=\dimen325
+)
+\@quotelevel=\count466
+\@quotereset=\count467
+
+LaTeX Warning: Unused global option(s):
+    [10.5pt].
+
+(main.aux)
+\openout1 = `main.aux'.
+
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 129.
+LaTeX Font Info:    ... okay on input line 129.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 129.
+LaTeX Font Info:    ... okay on input line 129.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 129.
+LaTeX Font Info:    ... okay on input line 129.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 129.
+LaTeX Font Info:    ... okay on input line 129.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 129.
+LaTeX Font Info:    ... okay on input line 129.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 129.
+LaTeX Font Info:    ... okay on input line 129.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 129.
+LaTeX Font Info:    ... okay on input line 129.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 129.
+LaTeX Font Info:    ... okay on input line 129.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 129.
+LaTeX Font Info:    ... okay on input line 129.
+
+(C:\Users\yrobi\AppData\Local\Programs\MiKTeX\tex/context/base/mkii\supp-pdf.mk
+ii
+[Loading MPS to PDF converter (version 2006.09.02).]
+\scratchcounter=\count468
+\scratchdimen=\dimen326
+\scratchbox=\box145
+\nofMPsegments=\count469
+\nofMParguments=\count470
+\everyMPshowfont=\toks51
+\MPscratchCnt=\count471
+\MPscratchDim=\dimen327
+\MPnumerator=\count472
+\makeMPintoPDFobject=\count473
+\everyMPtoPDFconversion=\toks52
+)
+(C:\Users\yrobi\AppData\Local\Programs\MiKTeX\tex/latex/epstopdf-pkg\epstopdf-b
+ase.sty
+Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
+Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
+85.
+
+(C:\Users\yrobi\AppData\Local\Programs\MiKTeX\tex/latex/00miktex\epstopdf-sys.c
+fg
+File: epstopdf-sys.cfg 2021/03/18 v2.0 Configuration of epstopdf for MiKTeX
+))
+*geometry* driver: auto-detecting
+*geometry* detected driver: pdftex
+*geometry* verbose mode - [ preamble ] result:
+* driver: pdftex
+* paper: letterpaper
+* layout: <same size as paper>
+* layoutoffset:(h,v)=(0.0pt,0.0pt)
+* modes: landscape 
+* h-part:(L,W,R)=(14.45377pt, 766.06245pt, 14.45377pt)
+* v-part:(T,H,B)=(14.45377pt, 585.38747pt, 14.45377pt)
+* \paperwidth=794.96999pt
+* \paperheight=614.295pt
+* \textwidth=766.06245pt
+* \textheight=585.38747pt
+* \oddsidemargin=-57.81622pt
+* \evensidemargin=-57.81622pt
+* \topmargin=-94.81622pt
+* \headheight=12.0pt
+* \headsep=25.0pt
+* \topskip=10.0pt
+* \footskip=30.0pt
+* \marginparwidth=144.0pt
+* \marginparsep=11.0pt
+* \columnsep=10.0pt
+* \skip\footins=9.0pt plus 4.0pt minus 2.0pt
+* \hoffset=0.0pt
+* \voffset=0.0pt
+* \mag=1000
+* \@twocolumnfalse
+* \@twosidefalse
+* \@mparswitchfalse
+* \@reversemarginfalse
+* (1in=72.27pt=25.4mm, 1cm=28.453pt)
+
+Package biblatex Info: Trying to load language 'english'...
+Package biblatex Info: ... file 'english.lbx' found.
+
+(C:\Users\yrobi\AppData\Local\Programs\MiKTeX\tex/latex/biblatex/lbx\english.lb
+x
+File: english.lbx 2022/06/22 v3.18 biblatex localization (PK/MW)
+)
+Package biblatex Info: Input encoding 'utf8' detected.
+Package biblatex Info: Automatic encoding selection.
+(biblatex)             Assuming data encoding 'utf8'.
+\openout4 = `main.bcf'.
+
+Package biblatex Info: Trying to load bibliographic data...
+Package biblatex Info: ... file 'main.bbl' not found.
+
+No file main.bbl.
+Package biblatex Info: Reference section=0 on input line 129.
+Package biblatex Info: Reference segment=0 on input line 129.
+
+(C:\Users\yrobi\AppData\Local\Programs\MiKTeX\tex/latex/pdflscape\pdflscape.sty
+Package: pdflscape 2019/12/05 v0.12 Display of landscape pages in PDF (HO)
+Package pdflscape Info: Auto-detected driver: pdftex on input line 81.
+)
+Package hyperref Info: Link coloring OFF on input line 129.
+LaTeX Font Info:    Trying to load font information for TS1+cmss on input line 
+152.
+ (C:\Users\yrobi\AppData\Local\Programs\MiKTeX\tex/latex/base\ts1cmss.fd
+File: ts1cmss.fd 2019/12/16 v2.5j Standard LaTeX font definitions
+)
+LaTeX Font Info:    Trying to load font information for U+msa on input line 181
+.
+
+(C:\Users\yrobi\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsa.fd
+File: umsa.fd 2013/01/14 v3.01 AMS symbols A
+)
+LaTeX Font Info:    Trying to load font information for U+msb on input line 181
+.
+
+(C:\Users\yrobi\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsb.fd
+File: umsb.fd 2013/01/14 v3.01 AMS symbols B
+)
+LaTeX Font Info:    Trying to load font information for U+lasy on input line 18
+1.
+
+(C:\Users\yrobi\AppData\Local\Programs\MiKTeX\tex/latex/base\ulasy.fd
+File: ulasy.fd 1998/08/17 v2.2e LaTeX symbol font definitions
+)
+File: figures/Discriminant_model_figure.PNG Graphic file (type png)
+<use figures/Discriminant_model_figure.PNG>
+Package pdftex.def Info: figures/Discriminant_model_figure.PNG  used on input l
+ine 261.
+(pdftex.def)             Requested size: 76.42552pt x 50.66728pt.
+File: figures/Generative_model_figures.PNG Graphic file (type png)
+<use figures/Generative_model_figures.PNG>
+Package pdftex.def Info: figures/Generative_model_figures.PNG  used on input li
+ne 261.
+(pdftex.def)             Requested size: 84.6342pt x 51.51645pt.
+
+Underfull \hbox (badness 5607) in paragraph at lines 261--261
+[]|\OT1/cmss/m/n/8 Logistic Re-gres-sion, Ran-dom
+ []
+
+<figures/bias_variance_overfitting_underfitting.PNG, id=10, 811.53188pt x 484.0
+5844pt>
+File: figures/bias_variance_overfitting_underfitting.PNG Graphic file (type png
+)
+<use figures/bias_variance_overfitting_underfitting.PNG>
+Package pdftex.def Info: figures/bias_variance_overfitting_underfitting.PNG  us
+ed on input line 307.
+(pdftex.def)             Requested size: 248.68748pt x 148.33559pt.
+<figures/bias_variance_overfitting_underfitting_LearningCurves.PNG, id=11, 460.
+72125pt x 204.765pt>
+File: figures/bias_variance_overfitting_underfitting_LearningCurves.PNG Graphic
+ file (type png)
+<use figures/bias_variance_overfitting_underfitting_LearningCurves.PNG>
+Package pdftex.def Info: figures/bias_variance_overfitting_underfitting_Learnin
+gCurves.PNG  used on input line 317.
+(pdftex.def)             Requested size: 223.81721pt x 99.47336pt.
+<figures/Tradeoff_Learning_Curves.PNG, id=12, 346.29375pt x 158.09062pt>
+File: figures/Tradeoff_Learning_Curves.PNG Graphic file (type png)
+<use figures/Tradeoff_Learning_Curves.PNG>
+Package pdftex.def Info: figures/Tradeoff_Learning_Curves.PNG  used on input li
+ne 330.
+(pdftex.def)             Requested size: 198.95074pt x 90.82661pt.
+<figures/Training_Validation_Loss.PNG, id=13, 203.25937pt x 82.05656pt>
+File: figures/Training_Validation_Loss.PNG Graphic file (type png)
+<use figures/Training_Validation_Loss.PNG>
+Package pdftex.def Info: figures/Training_Validation_Loss.PNG  used on input li
+ne 346.
+(pdftex.def)             Requested size: 149.214pt x 60.2401pt.
+<figures/regularization_dropout.PNG, id=14, 378.213pt x 161.403pt>
+File: figures/regularization_dropout.PNG Graphic file (type png)
+<use figures/regularization_dropout.PNG>
+Package pdftex.def Info: figures/regularization_dropout.PNG  used on input line
+ 372.
+(pdftex.def)             Requested size: 149.214pt x 63.67836pt.
+<figures/Unrepresentative_Training_Dataset.PNG, id=15, 420.82219pt x 323.70938p
+t>
+File: figures/Unrepresentative_Training_Dataset.PNG Graphic file (type png)
+<use figures/Unrepresentative_Training_Dataset.PNG>
+Package pdftex.def Info: figures/Unrepresentative_Training_Dataset.PNG  used on
+ input line 389.
+(pdftex.def)             Requested size: 124.34373pt x 95.64656pt.
+<figures/First_scenario_Unrepresentative_Validation_Dataset.PNG, id=16, 416.305
+31pt x 323.70938pt>
+File: figures/First_scenario_Unrepresentative_Validation_Dataset.PNG Graphic fi
+le (type png)
+<use figures/First_scenario_Unrepresentative_Validation_Dataset.PNG>
+Package pdftex.def Info: figures/First_scenario_Unrepresentative_Validation_Dat
+aset.PNG  used on input line 412.
+(pdftex.def)             Requested size: 124.34373pt x 96.68382pt.
+[1
+
+{C:/Users/yrobi/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map} <./figures/Di
+scriminant_model_figure.PNG> <./figures/Generative_model_figures.PNG> <./figure
+s/bias_variance_overfitting_underfitting.PNG> <./figures/bias_variance_overfitt
+ing_underfitting_LearningCurves.PNG> <./figures/Tradeoff_Learning_Curves.PNG> <
+./figures/Training_Validation_Loss.PNG> <./figures/regularization_dropout.PNG>]
+<figures/Second_scenario_Unrepresentative_Validation_Dataset.PNG, id=40, 411.78
+844pt x 320.69812pt>
+File: figures/Second_scenario_Unrepresentative_Validation_Dataset.PNG Graphic f
+ile (type png)
+<use figures/Second_scenario_Unrepresentative_Validation_Dataset.PNG>
+Package pdftex.def Info: figures/Second_scenario_Unrepresentative_Validation_Da
+taset.PNG  used on input line 426.
+(pdftex.def)             Requested size: 124.34373pt x 96.83653pt.
+<figures/Confusion_Matrix_1.PNG, id=41, 267.24844pt x 113.67468pt>
+File: figures/Confusion_Matrix_1.PNG Graphic file (type png)
+<use figures/Confusion_Matrix_1.PNG>
+Package pdftex.def Info: figures/Confusion_Matrix_1.PNG  used on input line 462
+.
+(pdftex.def)             Requested size: 186.51561pt x 79.33755pt.
+<figures/Confusion_Matrix_2.PNG, id=42, 377.61075pt x 157.18726pt>
+File: figures/Confusion_Matrix_2.PNG Graphic file (type png)
+<use figures/Confusion_Matrix_2.PNG>
+Package pdftex.def Info: figures/Confusion_Matrix_2.PNG  used on input line 474
+.
+(pdftex.def)             Requested size: 248.68748pt x 103.51843pt.
+<figures/ROC_curve.PNG, id=43, 379.4175pt x 295.1025pt>
+File: figures/ROC_curve.PNG Graphic file (type png)
+<use figures/ROC_curve.PNG>
+Package pdftex.def Info: figures/ROC_curve.PNG  used on input line 523.
+(pdftex.def)             Requested size: 186.51561pt x 145.06978pt.
+<figures/AUC_ROC.PNG, id=44, 270.25969pt x 219.82124pt>
+File: figures/AUC_ROC.PNG Graphic file (type png)
+<use figures/AUC_ROC.PNG>
+Package pdftex.def Info: figures/AUC_ROC.PNG  used on input line 539.
+(pdftex.def)             Requested size: 136.77887pt x 111.25537pt.
+<figures/Precision_Curve.PNG, id=45, 301.8778pt x 202.50656pt>
+File: figures/Precision_Curve.PNG Graphic file (type png)
+<use figures/Precision_Curve.PNG>
+Package pdftex.def Info: figures/Precision_Curve.PNG  used on input line 555.
+(pdftex.def)             Requested size: 186.51561pt x 125.11707pt.
+ [2 <./figures/Unrepresentative_Training_Dataset.PNG> <./figures/First_scenario
+_Unrepresentative_Validation_Dataset.PNG> <./figures/Second_scenario_Unrepresen
+tative_Validation_Dataset.PNG> <./figures/Confusion_Matrix_1.PNG> <./figures/Co
+nfusion_Matrix_2.PNG> <./figures/ROC_curve.PNG> <./figures/AUC_ROC.PNG>]
+<figures/Residual_variance.PNG, id=58, 594.72188pt x 190.46156pt>
+File: figures/Residual_variance.PNG Graphic file (type png)
+<use figures/Residual_variance.PNG>
+Package pdftex.def Info: figures/Residual_variance.PNG  used on input line 613.
+
+(pdftex.def)             Requested size: 248.68748pt x 79.64165pt.
+<figures/least_squared_loss_func.PNG, id=59, 127.677pt x 125.268pt>
+File: figures/least_squared_loss_func.PNG Graphic file (type png)
+<use figures/least_squared_loss_func.PNG>
+Package pdftex.def Info: figures/least_squared_loss_func.PNG  used on input lin
+e 649.
+(pdftex.def)             Requested size: 51.06989pt x 50.10631pt.
+<figures/logistic_loss_func.PNG, id=60, 132.495pt x 128.27925pt>
+File: figures/logistic_loss_func.PNG Graphic file (type png)
+<use figures/logistic_loss_func.PNG>
+Package pdftex.def Info: figures/logistic_loss_func.PNG  used on input line 650
+.
+(pdftex.def)             Requested size: 52.99706pt x 51.31078pt.
+<figures/hinge_loss_func.PNG, id=61, 133.09724pt x 127.07475pt>
+File: figures/hinge_loss_func.PNG Graphic file (type png)
+<use figures/hinge_loss_func.PNG>
+Package pdftex.def Info: figures/hinge_loss_func.PNG  used on input line 651.
+(pdftex.def)             Requested size: 53.23795pt x 50.829pt.
+<figures/gradient_decent.PNG, id=62, 542.025pt x 285.31593pt>
+File: figures/gradient_decent.PNG Graphic file (type png)
+<use figures/gradient_decent.PNG>
+Package pdftex.def Info: figures/gradient_decent.PNG  used on input line 686.
+(pdftex.def)             Requested size: 186.51561pt x 98.17723pt.
+LaTeX Font Info:    Font shape `OT1/cmss/m/it' in size <8> not available
+(Font)              Font shape `OT1/cmss/m/sl' tried instead on input line 696.
+
+<figures/ordinary_least_square.PNG, id=63, 289.83281pt x 146.04562pt>
+File: figures/ordinary_least_square.PNG Graphic file (type png)
+<use figures/ordinary_least_square.PNG>
+Package pdftex.def Info: figures/ordinary_least_square.PNG  used on input line 
+731.
+(pdftex.def)             Requested size: 186.51561pt x 93.98364pt.
+
+[3 <./figures/Precision_Curve.PNG> <./figures/Residual_variance.PNG> <./figures
+/least_squared_loss_func.PNG> <./figures/logistic_loss_func.PNG> <./figures/hin
+ge_loss_func.PNG> <./figures/gradient_decent.PNG>]
+<figures/Violation_EqualVariance_and_NormalErros.PNG, id=88, 502.12593pt x 175.
+40532pt>
+File: figures/Violation_EqualVariance_and_NormalErros.PNG Graphic file (type pn
+g)
+<use figures/Violation_EqualVariance_and_NormalErros.PNG>
+Package pdftex.def Info: figures/Violation_EqualVariance_and_NormalErros.PNG  u
+sed on input line 968.
+(pdftex.def)             Requested size: 248.68748pt x 86.8754pt.
+<figures/hyperplane_linear_regression.PNG, id=89, 382.42876pt x 267.24844pt>
+File: figures/hyperplane_linear_regression.PNG Graphic file (type png)
+<use figures/hyperplane_linear_regression.PNG>
+Package pdftex.def Info: figures/hyperplane_linear_regression.PNG  used on inpu
+t line 995.
+(pdftex.def)             Requested size: 149.214pt x 104.27132pt.
+ [4 <./figures/ordinary_least_square.PNG> <./figures/Violation_EqualVariance_an
+d_NormalErros.PNG>]
+<figures/Logistics_sigmoid_curve.PNG, id=101, 259.7203pt x 178.41656pt>
+File: figures/Logistics_sigmoid_curve.PNG Graphic file (type png)
+<use figures/Logistics_sigmoid_curve.PNG>
+Package pdftex.def Info: figures/Logistics_sigmoid_curve.PNG  used on input lin
+e 1095.
+(pdftex.def)             Requested size: 124.34373pt x 85.41844pt.
+<figures/logistic_function_regression.PNG, id=102, 406.51875pt x 191.9672pt>
+File: figures/logistic_function_regression.PNG Graphic file (type png)
+<use figures/logistic_function_regression.PNG>
+Package pdftex.def Info: figures/logistic_function_regression.PNG  used on inpu
+t line 1130.
+(pdftex.def)             Requested size: 248.68748pt x 117.43373pt.
+<figures/linear_discriminant_analysis.PNG, id=103, 234.1247pt x 214.55156pt>
+File: figures/linear_discriminant_analysis.PNG Graphic file (type png)
+<use figures/linear_discriminant_analysis.PNG>
+Package pdftex.def Info: figures/linear_discriminant_analysis.PNG  used on inpu
+t line 1200.
+(pdftex.def)             Requested size: 149.214pt x 136.74615pt.
+ [5 <./figures/hyperplane_linear_regression.PNG> <./figures/Logistics_sigmoid_c
+urve.PNG> <./figures/logistic_function_regression.PNG>]
+<figures/Bayesian_data_analysis.jpeg, id=113, 794.97pt x 868.24374pt>
+File: figures/Bayesian_data_analysis.jpeg Graphic file (type jpg)
+<use figures/Bayesian_data_analysis.jpeg>
+Package pdftex.def Info: figures/Bayesian_data_analysis.jpeg  used on input lin
+e 1330.
+(pdftex.def)             Requested size: 198.95074pt x 217.28561pt.
+<figures/Naive Bayes Spam Classifier.jpg, id=114, 1017.04968pt x 740.7675pt>
+File: figures/Naive Bayes Spam Classifier.jpg Graphic file (type jpg)
+<use figures/Naive Bayes Spam Classifier.jpg>
+Package pdftex.def Info: figures/Naive Bayes Spam Classifier.jpg  used on input
+ line 1337.
+(pdftex.def)             Requested size: 248.68748pt x 181.12227pt.
+<figures/svm_figure.PNG, id=115, 438.8897pt x 298.86656pt>
+File: figures/svm_figure.PNG Graphic file (type png)
+<use figures/svm_figure.PNG>
+Package pdftex.def Info: figures/svm_figure.PNG  used on input line 1359.
+(pdftex.def)             Requested size: 161.64534pt x 110.07726pt.
+<figures/svm_figures2.PNG, id=116, 460.72125pt x 221.32687pt>
+File: figures/svm_figures2.PNG Graphic file (type png)
+<use figures/svm_figures2.PNG>
+Package pdftex.def Info: figures/svm_figures2.PNG  used on input line 1367.
+(pdftex.def)             Requested size: 198.95074pt x 95.57394pt.
+ [6 <./figures/linear_discriminant_analysis.PNG> <./figures/Bayesian_data_analy
+sis.jpeg> <./figures/Naive Bayes Spam Classifier.jpg>]
+<figures/kernel_SVM.PNG, id=124, 522.753pt x 201.1515pt>
+File: figures/kernel_SVM.PNG Graphic file (type png)
+<use figures/kernel_SVM.PNG>
+Package pdftex.def Info: figures/kernel_SVM.PNG  used on input line 1424.
+(pdftex.def)             Requested size: 223.81721pt x 86.12206pt.
+<figures/knn_steps.PNG, id=125, 448.67625pt x 484.81125pt>
+File: figures/knn_steps.PNG Graphic file (type png)
+<use figures/knn_steps.PNG>
+Package pdftex.def Info: figures/knn_steps.PNG  used on input line 1469.
+(pdftex.def)             Requested size: 248.68748pt x 268.71094pt.
+ [7 <./figures/svm_figure.PNG> <./figures/svm_figures2.PNG> <./figures/kernel_S
+VM.PNG> <./figures/knn_steps.PNG>]
+<figures/decision_trees.PNG, id=138, 432.86719pt x 310.15875pt>
+File: figures/decision_trees.PNG Graphic file (type png)
+<use figures/decision_trees.PNG>
+Package pdftex.def Info: figures/decision_trees.PNG  used on input line 1549.
+(pdftex.def)             Requested size: 186.51561pt x 133.64015pt.
+<figures/boosting.PNG, id=139, 684.75826pt x 263.18324pt>
+File: figures/boosting.PNG Graphic file (type png)
+<use figures/boosting.PNG>
+Package pdftex.def Info: figures/boosting.PNG  used on input line 1646.
+(pdftex.def)             Requested size: 248.68748pt x 95.58119pt.
+ [8 <./figures/decision_trees.PNG> <./figures/boosting.PNG>]
+<figures/K_means_clustering.PNG, id=162, 295.85532pt x 246.9225pt>
+File: figures/K_means_clustering.PNG Graphic file (type png)
+<use figures/K_means_clustering.PNG>
+Package pdftex.def Info: figures/K_means_clustering.PNG  used on input line 177
+3.
+(pdftex.def)             Requested size: 149.214pt x 124.5385pt.
+<figures/k_means_cluster_update.PNG, id=163, 643.6547pt x 219.06844pt>
+File: figures/k_means_cluster_update.PNG Graphic file (type png)
+<use figures/k_means_cluster_update.PNG>
+Package pdftex.def Info: figures/k_means_cluster_update.PNG  used on input line
+ 1798.
+(pdftex.def)             Requested size: 248.68748pt x 84.64076pt.
+<figures/nn3.JPG, id=165, 1857.18843pt x 455.45157pt>
+File: figures/nn3.JPG Graphic file (type jpg)
+<use figures/nn3.JPG>
+Package pdftex.def Info: figures/nn3.JPG  used on input line 1935.
+(pdftex.def)             Requested size: 211.38588pt x 51.83722pt.
+<figures/perceptron_artificial_neuron.png, id=166, 284.86424pt x 199.947pt>
+File: figures/perceptron_artificial_neuron.png Graphic file (type png)
+<use figures/perceptron_artificial_neuron.png>
+Package pdftex.def Info: figures/perceptron_artificial_neuron.png  used on inpu
+t line 1952.
+(pdftex.def)             Requested size: 149.214pt x 104.73271pt.
+ [9 <./figures/K_means_clustering.PNG> <./figures/k_means_cluster_update.PNG>]
+<figures/perceptron_artificial_neuron_equation.png, id=204, 172.84575pt x 124.6
+6576pt>
+File: figures/perceptron_artificial_neuron_equation.png Graphic file (type png)
+
+<use figures/perceptron_artificial_neuron_equation.png>
+Package pdftex.def Info: figures/perceptron_artificial_neuron_equation.png  use
+d on input line 1960.
+(pdftex.def)             Requested size: 124.34373pt x 89.68317pt.
+<figures/activation_function_need.png, id=205, 428.802pt x 181.27725pt>
+File: figures/activation_function_need.png Graphic file (type png)
+<use figures/activation_function_need.png>
+Package pdftex.def Info: figures/activation_function_need.png  used on input li
+ne 1977.
+(pdftex.def)             Requested size: 248.68748pt x 105.13257pt.
+<figures/sigmoid1.JPG, id=206, 1236.11812pt x 1153.30875pt>
+File: figures/sigmoid1.JPG Graphic file (type jpg)
+<use figures/sigmoid1.JPG>
+Package pdftex.def Info: figures/sigmoid1.JPG  used on input line 1993.
+(pdftex.def)             Requested size: 58.09378pt x 54.202pt.
+<figures/relu.JPG, id=207, 1190.19656pt x 1149.5447pt>
+File: figures/relu.JPG Graphic file (type jpg)
+<use figures/relu.JPG>
+Package pdftex.def Info: figures/relu.JPG  used on input line 1994.
+(pdftex.def)             Requested size: 55.93561pt x 54.0251pt.
+<figures/tanh.JPG, id=208, 1178.15157pt x 1139.75812pt>
+File: figures/tanh.JPG Graphic file (type jpg)
+<use figures/tanh.JPG>
+Package pdftex.def Info: figures/tanh.JPG  used on input line 1995.
+(pdftex.def)             Requested size: 55.36952pt x 53.56516pt.
+<figures/feedforward_backpropagation.png, id=209, 992.9898pt x 526.8483pt>
+File: figures/feedforward_backpropagation.png Graphic file (type png)
+<use figures/feedforward_backpropagation.png>
+Package pdftex.def Info: figures/feedforward_backpropagation.png  used on input
+ line 2072.
+(pdftex.def)             Requested size: 248.68748pt x 131.94489pt.
+<figures/cnn_architecture.png, id=210, 969.8634pt x 281.853pt>
+File: figures/cnn_architecture.png Graphic file (type png)
+<use figures/cnn_architecture.png>
+Package pdftex.def Info: figures/cnn_architecture.png  used on input line 2090.
+
+(pdftex.def)             Requested size: 248.68748pt x 72.26938pt.
+<figures/windowCNNNew.JPG, id=211, 1915.9078pt x 1010.27437pt>
+File: figures/windowCNNNew.JPG Graphic file (type jpg)
+<use figures/windowCNNNew.JPG>
+Package pdftex.def Info: figures/windowCNNNew.JPG  used on input line 2102.
+(pdftex.def)             Requested size: 172.42426pt x 90.92076pt.
+ [10 <./figures/nn3.JPG> <./figures/perceptron_artificial_neuron.png> <./figure
+s/perceptron_artificial_neuron_equation.png> <./figures/activation_function_nee
+d.png> <./figures/sigmoid1.JPG> <./figures/relu.JPG> <./figures/tanh.JPG> <./fi
+gures/feedforward_backpropagation.png> <./figures/cnn_architecture.png> <./figu
+res/windowCNNNew.JPG>]
+<figures/RNNLoop.png, id=225, 412.54124pt x 116.68594pt>
+File: figures/RNNLoop.png Graphic file (type png)
+<use figures/RNNLoop.png>
+Package pdftex.def Info: figures/RNNLoop.png  used on input line 2147.
+(pdftex.def)             Requested size: 186.51561pt x 52.75566pt.
+<figures/RNNBackprop.png, id=226, 539.76656pt x 287.57437pt>
+File: figures/RNNBackprop.png Graphic file (type png)
+<use figures/RNNBackprop.png>
+Package pdftex.def Info: figures/RNNBackprop.png  used on input line 2186.
+(pdftex.def)             Requested size: 186.51561pt x 99.37123pt.
+<figures/LSTMBackprop.png, id=227, 539.01375pt x 301.125pt>
+File: figures/LSTMBackprop.png Graphic file (type png)
+<use figures/LSTMBackprop.png>
+Package pdftex.def Info: figures/LSTMBackprop.png  used on input line 2196.
+(pdftex.def)             Requested size: 186.51561pt x 104.20067pt.
+File: figures/RNNLoop.png Graphic file (type png)
+<use figures/RNNLoop.png>
+Package pdftex.def Info: figures/RNNLoop.png  used on input line 2223.
+(pdftex.def)             Requested size: 186.51561pt x 52.75566pt.
+<figures/LSTMCell.png, id=228, 575.14874pt x 225.46735pt>
+File: figures/LSTMCell.png Graphic file (type png)
+<use figures/LSTMCell.png>
+Package pdftex.def Info: figures/LSTMCell.png  used on input line 2237.
+(pdftex.def)             Requested size: 186.51561pt x 73.11775pt.
+ [11 <./figures/RNNLoop.png> <./figures/RNNBackprop.png> <./figures/LSTMBackpro
+p.png> <./figures/LSTMCell.png>]
+<figures/nlp_application.png, id=238, 479.99326pt x 446.8695pt>
+File: figures/nlp_application.png Graphic file (type png)
+<use figures/nlp_application.png>
+Package pdftex.def Info: figures/nlp_application.png  used on input line 2464.
+(pdftex.def)             Requested size: 213.87138pt x 199.112pt.
+<figures/nlp_evolution.png, id=239, 561.297pt x 249.93375pt>
+File: figures/nlp_evolution.png Graphic file (type png)
+<use figures/nlp_evolution.png>
+Package pdftex.def Info: figures/nlp_evolution.png  used on input line 2475.
+(pdftex.def)             Requested size: 248.68748pt x 110.73773pt.
+<figures/three_stages_NLP.png, id=240, 843.15pt x 143.3355pt>
+File: figures/three_stages_NLP.png Graphic file (type png)
+<use figures/three_stages_NLP.png>
+Package pdftex.def Info: figures/three_stages_NLP.png  used on input line 2490.
+
+(pdftex.def)             Requested size: 223.81721pt x 38.04713pt.
+<figures/nlp_pos_tagging.png, id=241, 458.9145pt x 57.816pt>
+File: figures/nlp_pos_tagging.png Graphic file (type png)
+<use figures/nlp_pos_tagging.png>
+Package pdftex.def Info: figures/nlp_pos_tagging.png  used on input line 2556.
+(pdftex.def)             Requested size: 166.11374pt x 20.92754pt.
+<figures/nlp_corpus_document_vocabulary.png, id=242, 204.765pt x 165.61874pt>
+File: figures/nlp_corpus_document_vocabulary.png Graphic file (type png)
+<use figures/nlp_corpus_document_vocabulary.png>
+Package pdftex.def Info: figures/nlp_corpus_document_vocabulary.png  used on in
+put line 2584.
+(pdftex.def)             Requested size: 124.34373pt x 100.57492pt.
+<figures/tokenizers_bag_of_words.png, id=243, 513.71925pt x 242.1045pt>
+File: figures/tokenizers_bag_of_words.png Graphic file (type png)
+<use figures/tokenizers_bag_of_words.png>
+Package pdftex.def Info: figures/tokenizers_bag_of_words.png  used on input lin
+e 2606.
+(pdftex.def)             Requested size: 237.3064pt x 111.83858pt.
+ [12 <./figures/nlp_application.png> <./figures/nlp_evolution.png> <./figures/t
+hree_stages_NLP.png>]
+LaTeX Font Info:    Font shape `U/lasy/b/n' in size <8> not available
+(Font)              Font shape `U/lasy/m/n' tried instead on input line 2611.
+LaTeX Font Info:    Font shape `U/lasy/b/n' in size <6> not available
+(Font)              Font shape `U/lasy/m/n' tried instead on input line 2611.
+LaTeX Font Info:    Font shape `U/lasy/b/n' in size <5> not available
+(Font)              Font shape `U/lasy/m/n' tried instead on input line 2611.
+<figures/nlp_n_grams.png, id=251, 251.7405pt x 118.041pt>
+File: figures/nlp_n_grams.png Graphic file (type png)
+<use figures/nlp_n_grams.png>
+Package pdftex.def Info: figures/nlp_n_grams.png  used on input line 2622.
+(pdftex.def)             Requested size: 142.38528pt x 66.76532pt.
+<figures/tokenizers_term_freq_TF_IDF.png, id=252, 475.7775pt x 246.9225pt>
+File: figures/tokenizers_term_freq_TF_IDF.png Graphic file (type png)
+<use figures/tokenizers_term_freq_TF_IDF.png>
+Package pdftex.def Info: figures/tokenizers_term_freq_TF_IDF.png  used on input
+ line 2649.
+(pdftex.def)             Requested size: 237.3064pt x 123.15952pt.
+<figures/nlp_CBOW.png, id=253, 549.252pt x 290.2845pt>
+File: figures/nlp_CBOW.png Graphic file (type png)
+<use figures/nlp_CBOW.png>
+Package pdftex.def Info: figures/nlp_CBOW.png  used on input line 2698.
+(pdftex.def)             Requested size: 248.68748pt x 131.43295pt.
+
+
+LaTeX Warning: Citation 'LSTM_languageModeling' undefined on input line 2758.
+
+
+LaTeX Warning: Citation 'LSTMwind' undefined on input line 2759.
+
+
+LaTeX Warning: Citation 'analog-dialogue' undefined on input line 2760.
+
+
+LaTeX Warning: Citation 'deeplearning-ai-nlp' undefined on input line 2761.
+
+
+LaTeX Warning: Citation 'kaggle-nlp-pipelines' undefined on input line 2762.
+
+
+LaTeX Warning: Citation 'bobade2016survey' undefined on input line 2763.
+
+
+LaTeX Warning: Citation 'beakta2015big' undefined on input line 2764.
+
+
+LaTeX Warning: Citation 'edureka-hadoop-questions' undefined on input line 2765
+.
+
+
+LaTeX Warning: Citation 'edureka-mapreduce-tutorial' undefined on input line 27
+66.
+
+
+LaTeX Warning: Empty bibliography on input line 2769.
+
+[13 <./figures/nlp_pos_tagging.png> <./figures/nlp_corpus_document_vocabulary.p
+ng> <./figures/tokenizers_bag_of_words.png> <./figures/nlp_n_grams.png> <./figu
+res/tokenizers_term_freq_TF_IDF.png> <./figures/nlp_CBOW.png>] (main.aux)
+
+LaTeX Warning: There were undefined references.
+
+
+Package biblatex Warning: Please (re)run Biber on the file:
+(biblatex)                main
+(biblatex)                and rerun LaTeX afterwards.
+
+Package logreq Info: Writing requests to 'main.run.xml'.
+\openout1 = `main.run.xml'.
+
+ ) 
+Here is how much of TeX's memory you used:
+ 34739 strings out of 478351
+ 690557 string characters out of 2837052
+ 1461751 words of memory out of 3000000
+ 52401 multiletter control sequences out of 15000+600000
+ 482714 words of font info for 78 fonts, out of 8000000 for 9000
+ 1141 hyphenation exceptions out of 8191
+ 94i,15n,92p,1151b,910s stack positions out of 10000i,1000n,20000p,200000b,80000s
+ <C:\Users\yrobi\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcss
+0800.pk><C:/Users/yrobi/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfon
+ts/cmextra/cmex7.pfb><C:/Users/yrobi/AppData/Local/Programs/MiKTeX/fonts/type1/
+public/amsfonts/cmextra/cmex8.pfb><C:/Users/yrobi/AppData/Local/Programs/MiKTeX
+/fonts/type1/public/amsfonts/cm/cmmi5.pfb><C:/Users/yrobi/AppData/Local/Program
+s/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi6.pfb><C:/Users/yrobi/AppData/Local
+/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Users/yrobi/AppDa
+ta/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi9.pfb><C:/Users/yro
+bi/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cmextra/cmmib8.pfb
+><C:/Users/yrobi/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/c
+mr5.pfb><C:/Users/yrobi/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfon
+ts/cm/cmr6.pfb><C:/Users/yrobi/AppData/Local/Programs/MiKTeX/fonts/type1/public
+/amsfonts/cm/cmr8.pfb><C:/Users/yrobi/AppData/Local/Programs/MiKTeX/fonts/type1
+/public/amsfonts/cm/cmss10.pfb><C:/Users/yrobi/AppData/Local/Programs/MiKTeX/fo
+nts/type1/public/amsfonts/cm/cmss8.pfb><C:/Users/yrobi/AppData/Local/Programs/M
+iKTeX/fonts/type1/public/amsfonts/cm/cmss9.pfb><C:/Users/yrobi/AppData/Local/Pr
+ograms/MiKTeX/fonts/type1/public/amsfonts/cm/cmssbx10.pfb><C:/Users/yrobi/AppDa
+ta/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmssi8.pfb><C:/Users/yr
+obi/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy5.pfb><C:/
+Users/yrobi/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy6.
+pfb><C:/Users/yrobi/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/c
+m/cmsy8.pfb><C:/Users/yrobi/AppData/Local/Programs/MiKTeX/fonts/type1/public/am
+sfonts/symbols/msbm10.pfb>
+Output written on main.pdf (13 pages, 5344072 bytes).
+PDF statistics:
+ 539 PDF objects out of 1000 (max. 8388607)
+ 86 named destinations out of 1000 (max. 500000)
+ 748 words of extra memory for PDF output out of 10000 (max. 10000000)
+

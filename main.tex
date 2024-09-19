@@ -230,7 +230,7 @@ Classification $\rightarrow$ \textbf{conditional probability}: \(P(Y=y | X=x) \)
 
 $\rightarrow$ \textbf{Discriminative Model}: It focuses on predicting the labels of the data. A discriminative machine learning trains a model which is done by learning parameters that maximize the \textbf{conditional probability} $P(Y|X)$ \\ 
 
-$\rightarrow$ \textbf{Generative Model}: It focuses on explaining how the data was generated. A generative model learns parameters by maximizing the \textbf{joint probability} of $P(X, Y)$.
+$\rightarrow$ \textbf{Generative Model}: It focuses on learning a probability distribution for the dataset, it can reference this probability distribution to generate new data instances. A generative model learns parameters by maximizing the \textbf{joint probability} of $P(X, Y)$.
 \vspace{-5pt}
 
 \vspace{-5pt}
@@ -241,7 +241,7 @@ $\rightarrow$ \textbf{Generative Model}: It focuses on explaining how the data w
 \end{center}
 \vspace{-7pt}
 
-The discriminative model learns to distinguish between two classes, i.e., pictures of cats or dogs. The generative model estimates the underlying distribution of a dataset (pictures of cats) and randomly generate realistic, yet synthetic, samples according to their estimated distribution.
+
 
 
 
@@ -255,20 +255,20 @@ The discriminative model learns to distinguish between two classes, i.e., pictur
     \begin{tabularx}{3.5in}{X|X}
     \textbf{\textcolor{purple}{Discriminative model}} & \textbf{\textcolor{purple}{Generative model}}\\
     \hline
-    \RaggedRight{\includegraphics[scale = .44]{figures/Discriminant_model_figure.PNG}}&
+    \RaggedRight{\includegraphics[scale = .40]{figures/Discriminant_model_figure.PNG}}&
     \RaggedRight{\includegraphics[scale = .36] {figures/Generative_model_figures.PNG}} \\
     \hline
     Learns the decision boundary between classes &
     Learns the input distribution \\
     \hline
     Directly estimate $P(y|x)$ &
-    Estimate $P(x|y)$ to find deduce $P(y|x)$ using Baye's rule \\
-    \hline
-    Cannot generate new data &
-    {Can be used to generate new data} \\
+    Estimate $P(x|y)$ to find likelihood $P(y|x)$ using \textbf{Baye's} rule \\
+    % \hline
+    % Cannot generate new data &
+    % {Can be used to generate new data} \\
     \hline
     Specifically meant for classification tasks &
-    Typically, their purpose is not classification \\
+    They are used for generating new contents or data  \\
     \hline
     Logistic Regression, Random Forests, SVM, Neural Networks, Decision Tree, kNN &
     Hidden Markov Models, Naive Bayes, Gaussian Mixture Models, Gaussian Discriminant Analysis, LDA, Bayesian Networks
@@ -309,12 +309,38 @@ $\rightarrow$ \textbf{\textcolor{orange}{Variance}} is the \textbf{error}, amoun
 
 It measures how scattered (inconsistent) are the predicted values from the correct value due to \textbf{different training data (or possibly with different random seeds)} sets. It is also known as \textbf{Variance Error} or \textbf{Error due to Variance}. \\
 
+
 \textbf{\textcolor{blue}{Note:}} As the \textbf{complexity of the model rises}, the variance will \textbf{increase} and bias will \textbf{decrease}.  \\
 
+\vspace{3pt}
 $\bullet$ The \textbf{goal of parameterization} is to achieve a \textbf{low bias} and \textbf{low variance} trade-off through methods such as:\\
 $\rightarrow$ \textbf{Cross-validation} can be used to tune models so as to optimize the trade-off \\
 $\rightarrow$ \textbf{Dimension reduction} and \textbf{feature selection} \\
 $\rightarrow$ Mixture models (probabilistic models) and \textbf{ensemble learning}. \\
+
+\vspace{3pt}
+
+$\bullet$ \textbf{Underfitting} or \textbf{High bias} means that the model is not able to capture or learn the trend or pattern in data.
+
+$\bullet$ \textbf{Overfitting} or \textbf{High variance} means that the model fits the available data but does not generalize well to predict on new data.
+
+
+\begin{center}
+    \begin{minipage}{0.8\linewidth}
+        \includegraphics[width=\textwidth]{figures/Tradeoff_Learning_Curves.PNG}
+        % \caption{ML Production}
+        % \label{fig:ML_Production}
+    \end{minipage}
+\end{center}
+
+$\rightarrow$ The training loss goes down over time, achieving low error values
+$\rightarrow$ The validation loss goes down until a turning point is found, and it starts going up again. That \textbf{point} represents the \textbf{beginning} of \textbf{overfitting}. Therefore, \textbf{The training process should be stopped when the validation error trend changes from descending to ascending}.
+
+
+
+
+\vspace*{\fill}
+
 
 \begin{center}
     \begin{minipage}{\linewidth}
@@ -335,23 +361,11 @@ $\rightarrow$ Mixture models (probabilistic models) and \textbf{ensemble learnin
 \end{center}
 
 
-$\rightarrow$ \textbf{Underfitting} or \textbf{High bias} means that the model is not able to capture or learn the trend or pattern in data.
-
-$\rightarrow$ \textbf{Overfitting} or \textbf{High variance} means that the model fits the available data but does not generalize well to predict on new data.
-
-\begin{center}
-    \begin{minipage}{0.8\linewidth}
-        \includegraphics[width=\textwidth]{figures/Tradeoff_Learning_Curves.PNG}
-        % \caption{ML Production}
-        % \label{fig:ML_Production}
-    \end{minipage}
-\end{center}
-
-$\rightarrow$ The training loss goes down over time, achieving low error values
-$\rightarrow$ The validation loss goes down until a turning point is found, and it starts going up again. That \textbf{point} represents the \textbf{beginning} of \textbf{overfitting}. Therefore, \textbf{The training process should be stopped when the validation error trend changes from descending to ascending}.
 
 
-\vspace{3pt}
+
+
+
 
 $\bullet$ Training loss vs. Validation loss:
 \vspace{-3pt}
@@ -371,7 +385,7 @@ $\rightarrow$ \textbf{Batch:} You can’t pass the entire dataset into the neura
 
 $\rightarrow$ \textbf{Iterations} is the No. of Batches needed to complete One Epoch.
 
-
+\textbf{Question}: If total number of samples in a dataset is 1000 and batch size is 10, how many iterations will be there in one epoch. \textbf{\textcolor{blue}{Ans}}: \textbf{100}
 
 \vspace{3pt}
 $\bullet$ \textbf{How would you identify if your model is overfitting?}
@@ -420,7 +434,7 @@ When the data available during training is not enough to capture the model, rela
 The train and validation curves are improving, but there’s a big gap between them, which means they operate like datasets from different distributions.
 
 \subsubsection{Unrepresentative Validation Dataset} {\color{teal}\hrule height 0.5pt} \smallskip
-\vspace{-3pt}
+
 \begin{center}
     \begin{minipage}{0.5\linewidth}
         \includegraphics[width=\textwidth]{figures/First_scenario_Unrepresentative_Validation_Dataset.PNG}
@@ -447,11 +461,174 @@ It could be the case that validation data is scarce and not very representative 
  
 Here, the validation loss is much better than the training one, which reflects the validation dataset is easier to predict than the training dataset. An explanation could be the validation data is scarce but widely represented by the training dataset, so the model performs extremely well on these few examples.
 
-
+\vspace{3pt}
+$\bullet$ \textcolor{teal}{\textbf{What is cross-validation? Why it's important?}} \\
+Cross-validation evaluates a model's performance. \\
+$\rightarrow$ The idea is to divide the dataset into $k$ subsets or "folds", train the model on $k-1$ of these folds, and test on the remaining fold to ensure that the model generalizes well to unseen data. \\
+$\rightarrow$ After evaluating on all k folds, performance metrics are averaged for a robust estimate of the model's effectiveness. \\
+$\rightarrow$ \textbf{K-Fold Cross-Validation}: The data is divided into k equally-sized folds. \\
+$\rightarrow$ \textbf{Stratified K-Fold}: Similar to K-Fold, but it maintains the proportion of classes in each fold, making it ideal for imbalanced datasets. \\
+$\rightarrow$ \textbf{Leave-One-Out Cross-Validation (LOOCV)}: A special case where k equals the number of data points, so each fold contains just one data point.
 
 % \vspace*{\fill}
 
 % \columnbreak
+
+
+\subsection{Data Science General} {\color{teal}\hrule height 0.5pt} \smallskip
+\subsubsection{Notes} {\color{teal}\hrule height 0.5pt} \smallskip
+
+
+$\rightarrow$ \textbf{Parameters: } Model \textbf{parameters} are numeric values as part of the model. We \textbf{estimate} them from the data. \\
+
+$\rightarrow$ \textbf{Ablation}: An ablation study is turning off components of a model (e.g. features or sub-models) one at a time, to see how much each contributes to the model's performance. \\
+
+$\rightarrow$ Overfitting arises when our model learns too much, so it can’t generalize to new data. \\
+
+$\rightarrow$ Apply \textbf{log-transformations} (e.g., log, square root) to reduce skewness and improve model performance, especially for models sensitive to outliers. \\
+
+
+$\rightarrow$ Apply transformations based on domain knowledge and understanding of the data characteristics.
+
+
+\subsubsection{Preventing Data Leakage} {\color{teal}\hrule height 0.5pt} \smallskip
+
+\begin{itemize} [leftmargin=0.5cm]
+    \item \textbf{Proper Data Splitting}: Split data into training, validation, and test sets \textbf{before} performing any data preprocessing. For time series, split data chronologically.
+    \vspace{-3pt}
+    \item \textbf{Transformation fit on Training Data Only}: Ensure that transformations (e.g., scaling, encoding) are fit only on the training data and then applied to both training and test data
+    \item \textbf{Feature Selection}: Ensure that features used for training are available at the time of prediction. For time series data, create lag features that use only past information.
+    \vspace{-3pt}
+    \item \textbf{Target Leakage}: Ensure that features used in training are available at the time of prediction and do not contain information derived from the target variable.
+    \vspace{-3pt}
+    \item \textbf{Data Augmentation}: Apply augmentation techniques only to the training set. 
+\end{itemize}
+
+
+
+\subsubsection{Handle missing or corrupted data in a dataset} {\color{teal}\hrule height 0.5pt} \smallskip
+
+\begin{itemize} [leftmargin=0.5cm]
+    \item \textbf{Remove Missing Data}: If only a small number of \textbf{rows} have missing values, or If an entire \textbf{column} has a large percentage of missing values
+    \vspace{-3pt}
+    \item \textbf{Impute Missing Data}: Mean/Median/Mode Imputation, Imputation Using Algorithms, Forward/Backward Fill/ Interpolate For time series data
+    \item \textbf{Use Algorithms That Handle Missing Data}: Decision trees,Random forests
+    \vspace{-3pt}
+    \item \textbf{Replace Corrupted Data}: Identify Outliers using statistical methods (like z-scores or IQR), Apply manual inspection and correction of corrupted values based on external sources or domain expertise.
+    \vspace{-3pt}
+    \item \textbf{Data Augmentation}: To create synthetic data based on existing patterns
+\end{itemize}
+
+
+\subsubsection{Inference vs. Classification} {\color{teal}\hrule height 0.5pt} \smallskip
+
+
+$\rightarrow$ \textbf{Inference}: Given two groups, what is the differences between these groups? t-tests, paired t-test etc. \\
+$\rightarrow$ \textbf{Classification}: Given a new animal, find whether new animal is cat or dog? \\
+
+
+
+
+
+\subsubsection{Prediction and Inference} {\color{teal}\hrule height 0.5pt} \smallskip
+
+
+$\rightarrow$ \textbf{Prediction} uses a model to predict future observations.\\
+• Model does not need to be valid \\
+• Evaluation does need to be valid\
+• Quality \& strength: accuracy of predicting unseen data\\
+
+\vspace{3pt}
+
+$\rightarrow$ \textbf{Inference} uses the model’s structure and parameters to learn or understand an underlying phenomenon.\\
+• Validity depends on assumptions\\
+• Quality \& strength: $R^{2}$, p-value, assumption checks, coefficients\\
+
+
+
+
+\subsubsection{ETL - Extract Transform Load} {\color{teal}\hrule height 0.5pt} \smallskip
+
+An ETL workflow is essential for consolidating and preparing data for analysis, reporting, and business intelligence. Organizations can ensure data accuracy, consistency, and availability by following a well-defined ETL process, enabling better decision-making and insights.
+
+
+\begin{enumerate}[leftmargin=0.37cm]
+    \item \textcolor{blue}{\textbf{Extract Phase}:}  \\
+    \textbf{Goal}: Retrieve raw data from various source systems.
+    \vspace{-2pt}
+    \begin{itemize}[leftmargin=0.35cm]
+        \vspace{-3pt}
+        \item \textbf{Identify Data Sources}: Determine the databases, files, APIs, or other sources from which data will be extracte
+        \vspace{-3pt}
+        \item \textbf{Connect to Data Sources}: Establish connections to these sources using appropriate connectors or drivers.
+        \vspace{-3pt}
+        \item \textbf{Extract Data}: Perform the actual data extraction, which may involve running SQL queries, reading files, or calling API endpoints.
+        \vspace{-3pt}
+        \item \textbf{Handle Incremental Extraction}: Extract only the new or updated data since the last extraction to optimize performance and reduce load.
+    \end{itemize}
+    \vspace{-3pt}
+    \textbf{Tools}: SQL queries, Python scripts, database connectors, API clients.
+
+
+    \item \textcolor{blue}{\textbf{Transform Phase}:} \\
+    \textbf{Goal}: Clean, format, and prepare the data for loading into the target system.
+    \vspace{-2pt}
+    \begin{itemize}[leftmargin=0.35cm]
+        \vspace{-3pt}
+        \item \textbf{Data Cleaning}: Remove duplicates, Handle missing values, Correct errors and inconsistencies
+        \vspace{-3pt}
+        \item \textbf{Data Integration}: Merge data from different sources, Resolve data conflicts and redundancies.
+        \vspace{-3pt}
+        \item \textbf{Data Transformation}: Convert data types, Normalize or denormalize data, Apply business rules and calculations, Aggregate data (e.g., summing, averaging).
+        \vspace{-3pt}
+        \item \textbf{Data Enrichment}: Add additional context or metadata, Join with reference data
+        \vspace{-3pt}
+        \item \textbf{Data Validation}: Check for data quality and integrity, Ensure transformations have been applied correctly
+    \end{itemize}
+    \vspace{-3pt}
+    \textbf{Tools}:  Python, SQL, transformation tools like Apache NiFi, Talend, or Apache Spark.
+
+
+    \item \textcolor{blue}{\textbf{Load Phase}:} \\
+    \textbf{Goal}: Load the transformed data into the target data warehouse or database.
+    \vspace{-2pt}
+    \begin{itemize}[leftmargin=0.35cm]
+        \vspace{-3pt}
+        \item \textbf{Prepare Target Schema}: Define the schema of the target database or data warehouse, Create tables, indexes, and partitions as needed
+        \vspace{-3pt}
+        \item \textbf{Load Data}: Insert transformed data into the target tables, Use bulk load methods for efficiency when dealing with large datasets
+        \vspace{-3pt}
+        \item \textbf{Post-Load Validation}: Verify that the data has been loaded correctly, Check for any discrepancies or errors
+        \vspace{-3pt}
+        \item \textbf{Indexing and Partitioning}: Optimize the target database for query performance, Create necessary indexes and partitions
+    \end{itemize}
+    \vspace{-3pt}
+    \textbf{Tools}:  Database clients, bulk load utilities, ETL tools with load functionality.
+\end{enumerate}
+
+\vspace{5pt}
+\textcolor{purple}{\textbf{ETL Workflow Automation}} \\
+Automation Tools:  \\
+$\rightarrow$ Apache Airflow: For workflow scheduling and orchestration.\\
+$\rightarrow$ AWS Glue: Managed ETL service on AWS.\\
+$\rightarrow$ Apache NiFi: For data flow automation.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 \subsection{Model Evaluation} {\color{teal}\hrule height 0.5pt} \smallskip
 
@@ -488,6 +665,13 @@ $\rightarrow$ $H_{1}$: Person is guilty  \\
         \includegraphics[width=\textwidth]{figures/Confusion_Matrix_2.PNG}
     \end{minipage}
 \end{center}
+
+\begin{center}
+    \begin{minipage}{0.56\linewidth}
+        \includegraphics[width=\textwidth]{figures/confusion_matrix_multi_class.PNG}
+    \end{minipage}
+\end{center}
+
 
 
 (1) \textbf{Accuracy: } $\boxed{\frac{TP + TN}{TP + TN + FP + FN}}$ $\rightarrow$ Ratio of \textbf{correct predictions} over \textbf{total predictions}. \\
@@ -591,52 +775,62 @@ The choice of a threshold depends on the importance of TPR and FPR classificatio
     
     \item \textbf{$R^{2}$ Error : }  
     \vspace{-3pt}
-    \[\boxed{R^{2} = 1 - \frac{\text{MSE (model)}}{\text{MSE(baseline)}}} \hspace{15pt} \boxed{R^{2} = 1 - \frac{\text{SSE}}{\text{SST}}} \]   
-    The proportion of explained $y$-variability. Negative $R^{2}$ means the model is worse than just predicting the mean. $R^{2}$ is not valid for nonlinear models as \(\boxed{\text{SS}_{\text{residual}} + \text{SS}_{\text{error}} \neq \text{SST}}\).  
+    \[\boxed{R^{2} = 1 - \frac{\text{MSE (model)}}{\text{MSE(baseline)}}} \hspace{15pt} \boxed{R^{2} = 1 - \frac{\text{SSE}}{\text{SST}}} \] 
     
     
     \item \textbf{Adjusted} $R^{2}$ :
     \vspace{-3pt}
     \[\boxed{R^{2}_{a} =  1 - \left[ \left( \frac{n-1}{n-k-1} \right) (1-R^{2})   \right]} \] 
-    which changes only when predictors (features) affect $R^{2}$ above what would be expected by chance
 \end{enumerate}
 
 \subsubsection{Variance, \texorpdfstring{\(R^{2}\)}, and the Sum of Squares}  {\color{teal}\hrule height 0.5pt} \smallskip
 
-The \textbf{total sum of squares}: SS$_{total}$ = \(\sum_{i} (y_{i} - \bar{y})^{2} \) \\
+$\bullet$ The \textbf{total sum of squares}: SS$_{total}$ = \(\sum_{i} (y_{i} - \bar{y})^{2} \) \\
 
-This scales with variance: var($Y$) = \( \frac{1}{n} \sum_{i} (y_{i} - \bar{y})^{2} \) \\
+$\bullet$ This scales with variance: var($Y$) = \( \frac{1}{n} \sum_{i} (y_{i} - \bar{y})^{2} \) \\
 
-The \textbf{regression} sum of squares: SS$_{reg}$ = \(\sum_{i} \hat{(y_{i}} - \bar{y})^{2} \) \\ , $\rightarrow$ nVar(predictions)
+$\bullet$ The \textbf{regression} sum of squares: SS$_{reg}$ = \(\sum_{i} \hat{(y_{i}} - \bar{y})^{2} \) \\ , $\rightarrow$ nVar(predictions)
 
-The \textbf{residual} sum of squares (squared errro): \\ 
+$\bullet$ The \textbf{residual} sum of squares (squared errro): \\ 
 SS$_{resid}$ = \(\sum_{i} (y_{i} - \hat{y_{i}})^{2} \), $\rightarrow$ nVar($\epsilon$) \\
 
 \textbf{\textcolor{blue}{Note: }} \(\bar{\epsilon} = 0, E[\hat{y}] = \bar{y} \)
-
-\[SS_{total} = SS_{reg} + SS_{resid} \] \\
+\vspace{-3pt}
+\[SS_{total} = SS_{reg} + SS_{resid} \]
+\vspace{-3pt}
 \[R^{2} = 1 - \frac{SS_{resid}}{SS_{total}} = \frac{SS_{reg}}{SS_{total}} = \frac{nVar(Preds)}{nVar(Y)} = \frac{Var(Preds)}{Var(Y)}\]
-The \textbf{fraction of variance explained!} \\
+\vspace{-3pt}
+
+$\rightarrow$  \textbf{Explained Variance}: $R^{2}$ quantifies how much of the variability in the outcome (\textbf{dependent}) variable can be explained by the predictor (\textbf{independent}) variables. 
+
+$\rightarrow$ An $R^{2}$ of 1 indicates a perfect fit, where the model explains all the variability, while an $R^{2}$ of 0 indicates that the model explains none of the variability.
+
+$\rightarrow$ \textbf{Goodness of Fit}: A higher $R^{2}$
+value generally suggests a better fit of the model to the data, meaning the model's predictions are closer to the actual values. 
+
+
+$\rightarrow$ \textbf{$R^{2}$ is not valid for nonlinear models} as 
+\vspace{-3pt}
+\[\boxed{\text{SS}_{\text{residual}} + \text{SS}_{\text{error}} \neq \text{SST}}\]
+\vspace{-3pt}
+
+$\rightarrow$ \textbf{Drawback}: R-squared will always increase when a new predictor variable is added to the regression model.  
+
+% \begin{minipage}{\linewidth}
+% % \begin{figure}[h!]
+%     \centering
+%     % \begin{minipage}[b]{\textwidth}
+%     \includegraphics[width=\textwidth]{figures/Residual_variance.PNG}
+%     % \caption{ML Production}
+%     % \label{fig:ML_Production}
+%     % \end{minipage}
+% % \end{figure}
+% \end{minipage}
 
 
 
-\begin{minipage}{\linewidth}
-% \begin{figure}[h!]
-    \centering
-    % \begin{minipage}[b]{\textwidth}
-    \includegraphics[width=\textwidth]{figures/Residual_variance.PNG}
-    % \caption{ML Production}
-    % \label{fig:ML_Production}
-    % \end{minipage}
-% \end{figure}
-\end{minipage}
-
-$\rightarrow$ The variance in the outcome variable decomposes into regression variance and residual variance.  \\
-$\rightarrow$ $R^{2}$ measures the fraction of total variance explained by the regression. \\
-$\rightarrow$ $R^{2}$  \% of dependent variable variance explained using independent variable(s)
 
 
-\vspace*{\fill}
 
 
 
@@ -649,14 +843,15 @@ $\rightarrow$ $R^{2}$  \% of dependent variable variance explained using indepen
 Almost every machine learning method has an optimization algorithm at its core. \\
 $\rightarrow$ \textbf{Hypothesis : } The hypothesis is noted $h_{\theta}$ and is the model that we choose. For a given input data $x^{(i)}$ the model prediction output is $\boxed{h_{\theta}(x^{(i)})}$. \\
 $\rightarrow$ \textbf{Loss function : } 
-\(\boxed{L:(z,y)  \in  R \times Y \longmapsto  L(z,y) \in R} \) that takes as inputs the \textbf{predicted value} $z$ corresponding to the \textbf{real data value} $y$ and outputs how different they are. The \textbf{loss function} is the function that computes the \textbf{distance} or \textbf{difference} between the current output $z$ of the algorithm and the expected output $y$. 
+\(\boxed{L:(\hat{y},y)  \in  R \times Y \longmapsto  L(\hat{y},y) \in R} \) that takes as inputs the \textbf{predicted value} $\hat{y}$ corresponding to the \textbf{real data value} $y$ and outputs how different they are. The \textbf{loss function} is the function that computes the \textbf{distance} or \textbf{difference} between the current output $\hat{y}$ of the algorithm and the expected output $y$. 
 
 The common loss functions are summed up in the table below:
+\vspace{-5pt}
 \begin{center}
     \begin{tabular}{c|c|c}
             \textbf{Least squared error} & \textbf{Logistic loss} & \textbf{Hinge loss} \\
             \hline
-             $\frac{1}{2}(y-z)^{2}$ & $\text{log}\left(1+\text{exp}(-yz)\right)$ & $\text{max}(0, 1-yz)$  \\
+             $\frac{1}{2}(y-\hat{y})^{2}$ & $\text{log}\left(1+\text{exp}(-y\hat{y})\right)$ & $\text{max}(0, 1-y\hat{y})$  \\
             \hline 
             Linear Regression & Logistic Regression & SVM \\
             \hline
@@ -684,7 +879,9 @@ $\rightarrow$ When a \textbf{cost function is non-convex}, it means that there i
 
 Gradient Descent is used to \textbf{find the coefficients} of $f$ that
 \textbf{minimizes a cost function} (for example MSE, SSR). \\
-$\rightarrow$ \textbf{Time Complexity}: \(O(kn^{2}) \) $\rightarrow$ $n$ is no. of data points.
+$\rightarrow$ \textbf{Time Complexity}: \(O(kn^{2}) \) $\rightarrow$ $n$ is no. of data points. \\
+
+$\rightarrow$ It minimizes the average loss by moving iteratively in the direction of steepest descent, controlled by the learning rate $\gamma$ (step size). Note, $\gamma$ can be updated adaptively for better performance. 
 
 \textbf{Procedure: }
 \begin{enumerate}
@@ -700,7 +897,7 @@ The cost updating process is repeated until convergence (minimum found).
         \includegraphics[width=\textwidth]{figures/gradient_decent.PNG}
     \end{minipage}    
 \end{center}
-\vspace{-3pt}
+\vspace{-5pt}
 
 \textbf{Tips : }
 \vspace{-5pt}
@@ -717,14 +914,17 @@ The cost updating process is repeated until convergence (minimum found).
     \vspace{-3pt}
 \end{itemize}
 
-\vspace{3pt}
-\textbf{Batch Gradient Descent} does summing/average of the cost over all the observations. \\
-\textbf{Stochastic Gradient Descent} apply the procedure of parameter updating for each observation. \\
-$\rightarrow$ \textbf{Time Complexity}: \(O(km^{2}) \) $\rightarrow$ $m$ is the sample of data selected randomly from the entire data of size $n$ 
+
+
+$\bullet$ \textbf{Stochastic Gradient Descent} apply the procedure of parameter updating for each observation. \\
+$\rightarrow$ \textbf{Time Complexity}: \(O(km^{2}) \) $\rightarrow$ $m$ is the sample of data selected randomly from the entire data of size $n$ \\
+$\rightarrow$ It only uses a single point to compute gradients, leading to smoother convergence and faster compute speeds.  \\
+
+$\bullet$ \textbf{Mini-batch Gradient Descent} trains on small subsets of the data, striking a balance between the approaches.
 
 
 
-\vspace*{\fill}
+
 
 
 
@@ -800,12 +1000,60 @@ $\rightarrow$ This is the heart of machine learning, particularly supervised lea
 
 
 
+% \vspace{5pt}
+% \subsubsection {\textbf{Likelihood and Posterior}}
+% \[\mathcolor{orange}{P(\theta |\textbf{y})} = \frac{\mathcolor{green}{P(\textbf{y}|\theta)} \, \mathcolor{purple}{P(\theta)} }{P(\textbf{y})} \]
+% \vspace{-5pt}
+
+% • \mathcolor{Purple}{$P(\theta)$} is the \textcolor{Purple}{prior}
+% \\
+
+% • \mathcolor{Green}{$P(y | \theta)$} is the \textcolor{Green}{likelihood} – how likely is the data given params $\theta$ \\
+% • $P(y) = \int P(y | \theta) P(\theta) d\theta $ is a scaling factor (constant for fixed $y$) \\
+% • $\mathcolor{Orange}{P(\theta | y)}$ is the \textcolor{Orange}{posterior}.
 
 
-\subsubsection{Maximum Likelihood Estimation } {\color{teal}\hrule height 0.5pt} \smallskip
+% • We’re maximizing likelihood (ML estimator) \\
+% • Can also maximize posterior (MAP estimator)\\
+% \hspace{7pt} - When prior is constant, they’re the same\\
+% \hspace{7pt} - With lots of data, they’re almost the same\\
 
-MLE is used to find the estimators that \textbf{minimized the likelihood function:} 
+% $\rightarrow$ Logistic function is trained by
+% \textbf{maximizing the log likelihood} of the
+% training data given the model
+
+
+
+\vspace{2pt}
+\subsubsection{Maximum Likelihood Estimation \textbf{MLE}} {\color{teal}\hrule height 0.5pt} \smallskip
+Any probability distribution has parameters, so fitting parameters is an extremely crucial part of data analysis. There are two general methods for doing so. In \textbf{maximum likelihood estimation} (MLE), the goal is to estimate the most likely parameters given a likelihood function: 
+\vspace{-3pt}
+\[\boxed{\theta_{\text{MLE}} = \text{arg max} \hspace{2pt} L(\theta)}, \hspace{10pt} \text{where} \hspace{5pt} L(\theta) = f_{n}\left(x_{1}, \ldots x_{n} | \theta \right) \]
+
+Since the values of $X$ are assumed to be i.i.d., then the likelihood function becomes the following:
+\vspace{-3pt}
+\[\boxed{L\left(\theta \right) = \prod^{n}_{i=1} f\left(x_{i}|\theta \right)} \]
+
+The natural log of $L(\theta)$ is then taken prior to calculating the maximum; since log is a monotonically increasing function, maximizing the \textbf{log-likelihood} log $L(\theta)$ is equivalent to maximizing the likelihood:
+\vspace{-3pt}
+\[\boxed{\text{log} \hspace{3pt} L(\theta) = \sum^{n}_{i=1} \text{log} \hspace{2pt} f\left(x_{i}|\theta \right)}\]
+
+
+$\rightarrow$ MLE is used to find the estimators that \textbf{minimized the likelihood function:} 
 \(\mathcal{L}(\theta|x) = f_{\theta}(x) \) \hspace{5pt} \textcolor{blue}{density function of the data distribution}
+
+\subsubsection{Maximum a Posterior \textbf{MAP}} {\color{teal}\hrule height 0.5pt} \smallskip
+Another way of fitting parameters is through \textbf{maximum a posterior} estimation (MAP), which assumes a "prior distribution":
+\vspace{-3pt}
+\[\boxed{\theta_{\text{MAP}} = \text{arg max} \hspace{2pt} g(\theta) \hspace{1pt} f\left(x_{1} \ldots x_{n} | \theta \right)} \]
+where the similar \textbf{log-likelihood} is again employed, and $g(\theta)$ is a density function of $\theta$.
+
+
+
+
+
+
+
 
 
 \subsubsection{Log Likelihood} {\color{teal}\hrule height 0.5pt} \smallskip
@@ -865,36 +1113,17 @@ But \textbf{x} is independent of params, so \(P(\textbf{x}|\vec{\beta}) = P(\tex
 Model log likelihood is sum over training data. Applicable to \textbf{any} model where \(\hat{y} = P(Y=1 |x) \) 
 
 
-\vspace{3pt}
-\textbf{Likelihood and Posterior} 
-\[\mathcolor{orange}{P(\theta |\textbf{y})} = \frac{\mathcolor{green}{P(\textbf{y}|\theta)} \, \mathcolor{purple}{P(\theta)} }{P(\textbf{y})} \]
-\vspace{-5pt}
-
-% • \mathcolor{Purple}{$P(\theta)$} is the \textcolor{Purple}{prior}
-% \\
-
-% • \mathcolor{Green}{$P(y | \theta)$} is the \textcolor{Green}{likelihood} – how likely is the data given params $\theta$ \\
-% • $P(y) = \int P(y | \theta) P(\theta) d\theta $ is a scaling factor (constant for fixed $y$) \\
-% • $\mathcolor{Orange}{P(\theta | y)}$ is the \textcolor{Orange}{posterior}.
 
 
-% • We’re maximizing likelihood (ML estimator) \\
-% • Can also maximize posterior (MAP estimator)\\
-% \hspace{7pt} - When prior is constant, they’re the same\\
-% \hspace{7pt} - With lots of data, they’re almost the same\\
+% \vspace*{\fill}
 
-$\rightarrow$ Logistic function is trained by
-\textbf{maximizing the log likelihood} of the
-training data given the model
+% % \columnbreak
 
+% % \vspace*{\fill}
 
+% % \columnbreak
 
-
-\vspace*{\fill}
-
-\columnbreak
-
-
+\vspace{10pt}
 
 
 \subsection{Linear Algorithms} {\color{teal}\hrule height 1pt} \smallskip
@@ -1032,7 +1261,7 @@ $\rightarrow$ \textbf{Multicollinearity} $\rightarrow$ correlated predictors. \t
 \begin{itemize}
 
      \item \textbf{Ridge Regression} (L2 regularization): where OLS is modified to minimize the \textbf{squared} sum of the coefficients 
-     \vspace{-5pt}
+     \vspace{-4pt}
     \[ \boxed{\sum^{n}_{i=1} (y_{i} - \beta_{0} - \sum^{p}_{j=1} \beta_{j} x_{ij})^{2} + \lambda \sum^{p}_{j=1} \beta^{2}_{j} = RSS + \lambda \sum^{p}_{j=1} \beta^{2}_{j}} \]
     \vspace{-7pt}
     
@@ -1041,7 +1270,7 @@ $\rightarrow$ \textbf{Multicollinearity} $\rightarrow$ correlated predictors. \t
    \[ \boxed{ \lambda \propto \frac{1} {\text{model variance}}}  \]
     
     \item \textbf{Lasso Regression} (L1 regularization) : where OLS is modified to minimize the sum of the coefficients 
-    \vspace{-5pt}
+    \vspace{-3pt}
     \[ \boxed{\sum^{n}_{i=1} (y_{i} - \beta_{0} - \sum^{p}_{j=1} \beta_{j} x_{ij})^{2} + \lambda \sum^{p}_{j=1} \left| \beta_{j} \right| = RSS + \lambda \sum^{p}_{j=1} \left| \beta_{j} \right|}  \]
     \vspace{-10pt}
      
@@ -1083,23 +1312,24 @@ $\rightarrow$ L1 is less likely to shrink coefficients to 0. Therefore L1 regula
 \textcolor{blue}{\textbf{Log-Odds} and \textbf{Logistics}} 
 
 \vspace{2pt}
-\textbf{Odds} \\
+$\bullet$ \textbf{Odds} \\
 The probability of success $P(S)$:  \( 0 \leq p \leq 1\)\\
 $\rightarrow$ The odds of success are defined as the ratio of the \textbf{probability of success} over the \textbf{probability of failure}. \\
 The \textbf{odds} of success: \( \text{Odds}(S) = \frac{P(S)}{P(S^{c})} = \frac{P(S)}{1-P(S)} \) \\
-Ex: Odds(failure) = x $\rightarrow$ means x:1 aganist success \\
+$\rightarrow$ Ex: Odds(failure) = x $\rightarrow$ means x:1 aganist success \\
 
 \vspace{3pt}
-\textbf{Log Odds} or \textbf{logit} $\rightarrow$
+$\bullet$ \textbf{Log Odds} or \textbf{logit} $\rightarrow$
 \vspace{-7pt}
 \[\text{log Odds}(A) = \text{log} \frac{P(A)}{1-P(A)} = \text{log}P(A) - \text{log}\left(1-P(A) \right) \]
 \vspace{-7pt}
 
 \vspace{3pt}
-\textbf{Logistic}: The inverse of the logit (logit$^-1$): 
-logistic\((x) = \frac{1}{1+e^{-x}} = \frac{e^{x}}{e^{x} +1} \)
+$\bullet$ \textbf{Logistic}: The inverse of the logit (logit$^-1$): 
+\vspace{-3pt}
+\[\boxed{\text{logistic}(x) = \frac{1}{1+e^{-x}} = \frac{e^{x}}{e^{x} +1} }\]
 
-\vspace{3pt}
+\vspace{-3pt}
 
 
 \begin{minipage}{0.5\linewidth}
@@ -1116,12 +1346,13 @@ logistic\((x) = \frac{1}{1+e^{-x}} = \frac{e^{x}}{e^{x} +1} \)
 
 \vspace{3pt}
 $\rightarrow$ Odds are another way of representing probabilities.\\
-$\rightarrow$ The logistic and logit functions convert between probabilities and log-odds.
+$\rightarrow$ The logistic and logit functions convert between probabilities and log-odds. \\
+
 
 
 \vspace{3pt}
-\textbf{General Linear Models (GLMs)}: 
-
+$\bullet$ \textbf{General Linear Models (GLMs)}: 
+\vspace{-3pt}
 \[\hat{y_{i}} = g^{-1}\left(\beta_{0} + \beta_{1} x_{i1} + \beta_{2} x_{i2} \cdots + \beta_{p} x_{ip} \right) \]
 \vspace{-5pt}
 \[\boxed{\hat{y}_{i} = g^{-1}\left(\beta_{0} + \sum_{j=1}^{p} \beta_{j} x_{ij}  \right)}\]
@@ -1129,26 +1360,36 @@ $\rightarrow$ The logistic and logit functions convert between probabilities and
 Here, $g$ is a link function 
 \\
 
-$\bullet$ Counts: Poision regression, log link func \\
-$\bullet$ Binary: Logistic regression, logit link  func and $g^{-1}$ is logistic func \\
+$\bullet$ \textbf{Counts}: Poision regression, log link func \\
+$\bullet$ \textbf{Binary}: Logistic regression, logit link  func and $g^{-1}$ is logistic func \\
 
 
-$\rightarrow$ In logistic regression, a linear output is converted into a probability between 0 and 1 using the sigmoid or logistic function.  It is the go-to for \textbf{binary classification}.
-\vspace{-5pt}
+$\rightarrow$ In logistic regression, a linear output is converted into a probability between 0 and 1 using the sigmoid or logistic function. 
+\vspace{-4pt}
 \[\boxed{P(y_{i}=1|X) = \hat{y}_{i} = \text{logistic} \left(\beta_{0} + \sum_{j} \beta_{j} x_{ij} \ \right)} \]
 
-$\rightarrow$ \(\boxed{\text{logistic}(x) = \frac{1}{1+e^{-x}} = \frac{e^{x}}{e^{x} +1} }\)
+\vspace{-3pt}
+\[\boxed{ p(X) = \frac{e^{\beta_{0} + \beta_{1}x_{1} + \cdots + \beta_{i} x_{i}}}{1 + e^{\beta_{0} + \beta_{1}x_{1} + \cdots + \beta_{i} x_{i}}}  = p(y = 1 \, | \, X)}\] \
 
+
+
+
+\textbf{\textcolor{blue}{Note :} Coefficients} are linearly related to odds, such that a one unit increase in $x_{1}$ affects odds by $e^{\beta_{1}}$. \\
+
+\textbf{\textcolor{blue}{Note :}} The \textbf{coefficients in logistic regression are interpreted} in terms of their effect on the log-odds of the outcome, and the exponentiated coefficients (odds ratios) provide a clearer understanding of the change in odds associated with each predictor.
+
+
+
+\vspace{-5pt}
 \begin{center}
-    \begin{minipage}{\linewidth}
+    \begin{minipage}{0.86\linewidth}
     \includegraphics[width=\textwidth]{figures/logistic_function_regression.PNG}
     \end{minipage}
 \end{center}
 
-
+\vspace{-5pt}
 The representation below is an equation with binary output, which actually models the probability of default class: 
-\[\boxed{ p(X) = \frac{e^{\beta_{0} + \beta_{1}x_{1} + \cdots + \beta_{i} x_{i}}}{1 + e^{\beta_{0} + \beta_{1}x_{1} + \cdots + \beta_{i} x_{i}}}  = p(y = 1 \, | \, X)}\] \
-$\rightarrow$  predict value close to 1 for default class and close to 0 for the other class. \\
+
 
 \vspace{2pt}
 \textbf{\underline{Assumptions:}} \\
@@ -1156,9 +1397,11 @@ $\rightarrow$  predict value close to 1 for default class and close to 0 for the
 - Observations must be independent to each other \\
 - Low multicollinearity \\
 
+
+
 \vspace{2pt}
 \textbf{\underline{Learning:}} Learning the logistic regression coefficients is done by: \\
-\textbf{\textcolor{blue}{Note :} Coefficients} are linearly related to odds, such that a one unit increase in $x_{1}$ affects odds by $e^{\beta_{1}}$. \\
+
 $\rightarrow$ \textbf{Minimizing} the \textbf{logistic loss function} 
 \vspace{-5pt}
 \[\boxed{\underset{\vec{\beta}} {\arg\min} \sum_{i} \text{log}\big(1+\text{exp}(-y_{i} \vec{\beta}x_{i}) \big)} \] 
@@ -1174,7 +1417,8 @@ $\rightarrow$ \textbf{Maximizing} the \textbf{log likelihood} of the training da
 Model log likelihood is sum over training data. Applicable to \textbf{any} model where \(\hat{y} = P(Y=1 |x) \) 
 
 
-\vspace{2pt}
+
+
 \textbf{\underline{Data preparation:}}\\
 - Probability transformation to binary for classification \\
 - Remove noise such as outliers
@@ -1192,9 +1436,7 @@ Model log likelihood is sum over training data. Applicable to \textbf{any} model
 - Classification of loan defaults according to profile
 
 
-\vspace{3pt}
-\textbf{\textcolor{blue}{How to choose threshold for the logistic regression?}}
-The choice of a threshold depends on the importance of TPR and FPR classification problem. For \textbf{example}, if your classifier will decide which criminal suspects will receive a death sentence, false positives are very bad (\textbf{innocents will be killed!}). Thus you would choose a threshold that yields a low FPR while keeping a reasonable TPR (so you actually catch some true criminals). If there is no external concern about low TPR or high FPR, one option is to weight them equally by choosing the threshold that maximizes TPR$-$FPR.
+
 
 
 \subsubsection{Linear Discriminant Analysis} {\color{teal}\hrule height 0.5pt} \smallskip
@@ -1219,11 +1461,11 @@ technique. \\
 LDA assumes \textbf{Gaussian} data and attributes of \textbf{same} $\sigma^{2}$. 
 \vspace{3pt}
 \textbf{Predictions} are made using \textbf{Bayes Theorem}: 
-\vspace{-5pt}
+\vspace{-4pt}
 \[\boxed{ P(y=k \, | \,  X=x) = \frac{P(k) \times P(x|k)}{\sum^{k}_{l=1} P(l) \times P(x|l) } } \]
 
 to obtain a discriminate function (latent variable) for each class $k$, estimating $P(x|k)$ with a \textbf{Gaussian} distribution:
-\vspace{-5pt}
+\vspace{-4pt}
 \[\boxed{ D_{k}(x) = x \times \frac{\mu_{k}}{\sigma^{2}} - \frac{\mu_{k}^{2}}{2 \sigma^{2}} + ln(P(k))} \]
 The class with largest \textbf{discriminant value} is the \textbf{output class}. 
 
@@ -1252,10 +1494,11 @@ The class with largest \textbf{discriminant value} is the \textbf{output class}.
 - Prediction of customer churn
 
 
+\vspace{5pt}
 
-\vspace*{\fill}
+% \vspace*{\fill}
 
-\columnbreak
+% \columnbreak
 
 \subsection{Nonlinear Algorithms} {\color{teal}\hrule height 1pt} \smallskip
 All Nonlinear Algorithms are non-parametric and more flexible. They are not sensible to outliers and do not require any shape of distribution. 
@@ -1267,30 +1510,30 @@ selecting the \textbf{best hypothesis} $h$ given data $d$ \textbf{assuming that 
 
 \textbf{\underline{Representation:}} 
 The representation is based on Bayes Theorem:
-\vspace{-5pt}
+\vspace{-3pt}
 \[\boxed{P(Y|d) = \frac{P(d|Y) \times P(Y)}{P(d)}} \]
 With naive hypothesis, \(P(Y|d) = P(x_{1}, x_{2}, \cdots, x_{i} | \, Y) = P(x_{1} | Y) \times P(x_{1} | Y) \times \cdots P(x_{i} | Y) \) 
-\vspace{-5pt}
+\vspace{-3pt}
 \[\boxed{P(d|Y) = \prod^{n}_{i=1} P(x_{i} | \, Y)} \]
 
 \vspace{3pt}
 The prediction is the maximum a \textbf{posterior hypothesis}:
-\vspace{-5pt}
+\vspace{-3pt}
 \[\boxed{\text{max}\left(P(Y|d)\right) = \text{max}\left(P(d|Y) \times P(Y)\right)} \] 
 here, the denominator is not kept as it is only for normalization.
 
 \vspace{3pt}
 \textbf{\underline{Learning:}} Training is \textbf{fast} because only \textbf{probabilities} need to be calculated: 
-\vspace{-5pt}
+\vspace{-3pt}
 \[\boxed{P(Y) = \frac{\text{instances}_{Y}}{ \text{all instances}}} \hspace{15pt} \boxed{P(x|Y) = \frac{\text{count}(x \land Y  )}{\text{instances}_{Y}}}\]
 
 
 
 \vspace{3pt} 
 \textbf{\underline{Variations:}} \textbf{Gaussian Naive Bayes} can extend to numerical attributes by assuming a Gaussian distribution. Instead of $P(x|h)$ are calculated with $P(h)$ during \textbf{learning}, and MAP for \textbf{prediction} is calculated using Gaussian PDF
-\vspace{-5pt}
+\vspace{-3pt}
 \[\boxed{f(x \, | \,  \mu(x), \sigma) = \frac{1}{\sqrt{2 \pi \sigma^{2}}} e^-{\frac{(x-\mu)^{2}}{2\sigma^{2}}} }\]
-\vspace{-5pt}
+\vspace{-3pt}
 \[\mu(x) = \frac{1}{n} \sum^{n}_{i=1} x_{i} \hspace{10pt}  \sigma = \sqrt{\frac{1}{n} \sum^{n}_{i=1} \left( x_{i} - \mu(x) \right)^{2}} \]
 
 
@@ -1339,18 +1582,23 @@ here, the denominator is not kept as it is only for normalization.
 
 
 
-\begin{center}
-    \begin{minipage}{0.8\linewidth}
-        \includegraphics[width=\textwidth]{figures/Bayesian_data_analysis.jpeg}
-    \end{minipage}
-\end{center}
+% \begin{center}
+%     \begin{minipage}{0.8\linewidth}
+%         \includegraphics[width=\textwidth]{figures/Bayesian_data_analysis.jpeg}
+%     \end{minipage}
+% \end{center}
 
 
-\begin{center}
-    \begin{minipage}{\linewidth}
-        \includegraphics[width=\textwidth]{figures/Naive Bayes Spam Classifier.jpg}
-    \end{minipage}
-\end{center}
+% \begin{center}
+%     \begin{minipage}{\linewidth}
+%         \includegraphics[width=\textwidth]{figures/Naive Bayes Spam Classifier.jpg}
+%     \end{minipage}
+% \end{center}
+
+
+% \vspace*{\fill}
+% \columnbreak
+
 
 \subsubsection{Support Vector Machines} {\color{teal}\hrule height 0.5pt} \smallskip
 
@@ -1384,7 +1632,7 @@ $\rightarrow$ The \textbf{goal} of a support vector machine is to find the optim
 \vspace{-5pt}
 
 The \textbf{prediction} function is the signed \textbf{distance} of the new input $x$ to the separating hyperplane $w$, \textcolor{blue}{with b the bias}: 
-\vspace{-5pt}
+\vspace{-4pt}
 \[\boxed{f(x) = \langle w,x\rangle + b = w^{T} x + b} \] 
 \vspace{-5pt}
 
@@ -1396,10 +1644,10 @@ The \textbf{prediction} function is the signed \textbf{distance} of the new inpu
 
 \vspace{3pt}
 $\rightarrow$ \textbf{Optimal margin classifier: } The optimal margin classifier $h$ is such that: 
-\vspace{-5pt}
+\vspace{-4pt}
 \[\boxed{h(x) = \text{sign}(w^{T}x - b)} \]
 where $(w, b) \in \mathcal{R}^{n} \times \mathcal{R}$ is the  solution of the following optimization problem:
-\vspace{-5pt}
+\vspace{-4pt}
 \[ \boxed{\text{min}\frac{1}{2} \lVert {w} \rVert^{2} }\] such that \hspace{5pt} \[\boxed{y^{(i)} (w^{T}x^{(i)} - b) \geq 1}\]
 
 \vspace{3pt}
@@ -1407,19 +1655,19 @@ where $(w, b) \in \mathcal{R}^{n} \times \mathcal{R}$ is the  solution of the fo
 
 \textbf{\underline{Learning:}} \\
 $\rightarrow$ \textbf{Hinge loss : } The hinge loss is used in the setting of SVMs and is defined as follows:
-\vspace{-3pt}
-\[\boxed{L(z,y) = \left[1 - yz  \right]_{+} = \text{max}(0, \, 1-yz)} \]
+\vspace{-2pt}
+\[\boxed{L(\hat{y},y) = \left[1 - y\hat{y}  \right]_{+} = \text{max}(0, \, 1-y\hat{y})} \]
 
 \vspace{3pt}
 $\rightarrow$ \textbf{Lagrangian : } We define the Lagrangian $\mathcal{L}(w, b)$ as follows:
-\vspace{-5pt}
+\vspace{-3pt}
 \[\boxed{\mathcal{L}(w, b) = f(w) + \sum^{l}_{i=1} \beta_{i} h_{i} (w) }\]
 
 
 Lagrange method is required to convert constrained optimization problem into unconstrained optimization problem. The goal of above equation to get the optimal value for \textbf{w} and \textbf{b}.
-\vspace{-5pt}
+\vspace{-4pt}
 \[\boxed{ \lambda \lVert \vec{w} \rVert^{2} + \left[ \frac{1}{n} \sum^{n}_{i=1} \text{max} \big(0, \, 1 - y_{i}(\vec{w} \cdot \vec{x_{i}} - b) \big)\right] }  \] 
-The first term is the regularization term, which is a technique to avoid overfitting by penalizing large coefficients in the solution vector. The second term, hinge loss, is to penalize misclassifications. It measures the error due to misclassification (or data points being closer to the classification boundary than the margin).  The $\lambda$ is the regularization coefficient, and its major role is to determine the trade-off between increasing the margin size and ensuring that the $x_{i}$ lies on the correct side of the margin.
+The\textbf{ first term} is the regularization term, which is a technique to avoid overfitting by penalizing large coefficients in the solution vector. The \textbf{second term}, hinge loss, is to penalize misclassifications. It measures the error due to misclassification (or data points being closer to the classification boundary than the margin).  The $\lambda$ is the regularization coefficient, and its major role is to determine the trade-off between increasing the margin size and ensuring that the $x_{i}$ lies on the correct side of the margin.
 
 
 
@@ -1427,8 +1675,9 @@ The first term is the regularization term, which is a technique to avoid overfit
 \vspace{3pt}
 $\rightarrow$ \textbf{Kernel : } A kernel is a way of computing the dot product of two vectors $\textbf{x}x$ and $\textbf{y}y$ in some (possibly very high dimensional) feature space, which is why kernel functions are sometime called "generalized dot product". The kernel trick is a method of using a linear classifier to solve a non-linear problem by transforming linearly inseparable data to linearly separable ones in a higher dimension.\\
 
+\vspace{3pt}
 Given a feature mapping $\phi$, we define the kernel $K$ as follows:
-\vspace{-5pt}
+\vspace{-4pt}
 \[\boxed{K(x, z) = \phi(x)^{T} \phi(z)} \] 
 In practice, the kernel $K$ defined by $\boxed{K(x, z) =  e^-{\frac{\lVert x - z \rVert^{2}}{2\sigma^{2}}}}$ is called the Gaussian kernel and is commonly used.
 
@@ -1472,11 +1721,28 @@ measure between new data and support vectors:
 - Face detection from images \\
 - Target Audience Classification from tweets
 
+\vspace{2pt}
+
+\textbf{\textcolor{blue}{Hyperparameters}}: regularization parameter (C) and the kernel parameters (such as gamma for the RBF kernel).
+
+
+
+
+
 
 \subsubsection{K-Nearest Neighbors} {\color{teal}\hrule height 0.5pt} \smallskip
 
 \textbf{If you are similar to your neighbors, you are one of them.}
 KNN uses the \textbf{entire training data}, \textbf{no training} is required. 
+
+
+\textbf{\textcolor{blue}{Note: }} Higher $k$ $\rightarrow$ higher the bias, Lower $k$ $\rightarrow$ higher the variance.
+
+$\bullet$ \textbf{Choice of \textbf{k} is very critical} $\rightarrow$ A small value of \textbf{k} means that noise will have a higher influence on the result. 
+$\rightarrow$ A large value of \textbf{k} make everything classified as the most probable class and also computationally expensive.\\
+
+$\rightarrow$ A simple approach to \textbf{select} \textbf{k} is set $\boxed{\text{k} = \sqrt{n}}$ or \textbf{cross-validating} on small subset of training data (validation data) by \textbf{varying} values of $k$ and \textbf{observing} training - validation error. \\
+
 
 \begin{center}
     \begin{minipage}{\linewidth}
@@ -1487,12 +1753,7 @@ KNN uses the \textbf{entire training data}, \textbf{no training} is required.
 
 
 
-\textbf{\textcolor{blue}{Note: }} Higher $k$ $\rightarrow$ higher the bias, Lower $k$ $\rightarrow$ higher the variance.
 
-$\bullet$ \textbf{Choice of \textbf{k} is very critical} $\rightarrow$ A small value of \textbf{k} means that noise will have a higher influence on the result. 
-$\rightarrow$ A large value of \textbf{k} make everything classified as the most probable class and also computationally expensive.\\
-
-$\rightarrow$ A simple approach to \textbf{select} \textbf{k} is set $\boxed{\text{k} = \sqrt{n}}$ or \textbf{cross-validating} on small subset of training data (validation data) by \textbf{varying} values of $k$ and \textbf{observing} training - validation error. \\
 
 $\rightarrow$ \textcolor{purple}{Minkowski Distance} = \(\boxed{\left(\sum| a_{i} - b_{i}|^{p}\right)^{\frac{1}{p}}} \) \\
 \hspace{10pt} - p=1 gives \textbf{Manhattan distance} \(\boxed{\sum|a_{i} - b_{i}|} \)  \\
@@ -1532,11 +1793,52 @@ Since it stores all the pairwise distances and is sorted in memory on a machine,
 
 
 
+
+\vspace*{\fill}
+\columnbreak
+
+
 \subsubsection{Classification and Regression Trees (CART)} {\color{teal}\hrule height 0.5pt} \smallskip
 
-Decision Tree is a \textbf{Supervised learning} technique that can be used for both \textbf{Classification} and \textbf{Regression} problems. \\
+Decision Tree is a \textbf{Supervised learning} technique that can be used for both \textbf{Classification} and \textbf{Regression} problems. 
+
+
+
+\vspace{-5pt}
+\begin{center}
+    \begin{minipage}{0.75\linewidth}
+    \includegraphics[width=\textwidth]{figures/decision_trees.PNG}
+    \end{minipage}
+\end{center}
+\vspace{-7pt}
+
+
+Here, each \textbf{node} represents a question about the data, and the \textbf{branches} from each node represent the possible answers.
+
+
+$\rightarrow$ \textbf{Root Node}: It is the very first node (parent node), and denotes the whole population, and gets split into two or more Decision nodes based on the feature values. \\
+$\rightarrow$ \textbf{Decision Node}: At each decision node, the algorithm chooses the best feature and threshold to split the data, aiming to create the most homogeneous subsets. They have \textbf{multiple} branches.  \\
+
+$\rightarrow$ This process continues until a stopping condition is met (like maximum depth or pure leaves). \\
+
+$\rightarrow$ \textbf{Leaf Node}: The final predictions are made at the leaf nodes, which represent the outcome of those \textbf{decisions}.
+
+$\rightarrow$ \textbf{Sub-Tree}: A branch is a subdivision of a complete tree. 
+
 
 \vspace{3pt}
+At each leaf node, CART predicts the most frequent category, assuming false negative and false positive costs are the same. \\
+
+$\rightarrow$ The splitting process handles multicollinearity and outliers. \\
+$\rightarrow$ Trees are prone to high variance, so tune through CV.
+
+\vspace{2pt}
+\textcolor{blue}{Note:} In decision trees, the \textbf{depth of the tree} determines the variance. Decision trees are commonly pruned to control variance
+
+
+\vspace{3pt} 
+
+
 $\bullet$ CART for \textcolor{blue}{regression } \textbf{minimizes SSE} by splitting data into sub-regions and predicting the average value at leaf nodes. The complexity parameter $cp$ only keeps splits that reduce loss by at least $cp$ (small $cp$ $\rightarrow$ deep tree). 
 
 \vspace{2pt}
@@ -1548,41 +1850,16 @@ $\bullet$ CART for \textcolor{blue}{classification }
 - \(\boxed{
 \text{Cross Entropy} = \sum(p_{i})\text{log}_{2}(p_{i})} \)
 
-\vspace{2pt}
-At each leaf node, CART predicts the most frequent category, assuming false negative and false positive costs are the same. \\
 
-$\rightarrow$ The splitting process handles multicollinearity and outliers. \\
-$\rightarrow$ Trees are prone to high variance, so tune through CV.
 
 \vspace{3pt}
-A decision tree is made up of nodes. Each node represents a question about the data. And the branches from each node represents the possible answers.
-
-\vspace{-5pt}
-\begin{center}
-    \begin{minipage}{0.75\linewidth}
-    \includegraphics[width=\textwidth]{figures/decision_trees.PNG}
-    \end{minipage}
-\end{center}
-\vspace{-5pt}
-
-\textbf{Root Node}: It is the very first node, or we can call it as a parent node. It denotes the whole population and gets split into two or more Decision nodes based on the feature value. \\
-\textbf{Decision Node}: Decision nodes are used to make any \textbf{decisions} and have \textbf{multiple} branches \\
-
-\textbf{Leaf Node}: Leaf nodes are the \textbf{output} of those \textbf{decisions}.
-
-\textbf{Sub-Tree}: A branch is a subdivision of a complete tree. 
-
-\vspace{2pt}
-
-\textcolor{blue}{Note:} In decision trees, the depth of the tree determines the variance. Decision trees are commonly pruned to control variance
-
 \textbf{\textcolor{blue}{Procedure}}:
 \vspace{-3pt}
 \begin{enumerate}
     \item Calculate entropy of the \textbf{outcome} classes (c) \(\boxed{E(T) = \sum^{c}_{i=1} -p_{i} \, \text{log}_{2}p_{i}} \)
     \vspace{-2pt}
     \item The dataset is split on the different attributes. The entropy of each branch is calculated. Then it is added proportionally to get \textbf{total entropy for the split}. The resulting entropy is subtracted from the entropy before the split.
-    \vspace{-5pt}
+    \vspace{-3pt}
     \[\boxed{\text{Gain}(T,X) = \text{Entropy}(T) - \text{Entropy}(T, X) }\]
     \vspace{-10pt}
     \item Choose attributes with \textbf{largest information Gain} as the \textbf{decision node}, divide the dataset by its branches and repeat the same process on \textbf{every branch}.
@@ -1595,20 +1872,18 @@ A decision tree is made up of nodes. Each node represents a question about the d
     \vspace{-2pt}
 \end{enumerate}
 
-\textbf{Advantages:} \\
+\textbf{\underline{Advantages}:} \\
 $\rightarrow$ Can take any type of variables and do not require any data prepraration \\
 $\rightarrow$ Simple to understand, interpret, visualize \\
 $\rightarrow$ Non-linear parameters don't effect its performance \\
 
 \vspace{3pt}
-\textbf{Disadvantages:} \\
+\textbf{\underline{Disadvantages}:} \\
 $\rightarrow$ Overfitting (High variance) occurs, when noise data \\
 $\rightarrow$ DT can be unstable (use bagging or boosting) because of small variation in data
 
 \vspace{3pt}
-\textbf{\textcolor{blue}{Note:}}  The most common \textbf{Stopping Criterion} for splitting is a
-minimum of \textbf{training observations per node}.
-
+\textbf{\textcolor{blue}{Hyperparameters}}:  The most common \textbf{Stopping Criterion} for splitting is a minimum of \textbf{training observations per node},  maximum depth of the tree 
 
 
 % \vspace*{\fill}
@@ -1618,7 +1893,7 @@ minimum of \textbf{training observations per node}.
 \subsubsection{Ensemble Algorithms} {\color{teal}\hrule height 0.5pt} \smallskip
 
 Ensemble methods combine multiple, simpler algorithms (weak learners) to obtain better performance algorithm.
-
+\vspace{-5pt}
 \begin{center}
         \footnotesize
         \begin{tabular}{ c|c }
@@ -1629,28 +1904,33 @@ Ensemble methods combine multiple, simpler algorithms (weak learners) to obtain 
           & XGBoost \\
         \end{tabular}
 \end{center}
+\vspace{-5pt}
 
-
-
-$\bullet$ \textbf{\textcolor{purple}{Bootstrapping}} is drawing random \textbf{sub-samples} (sampling \textbf{with replacement}) from a large \textbf{sample} (available data) to estimate quantity (parameters) of a unknown population by \textbf{averaging the estimates} from these \textbf{sub-samples}. \\
-$\bullet$ \textbf{\textcolor{purple}{Bagging}}: It uses bootstrap technique, and can \textbf{reduce the variance} of high-variance models..
-
-\vspace{3pt}
-\textbf{How bagging works?} 1. Bootstrapping $\rightarrow$ 2. Parallel training $\rightarrow$ 3. Aggregation. 
-Finally, \textbf{depending on the type of task} — regression or classification, for example—the average or majority of those predictions yield a more accurate estimate.  \\
-
-
-
-
-
+$\bullet$ \textbf{\textcolor{purple}{Bagging}} \\
+$\rightarrow$ It involves \textbf{parallel} training of multiple models independently on \textbf{different subsets} of the data. These subsets of data are drawn using the bootstrap technique. \\
+$\rightarrow$ Then averaging their predictions (for regression) or majority voting (for classification). \\
+$\rightarrow$ It can \textbf{reduce the variance} and prevent overfitting by averaging out the errors of individual models.
 
 \vspace{3pt}
-\textcolor{blue}{\textbf{Random Forest}} \\
+$\rightarrow$ \textbf{\textcolor{blue}{Bootstrapping}} is drawing random \textbf{sub-samples} (sampling \textbf{with replacement}) from a large \textbf{sample} (available data) to estimate quantity (parameters) of a unknown population by \textbf{averaging the estimates} from these \textbf{sub-samples}. \\
+
+
+
+
+
+
+
+
+
+\vspace{3pt}
+\textcolor{teal}{\textbf{Random Forest}} \\
 $\rightarrow$\textbf{ Bagged Decision Trees}: Each DT may contain different no. of rows and different no. of features. \\
 $\rightarrow$ Individual DTs may face \textbf{overfitting} i.e. have \textbf{low bias} (complex model) but \textbf{high variance}, by ensembling a lot of DTs we are going to \textbf{reduce the variance}, while not increasing the bias. \\ 
+\textbf{\textcolor{blue}{Hyperparameters}}: number of trees, maximum depth of the trees 
 
 \vspace{7pt}
-$\bullet$ \textbf{\textcolor{purple}{Boosting}}: The idea of boosting methods is to train \textbf{weak learners sequentially}, each trying to correct its predecessor. \\
+$\bullet$ \textbf{\textcolor{purple}{Boosting}} \\
+$\rightarrow$ It involves \textbf{sequentially} training of multiple models, where each model tries to correct the errors of the previous ones.
 
 
 
@@ -1665,11 +1945,11 @@ $\bullet$ \textbf{\textcolor{purple}{Boosting}}: The idea of boosting methods is
 
 
 \vspace{3pt}
-\textcolor{blue}{\textbf{AdaBoost}} \\
+\textcolor{teal}{\textbf{AdaBoost}} \\
 
 $\bullet$ Uses the \textbf{same training samples} at each stage \\
 $\bullet$ "Weakness" =  Misclassified data points \\
-$\bullet$ Increase the weight of misclassified data points \\
+$\bullet$ \textbf{Learning Focus}: Primarily reduces bias by focusing on misclassified instances
 \textbf{Algorithm}:
 \vspace{-3pt}
 \begin{enumerate}
@@ -1683,15 +1963,16 @@ $\bullet$ Increase the weight of misclassified data points \\
     \vspace{-3pt}
     \item Repeat steps 2-4 for a predefined number of iterations or until the error is minimized.
 \end{enumerate}
+$\bullet$ \textbf{Limitations}: Sensitive to noisy data and outliers since misclassified points are given more focus. \\
 
-
+\textbf{\textcolor{blue}{Hyperparameters}}: number of estimators, learning rate.
 
 
 \vspace{3pt}
-\textcolor{blue}{\textbf{Gradient Boosting}} \\
+\textcolor{teal}{\textbf{Gradient Boosting}} \\
 $\bullet$ Uses the \textbf{different training samples} at each stage \\
 $\bullet$ "Weakness" =  Residuals or Erros \\
-$\bullet$ A loss function to be optimized, additive model to add weak learners\\
+$\bullet$ \textbf{Learning Focus}: Instead of adjusting weights, it optimizes the model by minimizing a loss function (e.g., mean squared error for regression).\\
 \textbf{Algorithm}:
 \vspace{-3pt}
 \begin{enumerate}
@@ -1705,20 +1986,29 @@ $\bullet$ A loss function to be optimized, additive model to add weak learners\\
     \vspace{-3pt}
     \item Repeat steps 2-4 for a fixed number of iterations or until the model converges.
 \end{enumerate}
+$\bullet$ \textbf{Limitations}: Slower to train and more prone to overfitting without careful tuning.
+
+\textbf{\textcolor{blue}{Hyperparameters}}: learning rate, number of boosting stages, maximum depth of individual trees.
+
+
 
 
 \vspace{3pt}
-\textcolor{blue}{\textbf{XGBoost}} \\
-$\bullet$ Optimized and scalable implementation of gradient boosting. \\
+\textcolor{teal}{\textbf{XGBoost}} \\
+$\bullet$ Enhances gradient boosting by making it faster, more efficient, and more accurate.. \\
 $\rightarrow$ \textbf{Execution speed}: Parallelization (It will use all cores of CPU), Cache optimization, Out of memory (Data size bigger than memory) \\
 
-$\rightarrow$ \textbf{Model performance: } Adds regularization (prevent overfitting), Auto running (Uses "max depth" to control the growth of trees), Missing values treatment, Efficient handling of sparse data, 
+$\rightarrow$ \textbf{Model performance: }  \\
+\hspace{8pt}- Adds regularization to balance the trade-off between fitting the training data and maintaining model simplicity. \\
+\hspace{8pt}- \textbf{Auto pruning}: Prevents trees from growing too large, improving generalization and reducing the risk of overfitting. \\
+\hspace{8pt}- During training, model learns the optimal way to split data with \textbf{missing values} as well as model learns from the patterns of \textbf{missing data} and adjusts the decision boundaries accordingly.\\
+\hspace{8pt}- Efficient handling of sparse data \\
+\hspace{8pt}- Flexible: Supports a variety of loss functions and custom objective functions \\
 
+\textbf{\textcolor{blue}{Hyperparameters}}: Learning Rate, Number of Trees, Maximum Depth, Min Child Weight, Subsample, Booster Type, Early Stopping Rounds
 
 
 \vspace*{\fill}
-
-
 
 \columnbreak
 
@@ -1939,10 +2229,8 @@ PCA combines highly correlated variables into a new, smaller set of constructs c
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Neural Network %%%%%%%%%%%%%%%%%%%%%%
 \section{Neural Network} {\color{teal}\hrule height 1pt} \smallskip
 
-\href{https://www.youtube.com/watch?v=2dH_qjc9mFg&list=PLKnIA16_RmvYuZauWaPlRTC54KxSNLtNn&index=1}{Deep Learning Tutorial by CampusX} \\
-
-
-$\rightarrow$ Feeds inputs through different hidden layers and relies on weights and nonlinear functions (activation functions, convolution, or pooling) to reach an output
+A neural network is a type of machine learning model that mimics the structure and function of the human brain to recognize patterns, make decisions, and learn from data. 
+\vspace{-5pt}
 
 \begin{center}
     \begin{minipage}{0.85\linewidth}
@@ -1951,15 +2239,17 @@ $\rightarrow$ Feeds inputs through different hidden layers and relies on weights
 \end{center}
 
 
+\vspace{-5pt}
+$\rightarrow$ \textbf{Input Layer}: The first layer that receives the input data. Each neuron in this layer corresponds to a \textbf{feature} of the input data. 
 
-$\bullet$ \textbf{Perceptron} - the foundation of a neural network, and it is a single-layer neural network that multiplies inputs by weights, adds bias, and feeds the result to an activation function \\
+$\rightarrow$ \textbf{Hidden Layers}: Layers between the input and output layers where the network learn complex patterns.
 
-\vspace{3pt}
+$\rightarrow$ \textbf{Output Layer}: The final layer that produces the network's output, such as a prediction or classification.
 
-\textbf{Note}: Perceptron is usually used to classify the data into two parts. Therefore, it is also known as a \textbf{Linear Binary Classifier}.
-\\
+$\bullet$ \textbf{Perceptron} - the foundation of a neural network, and it is a single-layer neural network. An Artificial Neuron is a basic building block of a neural network. \\
 
-An Artificial Neuron is a basic building block of a neural network.
+$\bullet$ \textbf{Neural Network} - a multi-layer \textbf{perceptron} 
+
 \vspace{-5pt}
 \begin{center}
     \begin{minipage}{0.6\linewidth}
@@ -1968,7 +2258,7 @@ An Artificial Neuron is a basic building block of a neural network.
 \end{center}
 
 
-\vspace{-5pt}
+\vspace{-7pt}
 \begin{center}
     \begin{minipage}{0.5\linewidth}
     \includegraphics[width=\textwidth]{figures/perceptron_artificial_neuron_equation.png}
@@ -1979,11 +2269,11 @@ An Artificial Neuron is a basic building block of a neural network.
 
 
 
-% \textbf{Inputs}: Inputs are the set of values for which we need to predict an output value. They can be viewed as features or attributes in a dataset. \\
-$\rightarrow$ \textbf{Weights}: are the real values that are attached with each input/feature and they convey the importance of that corresponding feature in predicting the final output. \\
+
+$\rightarrow$ \textbf{Weights}: are the real values that are attached with each input/feature and they convey the importance of that feature in predicting the final output. \\
 $\rightarrow$ \textbf{Bias}: is used for shifting the activation function towards left or right.\\
 $\rightarrow$ \textbf{Summation Function}: used to bind the weights and inputs together and calculate their sum. \\
-$\rightarrow$ \textbf{Activation Function}: decides whether a neuron should be activated or not. The activation function introduces non-linearities into the network which makes input capable of learning and performing more complex tasks. 
+$\rightarrow$ \textbf{Activation Function}: decides whether a neuron should be activated or not, and it introduces \textbf{non-linearities} into the network which makes input capable of learning and performing more complex tasks. 
 
 \vspace{-5pt}
 \begin{center}
@@ -2015,69 +2305,69 @@ $\rightarrow$ \textbf{Activation Function}: decides whether a neuron should be a
 
 
 
-$\bullet$ \textbf{Neural Network} - a multi-layer \textbf{perceptron} 
-\\
-
-
 
 $\rightarrow$ \textbf{Softmax} - used as the last activation function of a neural network to normalize the output of a network to a probability distribution over predicted output classes. These probabilities sum to 1 $\to \frac{e^{z_i}}{\sum e^{z}}$
 
 $\rightarrow$ If there is more than one `correct' label, the sigmoid function provides probabilities for all, some, or none of the labels.
 
 
-\smallskip
-$\rightarrow$ \textbf{Loss Function} - The loss function is the
-function that computes the distance or difference between the \textbf{predicted} output $\hat{y}$ of the algorithm and the \textbf{expected} output $y$. $\rightarrow$ The loss function is used to optimize the model by minimizing the loss.
-\vspace{-5pt}
-\begin{itemize}[label={--},leftmargin=4mm]
+
+
+
+\vspace{3pt}
+\textbf{\textcolor{teal}{How Neural Networks Work?}} \\
+$\bullet$  \textbf{Forward Propagation:} The input data is passed through the network, layer by layer, with each neuron applying its weights and bias to the input and passing the result through the activation function. The final layer produces the output.
+
+\vspace{2pt}
+
+$\bullet$ \textbf{Backpropagation:} Backpropagation is an algorithm used in neural networks to adjust the internal weights and biases to minimize the error calculated by the loss function. 
 \vspace{-3pt}
+\begin{itemize}[label={--},leftmargin=4mm]
 \item \textbf{Regression Loss}: Mean Squared Error/Squared loss/ L2 loss, Mean Absolute Error/ L1 loss, Huber Loss 
 \vspace{-3pt}
 \item \textbf{Classification Loss}: Binary Cross Entropy/log loss, Categorical Cross Entropy
 \vspace{-3pt}
 \end{itemize}
+The common loss functions are summed up in the table below:
+\vspace{-5pt}
+\begin{center}
+    \begin{tabular}{c|c|c}
+            \textbf{Least squared error} & \textbf{Logistic loss} & \textbf{Hinge loss} \\
+            \hline
+             $\frac{1}{2}(y-\hat{y})^{2}$ & $\text{log}\left(1+\text{exp}(-y\hat{y})\right)$ & $\text{max}(0, 1-y\hat{y})$  \\
+            \hline 
+            Linear Regression & Logistic Regression & SVM \\
+            \hline
+            \includegraphics[scale = 0.4]{figures/least_squared_loss_func.PNG} &
+            \includegraphics[scale = 0.4]{figures/logistic_loss_func.PNG} &
+            \includegraphics[scale = 0.4]{figures/hinge_loss_func.PNG}
+    \end{tabular}
+\end{center}
+
+
+
+\vspace{2pt}
+$\rightarrow$ During training, the network uses a supervised learning method where the difference (error) between the network's predicted output and the known expected output is calculated. This error is then propagated back through the network via backpropagation to compute the gradient of the loss function with respect to each weight. An optimization algorithm, such as gradient descent, uses these gradients to update the weights and biases, reducing the error and improving the model's accuracy over time.
 
 
 
 
-\smallskip
-\textbf{Gradient Descent} - minimizes the average loss by moving iteratively in the direction of steepest descent, controlled by the learning rate $\gamma$ (step size). Note, $\gamma$ can be updated adaptively for better performance. For neural networks, finding the best set of weights involves:
 
-\begin{enumerate}[leftmargin=5mm]
-\vspace{-3pt}
-\item Initialize weights $W$ randomly with near-zero values
-\vspace{-3pt}
-\item Loop until convergence:
-    \vspace{-3pt}
-    \begin{itemize}[label={--},leftmargin=4mm]
-    \vspace{-3pt}
-    \item Calculate the average network loss $J(W)$
-    \vspace{-3pt}
-    \item \textbf{Backpropagation} - iterate backwards from the last layer, computing the gradient $\frac{\partial J(W)}{\partial W}$ and updating the weight $W \leftarrow W - \gamma \frac{\partial J(W)}{\partial W}$
-    \vspace{-3pt}
-    \end{itemize}
-    \vspace{-3pt}
-\item Return the minimum loss weight matrix $W$
-\vspace{-3pt}
-\end{enumerate}
+\vspace{2pt}
+$\bullet$ \textbf{Training:} The process of forward propagation, loss calculation, and backpropagation is repeated over many iterations, allowing the network to learn from the data and improve its accuracy.
 
 $\bullet$ To prevent \textbf{overfitting}, regularization can be applied by:
 \vspace{-3pt}
 \begin{itemize}[label={--},leftmargin=6mm]
 \itemsep -.4mm
 \item Stopping training when validation performance drops
-\item Dropout - randomly drop some nodes during training to prevent over-reliance on a single node
+\item \textbf{Dropout} - randomly drop some nodes during training to prevent over-reliance on a single node
 \item Embedding weight penalties into the objective function
 \item \textbf{Batch Normalization} - stabilizes learning by normalizing inputs to a layer
 \end{itemize}
 
 
-\textbf{Stochastic Gradient Descent} - only uses a single point to compute gradients, leading to smoother convergence and faster compute speeds. Alternatively, mini-batch gradient descent trains on small subsets of the data, striking a balance between the approaches.
 
-\vspace{3pt}
-
-\textbf{\textcolor{blue}{Backpropagation :}}  \\
-Artificial neural networks (ANNs) and deep neural networks use \textbf{backpropagation} as a learning algorithm to compute a gradient descent, which is an optimization algorithm that guides the user to the maximum or minimum of a function. 
 
 \vspace{-5pt}
 
@@ -2091,13 +2381,12 @@ Artificial neural networks (ANNs) and deep neural networks use \textbf{backpropa
 
 
 
-The principle of the backpropagation approach is to model a given function by modifying internal weightings of input signals to produce an expected output signal. The system is trained using a supervised learning method, where the error between the system’s output and a known expected output is presented to the system and used to modify its internal state.
 
 
 %%%%%%%%%%%%%%%%% Convolutional Network %%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Convolutional Neural Network} {\color{teal}\hrule height 1pt} \smallskip
-CNNs are a type of deep learning neural network architecture that is particularly well suited to image classification and object recognition tasks. The general CNN architectures is as shown below:
-\vspace{-5pt}
+CNN is a neural network architecture that is well-suited for image classification and object recognition tasks. The general CNN architectures are as shown below:
+\vspace{-7pt}
 
 \begin{center}
     \begin{minipage}{\linewidth}
@@ -2105,35 +2394,31 @@ CNNs are a type of deep learning neural network architecture that is particularl
     \end{minipage}
 \end{center}
 
-\vspace{-5pt}
+\vspace{-7pt}
 
-A convolutional neural network starts by taking an input image, which is then transformed into a feature map through a series of convolutional and pooling layers. 
+$\rightarrow$ A convolutional neural network starts by taking an input image, represented as a matrix of pixel values 
 
-\vspace{2pt}
-The \textbf{convolutional layer} applies a set of filters to the input image (by applying weights, bias, and an activation function), each filter producing a feature map that highlights a specific aspect of the input image. Different weights lead to different feature maps.
-\vspace{-5pt}
+$\rightarrow$ This input image is passed through \textbf{convolutional layers}. Here, a set of filters applies to the input image to detect features like edges, textures, and patterns. Each filter produces a feature map that highlights a specific aspect of the input image. 
+
+$\rightarrow$ After each convolution, an \textbf{activation function} (like ReLU) is applied to introduce non-linearity, enabling the network to learn more complex patterns.
+
+$\rightarrow$ This produces \textbf{feature maps}. Different weights lead to different feature maps.
+\vspace{-7pt}
 \begin{center}
     \includegraphics[scale = .09]{figures/windowCNNNew.JPG}
 \end{center}
-\vspace{-2mm}
+\vspace{-7pt}
+
+$\rightarrow$ The feature maps are then passed through \textbf{pooling layers}, which downsample the spatial dimensions by taking the maximum or average value in small regions. This reduces the size of the feature maps and retains essential information, making the network more efficient and less sensitive to slight changes in the input.
+
+$\rightarrow$ Again, the \textbf{feature maps} produced by the convolutional layer and pooling layer are then passed through multiple additional convolutional and pooling layers, each layer learning increasingly complex features of the input image. 
 
 
-
-The \textbf{pooling layer} then downsamples the feature map to reduce its size, while retaining the most important information even if they have shifted slightly. 
-
-\vspace{2pt}
-
-Again, the pooled feature maps produced by the convolutional layer and pooling layer are then passed through multiple additional convolutional and pooling layers, each layer learning increasingly complex features of the input image. 
+$\rightarrow$ Now, the output obtained from above is fed into a \textbf{fully connected layer} for classification, object detection, or other structural analyses. The final output of the network is a predicted class label or probability score for each class, depending on the task.
 
 
-\vspace{2pt}
-
-
-
-Now, the output obtained from above is fed into a fully connected layer for classification, object detection, or other structural analyses. The final output of the network is a predicted class label or probability score for each class, depending on the task.
-
-
-
+\vspace{3pt}
+\textbf{\textcolor{blue}{Question}}: Describe the difference between \textbf{batch normalization} and \textbf{layer normalization}.
 
 
 \vspace*{\fill}
@@ -2141,17 +2426,16 @@ Now, the output obtained from above is fed into a fully connected layer for clas
 \columnbreak
 
 
-% \columnbreak
+
 
 %%%%%%%%%%%%%%%%%%%%%%% Recurrent Neural Network %%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Recurrent Neural Network} {\color{teal}\hrule height 1pt} \smallskip
 
 
-Recurrent Neural Networks (RNNs) are designed to process sequences of data. They work well for jobs requiring sequences, such as time series data, voice, natural language, and other activities.
+Recurrent Neural Networks (RNNs) are designed to process sequences of data such as time series data, voice, natural language, and other activities.
 
-\vspace{2pt}
 
-$\bullet$ RNN works on the principle of saving the output using hidden states of a particular layer and feeding this back to the input in order to predict the output of the layer.
+
 
 
 \vspace{-5pt}
@@ -2228,55 +2512,55 @@ $\bullet$ Preservation of gradient information by LSTM. The sensitivity of the o
 % LSTMs can be stacked to improve performance.
 
 
-\vspace{3pt}
-LSTM is based on RNN, therefore, the basic structure of RNN is explained first and then LSTM structure is explained referencing RNN. 
-\vspace{-5pt}
+% \vspace{3pt}
+% LSTM is based on RNN, therefore, the basic structure of RNN is explained first and then LSTM structure is explained referencing RNN. 
+% \vspace{-5pt}
 
-\begin{center}
-    \begin{minipage}{0.75\linewidth}
-    \includegraphics[width=\textwidth]{figures/RNNLoop.png}
-    \end{minipage}
-\end{center}
-\vspace{-5pt}
-
-
-
-LSTM memorize the information for the long period of time, which is important in many applications such as time prediction of the High frequency (HF) spectrum. The basic structure of the RNN and LSTM are similar as shown respectively below.
-
-
-\vspace{-5pt}
-
-\begin{center}
-    \begin{minipage}{0.75\linewidth}
-    \includegraphics[width=\textwidth]{figures/LSTMCell.png}
-    \end{minipage}
-\end{center}
-\vspace{-5pt}
+% \begin{center}
+%     \begin{minipage}{0.75\linewidth}
+%     \includegraphics[width=\textwidth]{figures/RNNLoop.png}
+%     \end{minipage}
+% \end{center}
+% \vspace{-5pt}
 
 
 
-
-$\rightarrow$ The difference between RNN and LSTM are: RNN cell has only \textbf{one} $\tanh$ layer while LSTM cell has \textbf{four} layers: forget gate layer, store gate layer, new cell state layer, output layer, and previous cell state as shown in Figure below.
-
-$\rightarrow$ The forget layer is responsible for deciding what information to retain from the previous cell state, and what information is to be forgotten or removed 
-\[f_{t} = \sigma(W_{t}.[h_{t-1},x_{t}] + b_{f}) \]
+% LSTM memorize the information for the long period of time, which is important in many applications such as time prediction of the High frequency (HF) spectrum. The basic structure of the RNN and LSTM are similar as shown respectively below.
 
 
-$\rightarrow$ The store gate layer has an input gate using which we calculate another variable called new candidate values. The new candidate values are information which seem relevant are added to the cell state.
-\[i_{t} = \sigma(W_{i}.[h_{t-1},x_{t}] + b_{i})\]
-\[\Tilde{C}_{t} = \tanh(W_{c}.[h_{t-1},x_{t}] + b_{c})\]
+% \vspace{-5pt}
+
+% \begin{center}
+%     \begin{minipage}{0.75\linewidth}
+%     \includegraphics[width=\textwidth]{figures/LSTMCell.png}
+%     \end{minipage}
+% \end{center}
+% \vspace{-5pt}
 
 
-$\rightarrow$ The new cell state layer calculates the new cell state by updating the information from last cell. And the new cell state is calculated using the information acquired from the previous two layers.
-\[{C}_{t} = f_{t}*C_{t-1} + i_{t}*\Tilde{C_{t}}\]
 
 
-$\rightarrow$ The output layer makes use of all this information gathered over the last three layers to produce an output.
-\[o_{t} = \sigma(W_{o}.[h_{t-1},x_{t}] + b_{o})\]
-\[h_{t} = o_{t}*\tanh(C_{t})\]
+$\rightarrow$ LSTM memorize the information for the long period of time. The difference between RNN and LSTM are: RNN cell has only \textbf{one} $\tanh$ layer while LSTM cell has \textbf{four} layers: forget gate layer, store gate layer, new cell state layer, output layer, and previous cell state as shown in Figure below.
+
+% $\rightarrow$ The forget layer is responsible for deciding what information to retain from the previous cell state, and what information is to be forgotten or removed 
+% \[f_{t} = \sigma(W_{t}.[h_{t-1},x_{t}] + b_{f}) \]
 
 
-$\rightarrow$ Also, the cell state at the top of the Figure starting with $c({t-1})$ runs horizontally as it keeps the information integrity from long period of time with some minor linear attractions.  
+% $\rightarrow$ The store gate layer has an input gate using which we calculate another variable called new candidate values. The new candidate values are information which seem relevant are added to the cell state.
+% \[i_{t} = \sigma(W_{i}.[h_{t-1},x_{t}] + b_{i})\]
+% \[\Tilde{C}_{t} = \tanh(W_{c}.[h_{t-1},x_{t}] + b_{c})\]
+
+
+% $\rightarrow$ The new cell state layer calculates the new cell state by updating the information from last cell. And the new cell state is calculated using the information acquired from the previous two layers.
+% \[{C}_{t} = f_{t}*C_{t-1} + i_{t}*\Tilde{C_{t}}\]
+
+
+% $\rightarrow$ The output layer makes use of all this information gathered over the last three layers to produce an output.
+% \[o_{t} = \sigma(W_{o}.[h_{t-1},x_{t}] + b_{o})\]
+% \[h_{t} = o_{t}*\tanh(C_{t})\]
+
+
+% $\rightarrow$ Also, the cell state at the top of the Figure starting with $c({t-1})$ runs horizontally as it keeps the information integrity from long period of time with some minor linear attractions.  
 
 
 
@@ -2294,7 +2578,7 @@ $\rightarrow$ Not every data collected with respect to time represents a time se
 \hspace{5pt} Methods of prediction \& forecasting, time based data is Time Series Modeling \\
 
 \vspace{2pt}
-$\bullet$ Examples of time series: Stock Market Price, Passenger Count of airlines, Temperature over time, Monthly Sales Data, Quarterly/Annual Revenue, Hourly Weather Data/Wind Speed, IOT sensors in Industries and Smart Devices, Energy Forecasting
+$\bullet$ \textbf{Examples} of time series: Stock Market Price, Passenger Count of airlines, Temperature over time, Monthly Sales Data, Quarterly/Annual Revenue, Hourly Weather Data/Wind Speed, IOT sensors in Industries and Smart Devices, Energy Forecasting
 
 \vspace{3pt}
 Difference between \textbf{Time Series} and \textbf{Regression} \\
@@ -2462,7 +2746,7 @@ $\rightarrow$ GAMs also provide regularized and interpretable solutions for regr
 
 \vspace*{\fill}
 
-% \columnbreak
+\columnbreak
 
 %%%%%%%%%%%%%%%%%%%%%%%% Natural Language Processing %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Natural Language Processing} {\color{teal}\hrule height 1pt} \smallskip
@@ -2687,7 +2971,16 @@ $\rightarrow$ \textbf{TfidfVectorizer} - Bag of Words AND TF-IDF values \\
 Word embeddings are often based on neural network models in deep learning. \\
 
 
-\vspace{3pt}
+
+$\rightarrow$ Based on CBOW, Skip gram: Word2vec, GloVe, fastText
+\begin{itemize}[label={--},leftmargin=4mm]
+\vspace{-3pt}
+\item \textbf{Continuous bag-of-words} (CBOW) - predicts the word given its context
+\vspace{-3pt}
+\item \textbf{skip-gram} - predicts the context given a word
+\end{itemize}
+
+
 $\bullet$ \textbf{word2vec} - trains iteratively over a corpus of text to learn the association between the words, and preserve the \textbf{semantic} information as well as \textbf{contextual} meanings of words within a given corpus of text. \\
 
 $\rightarrow$ They are numerical representations of words and phrases allowing \textbf{similar words} to have \textbf{similar vector} representations.\\
@@ -2695,13 +2988,6 @@ $\rightarrow$ They are numerical representations of words and phrases allowing \
 
 $\rightarrow$ It uses the cosine similarity metric to measure \textbf{semantic} similarity. If the cosine angle is one, it means that the words are overlapping. , such that $king - man + woman \approx queen$
 
-$\bullet$ Relies on one of the following:
-\begin{itemize}[label={--},leftmargin=4mm]
-\vspace{-3pt}
-\item \textbf{Continuous bag-of-words} (CBOW) - predicts the word given its context
-\vspace{-3pt}
-\item \textbf{skip-gram} - predicts the context given a word
-\end{itemize}
 
 \vspace{3pt}
 \textbf{Note:} According to research \textbf{CBOW} is used when small dataset is available.
@@ -2721,6 +3007,7 @@ $\bullet$ \textbf{GloVe} (Global Vectors for Word Representation) - GloVe operat
 
 
 \vspace{3pt}
+$\rightarrow$ Based on transformer architecture  \\
 $\bullet$ \textbf{BERT} - accounts for word order and trains on subwords, and unlike word2vec and GloVe, BERT outputs different vectors for different uses of words ($cell$ phone vs. blood $cell$)
 
 
@@ -2756,13 +3043,11 @@ $\bullet$ \textbf{Latent Semantic Analysis} (LSA) - identifies patterns using tf
 
 
 
-
-
-
-
 \vspace*{\fill}
+\columnbreak
 
-% \columnbreak
+
+
 
 
 

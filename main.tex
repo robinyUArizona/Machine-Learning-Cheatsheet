@@ -84,7 +84,38 @@ sorting=ynt
 \newcommand{\HGeom}{\textrm{HGeom}}
 \newcommand{\Mult}{\textrm{Mult}}
 
+%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{listings}
 
+%New colors defined below
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+
+%Code listing style named "mystyle"
+\lstdefinestyle{mystyle}{
+  backgroundcolor=\color{white}, commentstyle=\color{codepurple},
+  keywordstyle=\color{blue},
+  numberstyle=\tiny\color{codegray},
+  stringstyle=\color{codegreen},
+  basicstyle=\ttfamily\footnotesize,
+  breakatwhitespace=false,         
+  breaklines=true,                 
+  captionpos=b,                    
+  keepspaces=true,                 
+  % numbers=left,                    
+  % numbersep=5pt,                  
+  showspaces=false,                
+  showstringspaces=false,
+  showtabs=false,                  
+  tabsize=1
+}
+
+%"mystyle" code listing set
+\lstset{style=mystyle}
+
+%%%%%%%%%%%%%%%%%%%%%
 
 
 \geometry{top=.2in,left=.2in,right=.2in,bottom=.2in}
@@ -149,7 +180,7 @@ sorting=ynt
     {\color{teal} \Large{\textbf{Machine Learning Cheatsheet}}} \\
    % {\Large{\textbf{Probability Cheatsheet}}} \\
     % comment out line with \color{blue} and uncomment above line for b&w
-   \copyright \ 2024 \  Robins Yadav - magic starts here
+   \copyright \ 2024 \  Robins Yadav
 \end{center}
 
 
@@ -161,7 +192,7 @@ sorting=ynt
 %%% BEGIN CHEATSHEET
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\href{https://github.com/robinyUArizona}{My github: https://github.com/robinyUArizona}
+
 
 
 
@@ -188,7 +219,7 @@ variables $X$ to output variable $y$, with an error $e$:
 Different algorithms make different assumptions about the
 \textbf{shape} and \textbf{structure} of $f$. Any algorithm can be either:
 \begin{itemize}
-    \item \textbf{Paramteric (or Linear)}: simplify the mapping to a known linear combination form and learning its coefficients.
+    \item \textbf{Paramteric (or Linear)}: simplify the mapping to a known linear combination form and learn its coefficients.
     \item \textbf{Non-parametric (or Non-linear):} free to learn any functional form from the training data, while maintaining some ability to generalize.
 \end{itemize}
 
@@ -199,11 +230,8 @@ less data, while Nonlinear can be are more flexible, more powerful and more perf
 
 $\bullet$ \textbf{Supervised} learning methods learn to predict outcomes $y$ (\(y^{(1)}, ..., y^{(m)}\)) from data points $X$ (\(x^{(1)}, ..., x^{(m)}\)) given that the \textbf{data is labeled}. \\
 
-\vspace{3pt}
-
-\subsubsection{Type of prediction} {\color{teal}\hrule height 0.5pt} \smallskip
-
-
+$\rightarrow$ \textbf{Type of prediction}
+\vspace{-5pt}
 \begin{center}
         \footnotesize
         \scalebox{0.9}{
@@ -217,20 +245,23 @@ $\bullet$ \textbf{Supervised} learning methods learn to predict outcomes $y$ (\(
         \end{tabularx}}
 \end{center}
 
-% \vspace{-3pt}
+\vspace{-3pt}
 $\rightarrow$ \textbf{Conditional Estimates} \\
 Regression $\rightarrow$ \textbf{conditional expectation}: \(E \left[y|X=x \right] \) \\
 Classification $\rightarrow$ \textbf{conditional probability}: \(P(Y=y | X=x) \)
 
-
-
+\vspace{3pt}
+$\bullet$ \textbf{Unsupervised} learning methods learn to find the inherent structure or hidden patterns from \textbf{unlabeled data} 
+ $X$ (\(x^{(1)}, ..., x^{(m)}\)) . 
 
 
 \subsubsection{Type of models} {\color{teal}\hrule height 0.5pt} \smallskip
 
-$\rightarrow$ \textbf{Discriminative Model}: It focuses on predicting the labels of the data. A discriminative machine learning trains a model which is done by learning parameters that maximize the \textbf{conditional probability} $P(Y|X)$ \\ 
+$\rightarrow$ \textbf{Discriminative Model}: It focuses on predicting the data's outputs (for classification or regression) by training a model. It learns parameters by maximizing the \textbf{conditional probability} $P(Y|X)$.
 
-$\rightarrow$ \textbf{Generative Model}: It focuses on learning a probability distribution for the dataset, it can reference this probability distribution to generate new data instances. A generative model learns parameters by maximizing the \textbf{joint probability} of $P(X, Y)$.
+\vspace{2pt}
+
+$\rightarrow$ \textbf{Generative Model}: It focuses on learning a probability distribution for the dataset, it can reference this probability distribution to generate new data instances. It learns parameters by maximizing the \textbf{joint probability} of $P(X, Y) = P(X \cap Y)$ .
 \vspace{-5pt}
 
 \vspace{-5pt}
@@ -278,8 +309,7 @@ $\rightarrow$ \textbf{Generative Model}: It focuses on learning a probability di
 
 
 
-$\bullet$ \textbf{Unsupervised} learning methods learn to find the inherent structure or hidden patterns from \textbf{unlabeled data} 
- $X$ (\(x^{(1)}, ..., x^{(m)}\)) . 
+
 
 
 
@@ -297,34 +327,44 @@ $\bullet$ \textbf{Unsupervised} learning methods learn to find the inherent stru
 
 \subsubsection{Bias-Variance trade-off, Underfitting, Overfitting} {\color{teal}\hrule height 0.5pt} \smallskip
 
-$\rightarrow$ Expected test error is the error we expect from predicting new, unobserved data points. \\
 In supervised learning, the \textbf{prediction (expected) error} $e$ is composed of the \textbf{bias}, the \textbf{variance} and the \textbf{irreducible} part.  
 \vspace{-3pt}
 \[\boxed{\text{Error}(x) =  \mathcolor{purple}{\left(\mathbb{E}[\hat{f}(x)] - f(x)\right)^{2}} + \mathcolor{orange}{\mathbb{E} \left[\hat{f}(x)- \mathbb{E}\left[\hat{f}(x)\right] \right]^{2}} + \sigma^{2}_{e}}\]
 \vspace{-5pt}
 
-$\rightarrow$ \textbf{\textcolor{purple}{Bias}} refers to \textbf{erroneous assumptions} made by the \textbf{model} about the data to make the \textbf{target function} easier to learn. \textbf{Mathematically}, how much predicted values differ from true values?
+$\rightarrow$ \textbf{\textcolor{purple}{Bias}} refers to \textbf{erroneous assumptions} made by the \textbf{model} about the data to make the \textbf{target function} $f$ easier to learn. \textbf{Mathematically}, how much do the expected predicted values differ from true values?
 \\
-$\rightarrow$ \textbf{\textcolor{orange}{Variance}} is the \textbf{error}, amount that the prediction (estimate of the target function) will change if \textbf{different training data sets} were used. \\
+$\rightarrow$ \textbf{\textcolor{orange}{Variance}} is the \textbf{error}, refers to how much the predictions of the model (i.e estimate of the target function $f$) will vary when trained on \textbf{different training data (or possibly with different random seeds)}. It is also known as \textbf{Variance Error} or \textbf{Error due to Variance}. \\
 
-It measures how scattered (inconsistent) are the predicted values from the correct value due to \textbf{different training data (or possibly with different random seeds)} sets. It is also known as \textbf{Variance Error} or \textbf{Error due to Variance}. \\
+\textbf{Mathematically}, variance is the \textbf{expected squared deviation} of the model's prediction from its mean prediction, across different training sets
 
-
-\textbf{\textcolor{blue}{Note:}} As the \textbf{complexity of the model rises}, the variance will \textbf{increase} and bias will \textbf{decrease}.  \\
+\vspace{3pt}
+\textbf{\textcolor{blue}{Note:}} As the \textbf{complexity of the model} (ex: flexibility of the decision boundary) \textbf{increases}, the variance will \textbf{increase} and bias will \textbf{decrease}  \\
 
 \vspace{3pt}
 $\bullet$ The \textbf{goal of parameterization} is to achieve a \textbf{low bias} and \textbf{low variance} trade-off through methods such as:\\
-$\rightarrow$ \textbf{Cross-validation} can be used to tune models so as to optimize the trade-off \\
+$\rightarrow$ \textbf{Cross-validation} can be used to tune models so as to optimize the trade-off  between \textbf{bias} and \textbf{variance}\\
 $\rightarrow$ \textbf{Dimension reduction} and \textbf{feature selection} \\
 $\rightarrow$ Mixture models (probabilistic models) and \textbf{ensemble learning}. \\
 
-\vspace{3pt}
+$\rightarrow$ \textbf{Regularization - Dropout} During training, randomly set some activations to 0. This forces network to not rely on any one node.
+\vspace{-3pt}
+\begin{center}
+    \begin{minipage}{0.60\linewidth}
+        \includegraphics[width=\textwidth]{figures/regularization_dropout.PNG}
+        % \caption{ML Production}
+        % \label{fig:ML_Production}
+    \end{minipage}
+\end{center}
+\vspace{-3pt}
 
-$\bullet$ \textbf{Underfitting} or \textbf{High bias} means that the model is not able to capture or learn the trend or pattern in data.
 
-$\bullet$ \textbf{Overfitting} or \textbf{High variance} means that the model fits the available data but does not generalize well to predict on new data.
+$\bullet$ \textbf{Underfitting} or \textbf{High bias} means that the model is not able to capture (or learn) the trend (or pattern) in the data.
+
+$\bullet$ \textbf{Overfitting} or \textbf{High variance} means that the model learns too much from the available data but does not generalize well enough to predict on \textbf{new data}.
 
 
+\vspace{-3pt}
 \begin{center}
     \begin{minipage}{0.8\linewidth}
         \includegraphics[width=\textwidth]{figures/Tradeoff_Learning_Curves.PNG}
@@ -332,16 +372,13 @@ $\bullet$ \textbf{Overfitting} or \textbf{High variance} means that the model fi
         % \label{fig:ML_Production}
     \end{minipage}
 \end{center}
+\vspace{-3pt}
 
-$\rightarrow$ The training loss goes down over time, achieving low error values
-$\rightarrow$ The validation loss goes down until a turning point is found, and it starts going up again. That \textbf{point} represents the \textbf{beginning} of \textbf{overfitting}. Therefore, \textbf{The training process should be stopped when the validation error trend changes from descending to ascending}.
-
-
-
-
-\vspace*{\fill}
+$\rightarrow$ The \textbf{training loss} goes down over time, achieving low error values
+$\rightarrow$ The \textbf{validation loss} goes down until a turning point is found, and it starts going up again. That \textbf{point} represents the \textbf{beginning} of \textbf{overfitting}. Therefore, \textbf{The training process should be stopped when the validation error trend changes from descending to ascending}.
 
 
+\vspace{-3pt}
 \begin{center}
     \begin{minipage}{\linewidth}
         \includegraphics[width=\textwidth]{figures/bias_variance_overfitting_underfitting.PNG}
@@ -349,8 +386,8 @@ $\rightarrow$ The validation loss goes down until a turning point is found, and 
         % \label{fig:ML_Production}
     \end{minipage}
 \end{center}
+\vspace{-6pt}
 
-\vspace{-5mm}
 
 \begin{center}
     \begin{minipage}{0.9\linewidth}
@@ -393,17 +430,14 @@ By analyzing the \textbf{learning curves}, you should be able to spot whether th
 
 
 \vspace{3pt}
-$\bullet$ \textbf{Regularization - Dropout} During training, randomly set some activations to 0. This forces network to not rely on any one node.
-\vspace{-3pt}
-\begin{center}
-    \begin{minipage}{0.60\linewidth}
-        \includegraphics[width=\textwidth]{figures/regularization_dropout.PNG}
-        % \caption{ML Production}
-        % \label{fig:ML_Production}
-    \end{minipage}
-\end{center}
+$\bullet$ \textcolor{teal}{\textbf{What is cross-validation? Why it's important?}} \\
+Cross-validation evaluates a model's performance. \\
+$\rightarrow$ The idea is to divide the dataset into $k$ subsets or "folds", train the model on $k-1$ of these folds, and test on the remaining fold to ensure that the model generalizes well to unseen data. \\
+$\rightarrow$ After evaluating on all k folds, performance metrics are averaged for a robust estimate of the model's effectiveness. \\
+$\rightarrow$ \textbf{K-Fold Cross-Validation}: The data is divided into k equally-sized folds. \\
+$\rightarrow$ \textbf{Stratified K-Fold}: Similar to K-Fold, but it maintains the proportion of classes in each fold, making it ideal for imbalanced datasets. \\
+$\rightarrow$ \textbf{Leave-One-Out Cross-Validation (LOOCV)}: A special case where k equals the number of data points, so each fold contains just one data point.
 
-\vspace{-3pt}
 
 
 
@@ -461,14 +495,7 @@ It could be the case that validation data is scarce and not very representative 
  
 Here, the validation loss is much better than the training one, which reflects the validation dataset is easier to predict than the training dataset. An explanation could be the validation data is scarce but widely represented by the training dataset, so the model performs extremely well on these few examples.
 
-\vspace{3pt}
-$\bullet$ \textcolor{teal}{\textbf{What is cross-validation? Why it's important?}} \\
-Cross-validation evaluates a model's performance. \\
-$\rightarrow$ The idea is to divide the dataset into $k$ subsets or "folds", train the model on $k-1$ of these folds, and test on the remaining fold to ensure that the model generalizes well to unseen data. \\
-$\rightarrow$ After evaluating on all k folds, performance metrics are averaged for a robust estimate of the model's effectiveness. \\
-$\rightarrow$ \textbf{K-Fold Cross-Validation}: The data is divided into k equally-sized folds. \\
-$\rightarrow$ \textbf{Stratified K-Fold}: Similar to K-Fold, but it maintains the proportion of classes in each fold, making it ideal for imbalanced datasets. \\
-$\rightarrow$ \textbf{Leave-One-Out Cross-Validation (LOOCV)}: A special case where k equals the number of data points, so each fold contains just one data point.
+
 
 % \vspace*{\fill}
 
@@ -476,19 +503,32 @@ $\rightarrow$ \textbf{Leave-One-Out Cross-Validation (LOOCV)}: A special case wh
 
 
 \subsection{Data Science General} {\color{teal}\hrule height 0.5pt} \smallskip
-\subsubsection{Notes} {\color{teal}\hrule height 0.5pt} \smallskip
+
+\subsubsection{Inference vs. Classification} {\color{teal}\hrule height 0.5pt} \smallskip
 
 
-$\rightarrow$ \textbf{Parameters: } Model \textbf{parameters} are numeric values as part of the model. We \textbf{estimate} them from the data. \\
-
-$\rightarrow$ \textbf{Ablation}: An ablation study is turning off components of a model (e.g. features or sub-models) one at a time, to see how much each contributes to the model's performance. \\
-
-$\rightarrow$ Overfitting arises when our model learns too much, so it can’t generalize to new data. \\
-
-$\rightarrow$ Apply \textbf{log-transformations} (e.g., log, square root) to reduce skewness and improve model performance, especially for models sensitive to outliers. \\
+$\rightarrow$ \textbf{Inference}: Given two groups, what is the differences between these groups? t-tests, paired t-test etc. \\
+$\rightarrow$ \textbf{Classification}: Given a new animal, find whether new animal is cat or dog? \\
 
 
-$\rightarrow$ Apply transformations based on domain knowledge and understanding of the data characteristics.
+
+\subsubsection{Prediction and Inference} {\color{teal}\hrule height 0.5pt} \smallskip
+
+$\rightarrow$ \textbf{Prediction} uses a model to predict future observations.\\
+\hspace{5pt} - Model does not need to be valid \\
+\hspace{5pt} - Evaluation does need to be valid \\
+\hspace{5pt} - Quality \& strength: accuracy of predicting unseen data\\
+
+\vspace{3pt}
+
+$\rightarrow$ \textbf{Inference} uses the model’s structure and parameters to learn or understand an underlying phenomenon.\\
+\hspace{5pt} - Validity depends on assumptions\\
+\hspace{5pt} - Quality \& strength: $R^{2}$, p-value, assumption checks, coefficients\\
+
+
+
+
+
 
 
 \subsubsection{Preventing Data Leakage} {\color{teal}\hrule height 0.5pt} \smallskip
@@ -499,8 +539,8 @@ $\rightarrow$ Apply transformations based on domain knowledge and understanding 
     \item \textbf{Transformation fit on Training Data Only}: Ensure that transformations (e.g., scaling, encoding) are fit only on the training data and then applied to both training and test data
     \item \textbf{Feature Selection}: Ensure that features used for training are available at the time of prediction. For time series data, create lag features that use only past information.
     \vspace{-3pt}
-    \item \textbf{Target Leakage}: Ensure that features used in training are available at the time of prediction and do not contain information derived from the target variable.
-    \vspace{-3pt}
+    % \item \textbf{Target Leakage}: Ensure that features used in training are available at the time of prediction and do not contain information derived from the target variable.
+    % \vspace{-3pt}
     \item \textbf{Data Augmentation}: Apply augmentation techniques only to the training set. 
 \end{itemize}
 
@@ -511,8 +551,8 @@ $\rightarrow$ Apply transformations based on domain knowledge and understanding 
 \begin{itemize} [leftmargin=0.5cm]
     \item \textbf{Remove Missing Data}: If only a small number of \textbf{rows} have missing values, or If an entire \textbf{column} has a large percentage of missing values
     \vspace{-3pt}
-    \item \textbf{Impute Missing Data}: Mean/Median/Mode Imputation, Imputation Using Algorithms, Forward/Backward Fill/ Interpolate For time series data
-    \item \textbf{Use Algorithms That Handle Missing Data}: Decision trees,Random forests
+    \item \textbf{Impute Missing Data}: Mean/Median/Mode Imputation, Imputation Using Algorithms like Forward/Backward Fill/ Interpolate for time series data
+    \item \textbf{Use Algorithms That Handle Missing Data}: Decision trees, Random forests
     \vspace{-3pt}
     \item \textbf{Replace Corrupted Data}: Identify Outliers using statistical methods (like z-scores or IQR), Apply manual inspection and correction of corrupted values based on external sources or domain expertise.
     \vspace{-3pt}
@@ -520,90 +560,26 @@ $\rightarrow$ Apply transformations based on domain knowledge and understanding 
 \end{itemize}
 
 
-\subsubsection{Inference vs. Classification} {\color{teal}\hrule height 0.5pt} \smallskip
 
+\subsubsection{Notes} {\color{teal}\hrule height 0.5pt} \smallskip
 
-$\rightarrow$ \textbf{Inference}: Given two groups, what is the differences between these groups? t-tests, paired t-test etc. \\
-$\rightarrow$ \textbf{Classification}: Given a new animal, find whether new animal is cat or dog? \\
-
-
-
-
-
-\subsubsection{Prediction and Inference} {\color{teal}\hrule height 0.5pt} \smallskip
-
-
-$\rightarrow$ \textbf{Prediction} uses a model to predict future observations.\\
-• Model does not need to be valid \\
-• Evaluation does need to be valid\
-• Quality \& strength: accuracy of predicting unseen data\\
-
-\vspace{3pt}
-
-$\rightarrow$ \textbf{Inference} uses the model’s structure and parameters to learn or understand an underlying phenomenon.\\
-• Validity depends on assumptions\\
-• Quality \& strength: $R^{2}$, p-value, assumption checks, coefficients\\
-
-
-
+$\rightarrow$ \textbf{Ablation}: An ablation study is turning off components of a model (e.g. features or sub-models) one at a time, to see how much each contributes to the model's performance. \\
 
 \subsubsection{ETL - Extract Transform Load} {\color{teal}\hrule height 0.5pt} \smallskip
 
-An ETL workflow is essential for consolidating and preparing data for analysis, reporting, and business intelligence. Organizations can ensure data accuracy, consistency, and availability by following a well-defined ETL process, enabling better decision-making and insights.
+An ETL workflow is crucial for consolidating and preparing data for analysis and reporting, ensuring accuracy, consistency, and availability for better decision-making.
 
 
 \begin{enumerate}[leftmargin=0.37cm]
-    \item \textcolor{blue}{\textbf{Extract Phase}:}  \\
-    \textbf{Goal}: Retrieve raw data from various source systems.
-    \vspace{-2pt}
-    \begin{itemize}[leftmargin=0.35cm]
-        \vspace{-3pt}
-        \item \textbf{Identify Data Sources}: Determine the databases, files, APIs, or other sources from which data will be extracte
-        \vspace{-3pt}
-        \item \textbf{Connect to Data Sources}: Establish connections to these sources using appropriate connectors or drivers.
-        \vspace{-3pt}
-        \item \textbf{Extract Data}: Perform the actual data extraction, which may involve running SQL queries, reading files, or calling API endpoints.
-        \vspace{-3pt}
-        \item \textbf{Handle Incremental Extraction}: Extract only the new or updated data since the last extraction to optimize performance and reduce load.
-    \end{itemize}
-    \vspace{-3pt}
-    \textbf{Tools}: SQL queries, Python scripts, database connectors, API clients.
+    \item \textcolor{blue}{\textbf{Extract Phase}:} Retrieve raw data from sources like databases, files, or APIs using SQL queries, scripts, or connectors. Extract only the new or updated data since the last extraction to optimize performance and reduce load.  \\
+   
 
 
-    \item \textcolor{blue}{\textbf{Transform Phase}:} \\
-    \textbf{Goal}: Clean, format, and prepare the data for loading into the target system.
-    \vspace{-2pt}
-    \begin{itemize}[leftmargin=0.35cm]
-        \vspace{-3pt}
-        \item \textbf{Data Cleaning}: Remove duplicates, Handle missing values, Correct errors and inconsistencies
-        \vspace{-3pt}
-        \item \textbf{Data Integration}: Merge data from different sources, Resolve data conflicts and redundancies.
-        \vspace{-3pt}
-        \item \textbf{Data Transformation}: Convert data types, Normalize or denormalize data, Apply business rules and calculations, Aggregate data (e.g., summing, averaging).
-        \vspace{-3pt}
-        \item \textbf{Data Enrichment}: Add additional context or metadata, Join with reference data
-        \vspace{-3pt}
-        \item \textbf{Data Validation}: Check for data quality and integrity, Ensure transformations have been applied correctly
-    \end{itemize}
-    \vspace{-3pt}
-    \textbf{Tools}:  Python, SQL, transformation tools like Apache NiFi, Talend, or Apache Spark.
+    \item \textcolor{blue}{\textbf{Transform Phase}:}  Clean, integrate, and format data, applying business rules and calculations. Validate transformations and ensure data quality using tools like Python, SQL, or Apache Spark. \\
 
 
-    \item \textcolor{blue}{\textbf{Load Phase}:} \\
-    \textbf{Goal}: Load the transformed data into the target data warehouse or database.
-    \vspace{-2pt}
-    \begin{itemize}[leftmargin=0.35cm]
-        \vspace{-3pt}
-        \item \textbf{Prepare Target Schema}: Define the schema of the target database or data warehouse, Create tables, indexes, and partitions as needed
-        \vspace{-3pt}
-        \item \textbf{Load Data}: Insert transformed data into the target tables, Use bulk load methods for efficiency when dealing with large datasets
-        \vspace{-3pt}
-        \item \textbf{Post-Load Validation}: Verify that the data has been loaded correctly, Check for any discrepancies or errors
-        \vspace{-3pt}
-        \item \textbf{Indexing and Partitioning}: Optimize the target database for query performance, Create necessary indexes and partitions
-    \end{itemize}
-    \vspace{-3pt}
-    \textbf{Tools}:  Database clients, bulk load utilities, ETL tools with load functionality.
+    \item \textcolor{blue}{\textbf{Load Phase}:}  Insert transformed data into the target system, ensuring correct schema, bulk loading for efficiency, and optimizing with indexing and partitioning. \\
+   
 \end{enumerate}
 
 \vspace{5pt}
@@ -619,7 +595,7 @@ $\rightarrow$ Apache NiFi: For data flow automation.
 
 
 
-
+\vspace*{\fill}
 
 
 
@@ -635,21 +611,17 @@ $\rightarrow$ Apache NiFi: For data flow automation.
 \subsubsection{Classification Problems} {\color{teal}\hrule height 0.5pt} \smallskip
 
 \textbf{{\textcolor{purple}{Confusion Matrix}}} \\
-• The data gives us \textbf{outcomes} (“truth”) $(y|Y)$ \\
-• The model makes \textbf{decisions} $(d|D)$ (saving $\hat{y}$ scores) \\
-Then, we compare decisions ($d$) to outcomes ($y$)
 
-\vspace{3pt}
-\textbf{Type I error: } The null hypothesis $H_{0}$ is \textbf{rejected} when it is \textbf{true}. \\
+\textbf{Type I error:} The null hypothesis $H_{0}$ is \textbf{rejected} when it is \textbf{true}. \\
 
-\textbf{Type II error: } The null hypothesis $H_{0}$ is \textbf{not rejected} when it is \textbf{false}.
+\textbf{Type II error:} The null hypothesis $H_{0}$ is \textbf{not rejected} when it is \textbf{false}.
 
-$\rightarrow$ \textbf{False negative} (\textbf{Type I error: }) — incorrectly decide \textbf{no} \\
-$\rightarrow$ \textbf{False positive} (\textbf{Type II error: }) — incorrectly decide \textbf{yes} \\
+$\rightarrow$ \textbf{False negative} (\textbf{Type I error}) — incorrectly decide \textbf{no} \\
+$\rightarrow$ \textbf{False positive} (\textbf{Type II error}) — incorrectly decide \textbf{yes} \\
 
 
 \begin{center}
-    \begin{minipage}{0.75\linewidth}
+    \begin{minipage}{0.70\linewidth}
         \includegraphics[width=\textwidth]{figures/Confusion_Matrix_1.PNG}
     \end{minipage}
 \end{center}
@@ -674,43 +646,43 @@ $\rightarrow$ $H_{1}$: Person is guilty  \\
 
 
 
-(1) \textbf{Accuracy: } $\boxed{\frac{TP + TN}{TP + TN + FP + FN}}$ $\rightarrow$ Ratio of \textbf{correct predictions} over \textbf{total predictions}. \\
+\begin{enumerate}
+    \item \textbf{Accuracy: } $\boxed{\frac{TP + TN}{TP + TN + FP + FN}}$ \\
+    $\rightarrow$ Ratio of \textbf{correct predictions} over \textbf{total predictions}. \\
     \textbf{Estimate} of $\boxed{P[D=Y]}$,  probability of decision is equal to outcome.
-
-\vspace{2pt}
-
-(2) \textbf{Recall} or \textbf{Sensitivity} or \textbf{True positive rate}: $\boxed{\frac{TP}{TP+FN}}$.  \underline{Completness} of model. $\rightarrow$ Out of \textbf{total actual positive (1) values}, how often the classifier is correct. \textbf{Probability}: $\boxed{P[D=1 | Y=1]}$ \\
+    \vspace{-3pt}
+    \item \textbf{Recall} or \textbf{Sensitivity} or \textbf{True positive rate}: $\boxed{\frac{TP}{TP+FN}}$.  \underline{Completness} of model $\rightarrow$ Out of \textbf{total actual positive (1) values}, how often the classifier is correct. \\
+    \textbf{Probability}: $\boxed{P[D=1 | Y=1]}$ \\
     \textbf{\textcolor{blue}{Example: }} "\underline{\textbf{Fradulent transaction detector}}" or "\underline{\textbf{Person Cancer}}" $\rightarrow$ +ve (1) is "fraud": Optimize for sensitivity because false positive (\textbf{FP} normal transactions that are flagged as possible fraud) are more acceptable than false negative (\textbf{FN} fradulent transactions that are not detected) 
+    \vspace{-2pt}
 
-\vspace{2pt}
-
- (3) \textbf{Precision} : $\boxed{\frac{TP}{TP+FP}}$ \underline{Exactness } of model. $\rightarrow$ Out of \textbf{total predicted positive (1) values}, how often classifier is correct. \\ \textbf{Probability}: $\boxed{P[Y=1 | D=1]}$, If our model says positive, how likely it is correct in that judgement.\\
+    \item \textbf{Precision}: $\boxed{\frac{TP}{TP+FP}}$ \\
+    \underline{Exactness } of model. $\rightarrow$ Out of \textbf{total predicted positive (1) values}, how often classifier is correct. \\ \textbf{Probability}: $\boxed{P[Y=1 | D=1]}$, If our model says positive, how likely it is correct in that judgement.\\
     \textbf{\textcolor{blue}{Example: }} "\underline{\textbf{Spam Filter}}" +ve (1) class is spam $\rightarrow$ Optimize for precision or, specificity because false negatives (\textbf{FN} spam goes to the inbox) are more acceptable than false positive (\textbf{FP} non-spam is caught by the spam filter).
-    \textbf{\textcolor{blue}{Example: }} "\underline{\textbf{Hotel booking cancelled}}" +ve (1) class is isCancelled $\rightarrow$ Optimize for precision or, specificity because false negatives (\textbf{FN} isCancelled labeled as "not cancelled" 0) are more acceptable than false positive (\textbf{FP} isnotCancelled labeled as "cancelled" 1).
+    \textbf{\textcolor{blue}{Example: }} "\underline{\textbf{Hotel booking canceled}}" +ve (1) class is isCanceled $\rightarrow$ Optimize for precision or, specificity because false negatives (\textbf{FN} isCanceled labeled as "not canceled" 0) are more acceptable than false positive (\textbf{FP} isnotCanceled labeled as "canceled" 1).
+    \vspace{-2pt}
 
-\vspace{2pt}
-(4) \textbf{F1-Score } = $\boxed{2 \times \frac{\text{Precision} \times \text{Recall}}{\text{Precision} + \text{Recall}}}$  $\rightarrow$ False positive (FP) and False negative (FN) are equally important.
-\vspace{2pt}
+    \item \textbf{F1-Score } = $\boxed{2 \times \frac{\text{Precision} \times \text{Recall}}{\text{Precision} + \text{Recall}}}$  \\
+    False positive (FP) and False negative (FN) are equally important.
+    \vspace{-2pt}
 
-(5) \textbf{False Positive Rate}: \(\boxed{\frac{FP}{TN+FP}} \)  — Fraction of \textbf{negatives} wrongly classified positive.  \textbf{Probability}: $\boxed{P[D=1 | Y=0]}$
+    \item \textbf{False Positive Rate}: \(\boxed{\frac{FP}{TN+FP}} \) \\
+    Fraction of \textbf{negatives} wrongly classified positive. \\  \textbf{Probability}: $\boxed{P[D=1 | Y=0]}$
+    \vspace{-2pt}
 
-\vspace{2pt}
-(6) \textbf{False Negative Rate}: \(\boxed{\frac{FN}{TP+FN}} \) = 1-Recall  — Fraction of \textbf{positives} wrongly classified negative.  \textbf{Probability}: $\boxed{P[D=0 | Y=1]}$
+    \item \textbf{False Negative Rate}: \(\boxed{\frac{FN}{TP+FN}} \) = 1 - Recall  \\
+    Fraction of \textbf{positives} wrongly classified negative.  \\
+    \textbf{Probability}: $\boxed{P[D=0 | Y=1]}$
+    \vspace{-2pt}
+    
+    \item \textbf{Specificity}: \(\boxed{\frac{TN}{TN+FP}} \) = 1-FPR  \\
+    Fraction of \textbf{negatives} rightly classified negative.  \\\textbf{Probability}: $\boxed{P[D=0 | Y=0]}$
+\end{enumerate}
 
-\vspace{2pt}
 
-(7) \textbf{Specificity}: \(\boxed{\frac{TN}{TN+FP}} \) = 1-FPR  — Fraction of \textbf{negatives} rightly classified negative.  \textbf{Probability}: $\boxed{P[D=0 | Y=0]}$
 
-\vspace{2pt}
+$\bullet$ \textbf{ROC}-curve: The curve illustrates the trade-off between (TPR) true positive rate \textbf{(sensitivity or recall)} and the (FPR) false positive rate using classification thresholds $\alpha$.
 
-(8) "\underline{\textbf{Fradulent transaction detector}}", $\boxed{\text{FPR} = \frac{FP}{FP+TN}}$ $\rightarrow$ probability of falsely rejecting "Null Hypothesis" $H_{0}$
-
-\vspace{2pt}
-
-(9) \textbf{ROC}-curve: \textbf{What FPR must you tolerate for a certain TPR?} An ROC curve plots TPR vs. FPR at different classification thresholds $\alpha$.
-% \href{https://machinelearningmastery.com/roc-curves-and-precision-recall-curves-for-imbalanced-classification/}
-
-% \href{https://www.youtube.com/watch?v=fF0MvCPsEp8/}
 
 $\rightarrow$ Lowering the classification threshold classifies more items as positive, thus increasing both False Positives and True Positives.
 
@@ -724,28 +696,41 @@ $\rightarrow$ Lowering the classification threshold classifies more items as pos
 
 \vspace{-5pt}
 
-\textbf{Note:} We can think of the plot as the fraction of correct predictions for the positive class (y-axis) versus the fraction of errors for the negative class (x-axis).
+\textbf{Note:} We can think of the plot as the fraction of \textbf{correct predictions for the positive class} (y-axis) versus the fraction of \textbf{errors for the negative class} (x-axis).
 
 \vspace{2pt}
 
-(10) AUC: Area Under the ROC Curve: To compute the points in an ROC curve, an efficient, sorting-based algorithm called AUC. AUC ranges in value from 0 to 1. Area Under the Curve measures how likely the model differentiates positives and negatives (perfect AUC = 1, basline = 0.5) 
-
-\vspace{-5pt}
-
-\begin{center}
-    \begin{minipage}{0.55\linewidth}
-        \includegraphics[width=\textwidth]{figures/AUC_ROC.PNG}
-    \end{minipage}
-\end{center}
-\vspace{-5pt}
-
-
-
 \textbf{\textcolor{blue}{How to choose threshold for the logistic regression?}}
-The choice of a threshold depends on the importance of TPR and FPR classification problem. For \textbf{example}: Suppose you are building a model to \textbf{predict customer churn}. \textbf{False negatives} (not identifying customers who will churn) might lead to loss of revenue, making TPR crucial. In contrast, falsely predicting churn (\textbf{false positives}) could lead to unnecessary retention efforts, making FPR important. If there is no external concern about low TPR or high FPR, one option is to weight them equally by choosing the threshold that maximizes TPR$-$FPR.
+The choice of a threshold depends on the importance of TPR and FPR classification problem. If there is no external concern about low TPR or high FPR, one option is to weight them equally by choosing the threshold that maximizes TPR$-$FPR.
+\begin{lstlisting}[language=Python, mathescape=true, frame=single]
+# Get predicted probabilities
+y_prob = model.predict_proba(X_test)[:, 1] 
+# Calculate ROC curve
+fpr, tpr, thresholds = roc_curve(y_test, y_prob)
+# Optimal threshold using Youden's J stat.
+youden_index = tpr - fpr
+optimal = thresholds[np.argmax(youden_index)]
+\end{lstlisting}
+
 
 \vspace{3pt}
-\textbf{Precision-Recall} curve: - Focuses on the correct prediction of the minority class, useful when data is imbalanced. Plot precision at different thresholds.
+
+$\bullet$ Area Under the ROC Curve \textbf{AUC}: To compute the points in an ROC curve, an efficient, sorting-based algorithm called AUC. AUC ranges in value from 0 to 1. Area Under the Curve measures how likely the model differentiates positives and negatives (perfect AUC = 1, basline = 0.5) 
+
+% \vspace{-5pt}
+
+% \begin{center}
+%     \begin{minipage}{0.55\linewidth}
+%         \includegraphics[width=\textwidth]{figures/AUC_ROC.PNG}
+%     \end{minipage}
+% \end{center}
+% \vspace{-5pt}
+
+
+
+
+\vspace{3pt}
+$\bullet$ \textbf{Precision-Recall} curve: Focuses on the correct prediction of the \textbf{minority} class, useful when data is \textbf{imbalanced}. Plot precision at different thresholds.
 
 \vspace{-5pt}
 \begin{center}
@@ -763,15 +748,15 @@ The choice of a threshold depends on the importance of TPR and FPR classificatio
 \subsubsection{Regression Problems} {\color{teal}\hrule height 0.5pt} \smallskip
 
 \begin{enumerate}
-    \item \textbf{Mean Squared Error: } \(\boxed{\text{MSE} = \frac{1}{n} \sum_{i}(y_{i} - \hat{y})} \)
+    \item \textbf{Mean Squared Error: } \(\boxed{\text{MSE} = \frac{1}{n} \sum_{i}(y_{i} - \hat{y_{i}})^{2}} \)
     
-    \item \textbf{Root Mean Squared Error: } \(\boxed{\text{RMSE} = \sqrt{\frac{\sum^{N}_{i=1} (\hat{y_{i}} - y_{i})^{2}}{N}}}\)
+    \item \textbf{Root Mean Squared Error: } \(\boxed{\text{RMSE} = \sqrt{\frac{\sum^{N}_{i=1} (y_{i} - \hat{y_{i}})^{2}}{N}}}\)
     
-    \item \textbf{Mean Absolute Error: } \(\boxed{\text{MAE} = \frac{1}{n} \sum_{i} |y_{i}-\hat{y}| }\)
+    \item \textbf{Mean Absolute Error: } \(\boxed{\text{MAE} = \frac{1}{n} \sum_{i} |y_{i}-\hat{y_{i}}| }\)
     
-    \item \textbf{Sum of Squared Error:} \(\boxed{\text{SSE} = \sum_{i} (y_{i} - \hat{y})^{2}}  \) 
+    \item \textbf{Sum of Squared Error:} \(\boxed{\text{SSE} = \sum_{i} (y_{i} - \hat{y_{i}})^{2}}  \) 
     
-    \item \textbf{Total Sum of Squares:} \(\boxed{\text{SST} = \sum_{i} (y_{i} - \bar{y})^{2}}\)
+    \item \textbf{Total Sum of Squares:} \(\boxed{\text{SST} = \sum_{i} (y_{i} - \bar{y_{i}})^{2}}\)
     
     \item \textbf{$R^{2}$ Error : }  
     \vspace{-3pt}
@@ -785,36 +770,38 @@ The choice of a threshold depends on the importance of TPR and FPR classificatio
 
 \subsubsection{Variance, \texorpdfstring{\(R^{2}\)}, and the Sum of Squares}  {\color{teal}\hrule height 0.5pt} \smallskip
 
-$\bullet$ The \textbf{total sum of squares}: SS$_{total}$ = \(\sum_{i} (y_{i} - \bar{y})^{2} \) \\
+$\bullet$ The \textbf{total sum of squares}: $\text{SS}_{\text{total}}$ = \(\sum_{i} (y_{i} - \bar{y})^{2} \) \\
 
 $\bullet$ This scales with variance: var($Y$) = \( \frac{1}{n} \sum_{i} (y_{i} - \bar{y})^{2} \) \\
 
-$\bullet$ The \textbf{regression} sum of squares: SS$_{reg}$ = \(\sum_{i} \hat{(y_{i}} - \bar{y})^{2} \) \\ , $\rightarrow$ nVar(predictions)
+$\bullet$ The \textbf{regression} sum of squares: \\
+$\text{SS}_{\text{regression}}$ = \(\sum_{i} \hat{(y_{i}} - \bar{y})^{2} \), $\rightarrow$ nVar(predictions)
 
 $\bullet$ The \textbf{residual} sum of squares (squared errro): \\ 
-SS$_{resid}$ = \(\sum_{i} (y_{i} - \hat{y_{i}})^{2} \), $\rightarrow$ nVar($\epsilon$) \\
+$\text{SS}_{\text{residual}}$ = \(\sum_{i} (y_{i} - \hat{y_{i}})^{2} \), $\rightarrow$ nVar($\epsilon$) \\
 
+\vspace{2pt}
 \textbf{\textcolor{blue}{Note: }} \(\bar{\epsilon} = 0, E[\hat{y}] = \bar{y} \)
 \vspace{-3pt}
-\[SS_{total} = SS_{reg} + SS_{resid} \]
+\[\text{SS}_{\text{total}} = \text{SS}_{\text{regression}} + \text{SS}_{\text{residual}} \]
 \vspace{-3pt}
-\[R^{2} = 1 - \frac{SS_{resid}}{SS_{total}} = \frac{SS_{reg}}{SS_{total}} = \frac{nVar(Preds)}{nVar(Y)} = \frac{Var(Preds)}{Var(Y)}\]
+\[R^{2} = 1 - \frac{\text{SS}_{\text{residual}}}{\text{SS}_{\text{total}}} = \frac{\text{SS}_{\text{regression}}}{\text{SS}_{\text{total}}} = \frac{nVar(\text{preds})}{nVar(Y)} = \frac{Var(\text{preds})}{Var(Y)}\]
 \vspace{-3pt}
 
 $\rightarrow$  \textbf{Explained Variance}: $R^{2}$ quantifies how much of the variability in the outcome (\textbf{dependent}) variable can be explained by the predictor (\textbf{independent}) variables. 
 
-$\rightarrow$ An $R^{2}$ of 1 indicates a perfect fit, where the model explains all the variability, while an $R^{2}$ of 0 indicates that the model explains none of the variability.
 
 $\rightarrow$ \textbf{Goodness of Fit}: A higher $R^{2}$
 value generally suggests a better fit of the model to the data, meaning the model's predictions are closer to the actual values. 
 
+$\rightarrow$ An $R^{2}$ of 1 indicates a perfect fit, where the model explains all the variability, while an $R^{2}$ of 0 indicates that the model explains none of the variability.
 
 $\rightarrow$ \textbf{$R^{2}$ is not valid for nonlinear models} as 
-\vspace{-3pt}
-\[\boxed{\text{SS}_{\text{residual}} + \text{SS}_{\text{error}} \neq \text{SST}}\]
+\vspace{-2pt}
+\[\boxed{\text{SS}_{\text{residual}} + \text{SS}_{\text{error}} \neq \text{SS}_{\text{total}}}\]
 \vspace{-3pt}
 
-$\rightarrow$ \textbf{Drawback}: R-squared will always increase when a new predictor variable is added to the regression model.  
+$\rightarrow$ \textbf{Drawback}: R-squared will always increase when a new predictor variable is added to the regression model, that's why \textbf{adjusted} $R^{2}$ used
 
 % \begin{minipage}{\linewidth}
 % % \begin{figure}[h!]
@@ -841,10 +828,15 @@ $\rightarrow$ \textbf{Drawback}: R-squared will always increase when a new predi
 \subsection{Optimization} {\color{teal}\hrule height 0.5pt} \smallskip
 
 Almost every machine learning method has an optimization algorithm at its core. \\
-$\rightarrow$ \textbf{Hypothesis : } The hypothesis is noted $h_{\theta}$ and is the model that we choose. For a given input data $x^{(i)}$ the model prediction output is $\boxed{h_{\theta}(x^{(i)})}$. \\
-$\rightarrow$ \textbf{Loss function : } 
-\(\boxed{L:(\hat{y},y)  \in  R \times Y \longmapsto  L(\hat{y},y) \in R} \) that takes as inputs the \textbf{predicted value} $\hat{y}$ corresponding to the \textbf{real data value} $y$ and outputs how different they are. The \textbf{loss function} is the function that computes the \textbf{distance} or \textbf{difference} between the current output $\hat{y}$ of the algorithm and the expected output $y$. 
+$\rightarrow$ \textbf{Hypothesis :} The hypothesis $h_{\theta}$ is the model that we choose. For a given input data $x^{(i)}$ the model prediction output is $\boxed{h_{\theta}(x^{(i)})}$. 
 
+\vspace{3pt}
+
+$\rightarrow$ \textbf{Loss function : } 
+\(\boxed{L:(\hat{y},y)  \in  R \times Y \longmapsto  L(\hat{y},y) \in R} \) that takes as inputs the \textbf{predicted} $\hat{y}$, the \textbf{actual}  $y$, and outputs how different they are. \\
+In another way, The \textbf{loss function} computes the \textbf{distance} or \textbf{difference} between the \textbf{predicted} output $\hat{y}$ of the algorithm and the \textbf{actual} output $y$. 
+
+\vspace{3pt}
 The common loss functions are summed up in the table below:
 \vspace{-5pt}
 \begin{center}
@@ -863,9 +855,14 @@ The common loss functions are summed up in the table below:
 
 
 
-$\rightarrow$ \textbf{Cost function : } The cost function $J$ is commonly \textbf{used to know the performance of a model}, and is defined with the loss function $L$ as follows: 
+$\rightarrow$ \textbf{Cost function :} The cost function $J$ is commonly \textbf{used to know the performance of a model}, and is defined with the loss function $L$ as follows: 
 \vspace{-3pt}
 \[\boxed{J(\theta) = \sum^{m}_{i=1} L(h_{\theta}(x^{(i)}) , y^{(i)})} \]
+
+$\bullet$ Cost function for \textbf{regression}: Mean Squared Error (MSE), Mean Absolute Error (MAE), Huber Loss, Log-Cosh Loss
+
+$\bullet$ Cost function for \textbf{classification}: Binary Cross-Entropy Loss, Categorical Cross-Entropy Loss, Sparse Categorical Cross-Entropy Loss, Hinge Loss, Squared Hinge Loss.
+
 
 
 \subsubsection{Convex \& Non-convex} {\color{teal}\hrule height 0.5pt} \smallskip
@@ -874,14 +871,19 @@ A \textbf{convex} function is one where a line drawn between any two points on t
 
 $\rightarrow$ When a \textbf{cost function is non-convex}, it means that there is a likelihood that the function may find \textbf{local minima} instead of the \textbf{global minimum}, which is typically undesired in machine learning models from an optimization perspective.
 
+\subsubsection{General Optimization Steps} {\color{teal}\hrule height 0.5pt} \smallskip
+1. Understand data (features and outcome variables) $\rightarrow$
+2. Define loss (or gain/utility) function $\rightarrow$
+3. Define predictive model $\rightarrow$
+4. Search for parameters that minimize the loss function
 
 \subsubsection{Gradient Descent} {\color{teal}\hrule height 0.5pt} \smallskip
 
 Gradient Descent is used to \textbf{find the coefficients} of $f$ that
-\textbf{minimizes a cost function} (for example MSE, SSR). \\
-$\rightarrow$ \textbf{Time Complexity}: \(O(kn^{2}) \) $\rightarrow$ $n$ is no. of data points. \\
+\textbf{minimizes a cost function}. \\
+$\rightarrow$ \textbf{Time Complexity}: \(O(n \cdot m) \) $\rightarrow$ $n$ is no. of data points, $m$ no. of features. If you run for $k$ iterations the total complexity becomes   \(O(k \cdot n \cdot m) \)
 
-$\rightarrow$ It minimizes the average loss by moving iteratively in the direction of steepest descent, controlled by the learning rate $\gamma$ (step size). Note, $\gamma$ can be updated adaptively for better performance. 
+$\rightarrow$ It minimizes the average loss by moving iteratively in the direction of steepest descent, controlled by the learning rate $\gamma$ (step size). 
 
 \textbf{Procedure: }
 \begin{enumerate}
@@ -900,28 +902,18 @@ The cost updating process is repeated until convergence (minimum found).
 \vspace{-5pt}
 
 \textbf{Tips : }
-\vspace{-5pt}
-\begin{itemize}
-    \item Change \textbf{learning rate} $\alpha$ ("size of jump" at each iteration)
-    \vspace{-3pt}
-    \item Plot \textit{Cost} vs. \textit{Time} to assess learning rate performance. 
-    \vspace{-3pt}
-    \item Rescaling the input variables
-    \vspace{-3pt}
-    \item Reduce passes through training set with SGD
-    \vspace{-3pt}
-    \item Average over $10$ or more updated to observe the learning trend while using SGD
-    \vspace{-3pt}
-\end{itemize}
+For effective gradient descent, select an optimal learning rate, scale features, initialize parameters wisely, utilize mini-batch processing, monitor convergence, experiment with various optimizers, apply regularization techniques, avoid local minima, visualize loss trends, and tune hyperparameters diligently.
+
+\vspace{3pt}
+
+$\bullet$ \textbf{Stochastic Gradient Descent} uses a single point to compute gradients, leading to smoother convergence and faster compute speeds. \\
+$\rightarrow$ \textbf{Time Complexity}: \(O(k \cdot m) \) $\rightarrow$ $m$ is no. of features. In each iteration, SGD computes the gradient using only one data point, leading to \(O(k 
+ \cdot m)\) for $m$ features. 
 
 
-
-$\bullet$ \textbf{Stochastic Gradient Descent} apply the procedure of parameter updating for each observation. \\
-$\rightarrow$ \textbf{Time Complexity}: \(O(km^{2}) \) $\rightarrow$ $m$ is the sample of data selected randomly from the entire data of size $n$ \\
-$\rightarrow$ It only uses a single point to compute gradients, leading to smoother convergence and faster compute speeds.  \\
 
 $\bullet$ \textbf{Mini-batch Gradient Descent} trains on small subsets of the data, striking a balance between the approaches.
-
+$\rightarrow$ \textbf{Time Complexity}: \(O(k \cdot b \cdot m) \) 
 
 
 
@@ -930,14 +922,14 @@ $\bullet$ \textbf{Mini-batch Gradient Descent} trains on small subsets of the da
 
 \subsubsection{Ordinary Least Squares} {\color{teal}\hrule height 0.5pt} \smallskip
 
-\textbf{Least Squares Regression}\\
-We fit linear models: 
-\vspace{-5pt}
-\[\boxed{\hat{y} = \beta_{0} + \sum_{j}\beta_{j}x_{j}}\]
+\textbf{General Linear Regression Model:} \(\boxed{\hat{y} = \beta_{0} + \sum_{j}\beta_{j}x_{j} + \epsilon} \)
+
 Here, $\beta_{j}$ is the $j$-th coefficient and $x_{j}$ is the $j$-th feature.
 
+\vspace{3pt}
+
 \textbf{Ordinary Least Squares} - find $\Vec{\beta}$ that minimizes \textbf{squared error}:
-\vspace{-3pt}
+
 \[ \boxed{ \underset{\vec{\beta}} {\arg\min} \sum_{i} \left(y_{i} - \hat{y_{i}}  \right)^2} \]
 
 \begin{center}
@@ -963,140 +955,107 @@ Here, $\beta_{j}$ is the $j$-th coefficient and $x_{j}$ is the $j$-th feature.
 
 
 
-\textbf{General Optimization: }\\
-\vspace{-3pt}
-\begin{enumerate}
-    \item Understand data (features and outcome variables) 
-    \vspace{-3pt}
-    \item Define loss (or gain/utility) function
-    \vspace{-3pt}
-    \item Define predictive model
-    \vspace{-3pt}
-    \item Search for parameters that minimize loss function
-    \vspace{-3pt}
-\end{enumerate}
-
-
-
-\textbf{Augmented Loss} \\
-We can add more things to the loss function
-\vspace{-3pt}
-\begin{itemize}
-    \item Penalize model complexity
-    \vspace{-3pt}
-    \item Penalize "strong" beliefs
-    \vspace{-3pt}
-    \begin{itemize}
-        \vspace{-3pt}
-        \item Requires predictive utility to overcome them
-    \end{itemize}
-\end{itemize}
-
-
-
 
 $\rightarrow$ Least squares generalizes into \textbf{minimizing loss functions}. \\
 $\rightarrow$ This is the heart of machine learning, particularly supervised learning.
 
 
 
-% \vspace{5pt}
-% \subsubsection {\textbf{Likelihood and Posterior}}
-% \[\mathcolor{orange}{P(\theta |\textbf{y})} = \frac{\mathcolor{green}{P(\textbf{y}|\theta)} \, \mathcolor{purple}{P(\theta)} }{P(\textbf{y})} \]
-% \vspace{-5pt}
+\vspace{5pt}
+\subsubsection {\textbf{Likelihood and Posterior}} {\color{teal}\hrule height 0.5pt} \smallskip
+\[\mathcolor{orange}{P(\theta |\textbf{y})} = \frac{\mathcolor{green}{P(\textbf{y}|\theta)} \, \mathcolor{purple}{P(\theta)} }{P(\textbf{y})} \]
+\vspace{-5pt}
 
-% • \mathcolor{Purple}{$P(\theta)$} is the \textcolor{Purple}{prior}
-% \\
+• \mathcolor{Purple}{$P(\theta)$} is the \textcolor{Purple}{prior}
+\\
 
-% • \mathcolor{Green}{$P(y | \theta)$} is the \textcolor{Green}{likelihood} – how likely is the data given params $\theta$ \\
-% • $P(y) = \int P(y | \theta) P(\theta) d\theta $ is a scaling factor (constant for fixed $y$) \\
-% • $\mathcolor{Orange}{P(\theta | y)}$ is the \textcolor{Orange}{posterior}.
+• \mathcolor{Green}{$P(y | \theta)$} is the \textcolor{Green}{likelihood} – how likely is the data given params $\theta$ \\
+• $P(y) = \int P(y | \theta) P(\theta) d\theta $ is a scaling factor (constant for fixed $y$) \\
+• $\mathcolor{Orange}{P(\theta | y)}$ is the \textcolor{Orange}{posterior}.
 
 
-% • We’re maximizing likelihood (ML estimator) \\
-% • Can also maximize posterior (MAP estimator)\\
-% \hspace{7pt} - When prior is constant, they’re the same\\
-% \hspace{7pt} - With lots of data, they’re almost the same\\
+• We’re maximizing likelihood (ML estimator) \\
+• Can also maximize posterior (MAP estimator)\\
+\hspace{7pt} - When prior is constant, they’re the same\\
+\hspace{7pt} - With lots of data, they’re almost the same\\
 
-% $\rightarrow$ Logistic function is trained by
-% \textbf{maximizing the log likelihood} of the
-% training data given the model
+$\rightarrow$ Logistic function is trained by
+\textbf{maximizing the log likelihood} of the
+training data given the model
 
 
 
 \vspace{2pt}
-\subsubsection{Maximum Likelihood Estimation \textbf{MLE}} {\color{teal}\hrule height 0.5pt} \smallskip
-Any probability distribution has parameters, so fitting parameters is an extremely crucial part of data analysis. There are two general methods for doing so. In \textbf{maximum likelihood estimation} (MLE), the goal is to estimate the most likely parameters given a likelihood function: 
-\vspace{-3pt}
-\[\boxed{\theta_{\text{MLE}} = \text{arg max} \hspace{2pt} L(\theta)}, \hspace{10pt} \text{where} \hspace{5pt} L(\theta) = f_{n}\left(x_{1}, \ldots x_{n} | \theta \right) \]
+\subsubsection{Maximum Likelihood Estimation (\textbf{MLE})} {\color{teal}\hrule height 0.5pt} \smallskip
+In MLE, the goal is to estimate the parameters (or coefficients) of a probability distribution by finding the values that \textbf{maximize} the likelihood of the observed data.
 
-Since the values of $X$ are assumed to be i.i.d., then the likelihood function becomes the following:
+\vspace{3pt}
+$\bullet$ \textbf{Likelihood Function}: The likelihood function measures the probability of the observed data given the parameters. It helps to evaluate how well different parameters explain the observed data.
+For a dataset \(X = \{x_{1}, x_{2}, ... {x_n} \}\), assumed to be i.i.d.and a parameter $\theta$, the likelihood \(L(\theta)\) is: 
 \vspace{-3pt}
-\[\boxed{L\left(\theta \right) = \prod^{n}_{i=1} f\left(x_{i}|\theta \right)} \]
+\[\boxed{L\left(\theta | X \right) = \prod^{n}_{i=1} f\left(x_{i}|\theta \right) \hspace{4pt} \rightarrow L\left(\theta | X \right) = P\left(X | \theta \right) =  \prod^{n}_{i=1} P\left(x_{i}|\theta \right) }   \]
 
-The natural log of $L(\theta)$ is then taken prior to calculating the maximum; since log is a monotonically increasing function, maximizing the \textbf{log-likelihood} log $L(\theta)$ is equivalent to maximizing the likelihood:
+$\bullet$\textbf{ Log-Likelihood}:
+The natural log of $L(\theta)$ is then taken prior to calculating the maximum because multiplying probabilities can result in very small values and also log is a monotonically increasing function, maximizing the \textbf{log-likelihood} log $L(\theta)$ is equivalent to maximizing the likelihood:
 \vspace{-3pt}
-\[\boxed{\text{log} \hspace{3pt} L(\theta) = \sum^{n}_{i=1} \text{log} \hspace{2pt} f\left(x_{i}|\theta \right)}\]
+\[\boxed{\text{log} \hspace{2pt} L\left(\theta | X \right) = \text{log} \hspace{2pt} P\left(X | \theta \right) =  \prod^{n}_{i=1} \text{log} \hspace{2pt} P\left(x_{i}|\theta \right) }   \]
+
+
 
 
 $\rightarrow$ MLE is used to find the estimators that \textbf{minimized the likelihood function:} 
 \(\mathcal{L}(\theta|x) = f_{\theta}(x) \) \hspace{5pt} \textcolor{blue}{density function of the data distribution}
 
-\subsubsection{Maximum a Posterior \textbf{MAP}} {\color{teal}\hrule height 0.5pt} \smallskip
-Another way of fitting parameters is through \textbf{maximum a posterior} estimation (MAP), which assumes a "prior distribution":
-\vspace{-3pt}
-\[\boxed{\theta_{\text{MAP}} = \text{arg max} \hspace{2pt} g(\theta) \hspace{1pt} f\left(x_{1} \ldots x_{n} | \theta \right)} \]
-where the similar \textbf{log-likelihood} is again employed, and $g(\theta)$ is a density function of $\theta$.
-
-
-
-
-
-
-
-
-
-\subsubsection{Log Likelihood} {\color{teal}\hrule height 0.5pt} \smallskip
-\textbf{Logistic Regression}:
-\vspace{-10pt}
-\[P\left(Y=1 | X=x \right) = \hat{y} = \text{logistic} \left(\beta_{0} + \sum_{j} \beta_{j}x_{j} \right)  \]
-\vspace{-12pt}
-
-The model computes \textbf{probability of yes}. 
 
 
 \vspace{3pt}
 
-\textbf{Probability of Observed} \\
-What if we want $P(Y=y_{i})$, regardless of whether $y_{i}$ is 1 or 0? \\
+
+
+In case of \textbf{Logistic Regression}:
+\vspace{-10pt}
+\[P\left(Y=1 | X=x \right) = \hat{y} = \text{logistic} \left(\beta_{0} + \sum_{j} \beta_{j}x_{j} \right)  \]
+\vspace{-12pt}
+
+The model computes \textbf{probability of yes}.\\
+$\rightarrow$ What if we want $P(Y=y_{i})$, regardless of whether $y_{i}$ is 1 or 0? \\
 \vspace{-5pt}
 \[P \left(Y=y_{i} | X=x_{i} \right) = \hat{y_{i}}^{y_{i}} \left(1- \hat{y_{i}}\right)^{1-y_{i}}  \]
 
 \begin{itemize}
     \item $\hat{y}_{i}$ is model's estimate of $P(Y=1|X=x_{i})$
     \item $y_{i} \in \{0,1 \}$ is outcome
-    \item $\hat{y}_{i}^{y_{i}}$ is $\hat{y}_{i}$ if $y_{i} = 1$, and $1$ if $y_{i} = 0$  — multiplicative if 
+    \item $\hat{y}_{i}^{y_{i}}$ is $\hat{y}_{i}$ if $y_{i} = 1$, and $1$ if $y_{i} = 0$ 
 \end{itemize}
 
 \textbf{Conditioning on Parameters} \\
 Fuller definition -  condition on parameters $\vec{\beta}$ and write function: 
-\vspace{-5pt}
+\vspace{-2pt}
 \[P(Y=1|x, \vec{\beta}) = \hat{y} = m(x, \vec{\beta}) = \text{logistic(...)}\]
 
 \vspace{3pt}
 \textbf{Likelihood Function} \\
-Given data \(\textbf{y} = \langle y_{1}, ... , y_{n} \rangle, \textbf{x} = \langle x_{1}, ..., x_{n} \rangle \) and parameters $\hat{\beta}$
+
+
+Given data \(\textbf{X} = \langle x_{1}, ..., x_{n}\rangle, \hspace{2pt}  \textbf{y} = \langle y_{1}, ... , y_{n} \rangle \) and parameters $\hat{\beta}$
 \vspace{-3pt}
 
-\[\text{Likelihood} (\textbf{y}, \textbf{x}, \vec{\beta}) = P(\textbf{y},\textbf{x}|\vec{\beta}) \propto P(\textbf{y}|\textbf{x}, \vec{\beta}) = \prod_{i} P(y_{i}|x_{i}, \vec{\beta}) \]
+\[\text{Likelihood} (\textbf{y}, \textbf{X}, \vec{\beta}) = P(\textbf{y},\textbf{X}|\vec{\beta}) = \prod_{i} P(y_{i}|x_{i}, \vec{\beta}) \]
 
-This is weird: \[ P(\textbf{y},\textbf{x} | \vec{\beta}) \propto P(\textbf{y} | \textbf{x}, \vec{\beta}) \]
-\[ P(\textbf{y},\textbf{x} | \vec{\beta}) = P(\textbf{y} | \textbf{x}, \vec{\beta}) P(\textbf{x}|\vec{\beta}) \]
-But \textbf{x} is independent of params, so \(P(\textbf{x}|\vec{\beta}) = P(\textbf{x}) \). And \textbf{x} is fixed, so \(P(\textbf{x}) \) is an (unknown) constant.
-\[\text{LogLik}(\textbf{y}, \textbf{x}, \vec{\beta}) = \text{log Likelihood}(\textbf{y},\textbf{x}, \vec{\beta}) \]
+
+\vspace{-3pt}
+
+By joint conditional probability, 
+\vspace{-2pt}
+\[ P(\textbf{y},\textbf{X} | \vec{\beta}) =  P(\textbf{X}|\vec{\beta}) \cdot P(\textbf{y} | \textbf{X}, \vec{\beta}) \]
+
+But \textbf{X} is independent of params, so \(P(\textbf{X}|\vec{\beta}) = P(\textbf{X}) \). And \textbf{X} is fixed, so \(P(\textbf{X}) \) is an (unknown) constant.
+
 \vspace{-5pt}
-\[= \text{log} \, P(\textbf{x}) \prod_{i} P\left( y_{i}|x_{i}, \vec{\beta} \right) \] \vspace{-3pt}
-\[= \text{log} \, P(\textbf{x})  + \sum_{i} \text{log} \, P \left( y_{i}|x_{i}, \vec{\beta} \right) \] 
+
+\[\text{log Likelihood}(\textbf{y},\textbf{X}, \vec{\beta}) = \text{log} \, P(\textbf{X}) \prod_{i} P\left( y_{i}|x_{i}, \vec{\beta} \right) \]
+\vspace{-5pt}
+\[= \text{log} \, P(\textbf{X})  + \sum_{i} \text{log} \, P \left( y_{i}|x_{i}, \vec{\beta} \right) \] 
 
 \vspace{3pt}
 \textbf{Maximum Likelihood Estimator}
@@ -1113,11 +1072,20 @@ But \textbf{x} is independent of params, so \(P(\textbf{x}|\vec{\beta}) = P(\tex
 Model log likelihood is sum over training data. Applicable to \textbf{any} model where \(\hat{y} = P(Y=1 |x) \) 
 
 
+\subsubsection{Bayesian Estimation - Maximum a Posterior (\textbf{MAP})} {\color{teal}\hrule height 0.5pt} \smallskip
+\textbf{MAP} estimation seeks to find the parameters $\theta$ that maximize the posterior distribution, which assumes a "prior distribution \( P(\theta) \)"
 
 
-% \vspace*{\fill}
+\vspace{-3pt}
+\[\boxed{\hat{\theta}_{MAP} = \underset{\theta}{\text{argmax}} \ P(\theta | X) = \underset{\theta}{\text{argmax}} \ \frac{P(X | \theta) P(\theta)}{P(X)} } \]
+Since \( P(X) \) does not depend on \( \theta \),
+\vspace{-3pt}
+\[\boxed{\hat{\theta}_{MAP} \approx \underset{\theta}{\text{argmax}} \ P(X | \theta) P(\theta)}\]
 
-% % \columnbreak
+
+
+In logistic regression, MAP can be applied by introducing a prior on the model parameters \( P(\theta) \)
+
 
 % % \vspace*{\fill}
 
@@ -1131,7 +1099,7 @@ Model log likelihood is sum over training data. Applicable to \textbf{any} model
 
 \subsubsection{Regression} {\color{teal}\hrule height 0.5pt} \smallskip
 
-$\rightarrow$ \textbf{Regression predicts (or estimates) a continuous variable} 
+$\rightarrow$ Regression predicts (or estimates) a continuous variable 
 
 \vspace{2pt}
 
@@ -1140,7 +1108,7 @@ $\rightarrow$ \textbf{Regression predicts (or estimates) a continuous variable}
 $\rightarrow$ compute estimate $\hat{y} \approx y$
 \vspace{-5pt}
 \[\hat{y_{i}} = \beta_{0} + \beta_{1}x_{i} \]
-\vspace{-15pt}
+\vspace{-10pt}
 \[ y_{i} = \hat{y_{i}} +  \epsilon_{i} \]
 Here, $\beta_{0}$ is intercept, $\beta_{1}$ is slope and $\epsilon$ is residuals. The goal is to learn $\beta_{0}, \beta_{1}$ to minimize $\sum \epsilon^{2}_{i}$ (least squares)
 
@@ -1187,13 +1155,13 @@ $\rightarrow$ Linear models are remarkably capable of transforming many non-line
 \vspace{-7pt}
 
 \[\boxed{\hat{y_{i}} = \beta_{0} + \sum^{n}_{i=1}\sum^{p}_{j=1}\beta_{j}x_{ij}}\]
-Here, $n$ is total no. of observation, $y_{i}$ is dependent variable, $x_{ij}$ is explanatory variable of $j$-th features of the $i$-th observation.
+Here, $n$ is total no. of observation, $\hat{y}_{i}$ is dependent variable, $x_{ij}$ is explanatory variable of $j$-th features of the $i$-th observation.
 $\beta_{0}$ is intercept or usually called \textbf{bias} coefficient. \\
 
 
 
 \textbf{\underline{Assumptions}:} \\
-$\rightarrow$  Linear models make four key assumptions necessary for inferential
+$\rightarrow$  Linear models make \textbf{four} key assumptions necessary for inferential
 validity. \\
 • \textbf{Linearity} — outcome $y$ and predictor $X$ have linear relationship. \\
 • \textbf{Independence} — observations are independent of each other\\
@@ -1284,22 +1252,7 @@ $\rightarrow$ \textbf{Multicollinearity} $\rightarrow$ correlated predictors. \t
 
 $\rightarrow$ L1 is less likely to shrink coefficients to 0. Therefore L1 regularization leads to sparser models. \\
 
-\vspace{5pt}
-\textbf{\underline{Data preparation:}} \\
-- Transform data for linear relationship (ex: log transform for exponential relationship) \\
-- Remove noise such as outliers \\
-- Rescale inputs using standardization or normalization \\
 
-\vspace{3pt}
-\textbf{\underline{Advantages:}} \\
-+ Good regression baseline considering simplicity \\
-+ Lasso/Ridge can be used to avoid overfitting \\
-+ Lasso/Ridge permit feature selection in case of collinearity \\
-
-\vspace{3pt}
-\textbf{\underline{Usecase examples:}} \\
-- Product sales prediction according to prices or promotions \\
-- Call-center waiting-time prediction according to the number of complaints and the number of working agents \\
 
 
 
@@ -1409,31 +1362,11 @@ $\rightarrow$ \textbf{Maximizing} the \textbf{log likelihood} of the training da
 \vspace{-5pt}
 \[\boxed{\underset{\vec{\beta}} {\arg\max} \sum_{i} \text{log} \hspace{2pt} P\left(y_{i} | x_{i}, \vec{\beta} \right)} \]
 
-% \vspace{-5pt}
-\[P \left(Y=y_{i} | X=x_{i} \right) = \hat{y_{i}}^{y_{i}} \left(1- \hat{y_{i}}\right)^{1-y_{i}}  \]
-\vspace{-10pt}
-\[\text{log} P \left(Y=y_{i} | X=x_{i} \right) = y_{i} \; \text{log}\,  \hat{y_{i}} +  (1-y_{i}) \, \text{log}\left(1- \hat{y_{i}}\right)  \]
-
-Model log likelihood is sum over training data. Applicable to \textbf{any} model where \(\hat{y} = P(Y=1 |x) \) 
 
 
 
 
-\textbf{\underline{Data preparation:}}\\
-- Probability transformation to binary for classification \\
-- Remove noise such as outliers
 
-\vspace{2pt}
-\textbf{\underline{Advantages:}} \\
-+ Good classification baseline considering simplicity \\
-+ Possibility to change cutoff for precision/recall tradeoff \\
-+ Robust to noise/overfitting with L1/L2 regularization \\
-+ Probability output can be used for ranking  
-
-\vspace{2pt}
-\textbf{\underline{Usecase examples:}} \\
-- Customer scoring with probability of purchase \\
-- Classification of loan defaults according to profile
 
 
 
@@ -1479,26 +1412,51 @@ The class with largest \textbf{discriminant value} is the \textbf{output class}.
     \item \textbf{Regularized DA:}  Regularization into the variance estimate.
 \end{enumerate}
 
-\vspace{3pt}
-\textbf{\underline{Data preparation:}} \\
-- Review and modify univariate distributions to be Gaussian \\
-- Standardize data to $\mu = 0$,  $\sigma = 1$ to have same variance \\
-- Remove noise such as outliers 
 
-\vspace{3pt}
-\textbf{\underline{Advantages:}} \\
-+ Can be used for dimensionality reduction by keeping the latent variables as new variables
+\subsubsection{Data preparation for Linear Algorithm} {\color{teal}\hrule height 0.5pt} \smallskip
 
-\vspace{3pt}
-\textbf{\underline{Usecase example:}} \\
-- Prediction of customer churn
+\begin{enumerate}
+    \item \textbf{Data Transformation:} 
+    Linear algorithms require data to have a linear relationship between features and the target variable. Often, transformations like log or polynomial are applied to make the data fit a linear pattern.
+    
+    \item \textbf{Feature Engineering:} 
+    Feature engineering is crucial. Polynomial features or interaction terms may need to be added manually to capture relationships in the data.
+
+    \item \textbf{Handling Outliers:} 
+    Linear models are sensitive to outliers. Detecting and either removing or transforming outliers is important, as they can significantly influence the results.
+
+    \item \textbf{Rescaling:} 
+    Rescaling features (standardization or normalization) is required to ensure that all features contribute equally to the model. Algorithms such as linear regression perform better with rescaled data.
+
+    \item \textbf{Assumptions:} 
+    Linear algorithms assume a linear relationship between the input features and the output variable. Violating this assumption can lead to suboptimal performance.
+\end{enumerate}
 
 
+\subsubsection{Advantages of Linear Algorithms} {\color{teal}\hrule height 0.5pt} \smallskip
+
+
+\begin{enumerate}
+    \item \textbf{Simplicity and Interpretability:} 
+    Easy to understand and interpret results (e.g., coefficients indicate feature importance).
+    
+    \item \textbf{Computational Efficiency:} 
+    Faster to train and predict, especially with large datasets.
+    
+    \item \textbf{Less Prone to Overfitting:} 
+    With proper regularization (like Lasso or Ridge), linear models can generalize well on unseen data.
+    
+    \item \textbf{Strong Theoretical Foundation:} 
+    Well-established statistical properties and a solid theoretical framework.
+    
+    \item \textbf{Works Well with Linearly Separable Data:} 
+    Performs well when the relationship between features and target variable is linear.
+\end{enumerate}
 \vspace{5pt}
 
-% \vspace*{\fill}
+\vspace*{\fill}
 
-% \columnbreak
+\columnbreak
 
 \subsection{Nonlinear Algorithms} {\color{teal}\hrule height 1pt} \smallskip
 All Nonlinear Algorithms are non-parametric and more flexible. They are not sensible to outliers and do not require any shape of distribution. 
@@ -1506,20 +1464,20 @@ All Nonlinear Algorithms are non-parametric and more flexible. They are not sens
 \subsubsection{Naive Bayes Classifier} {\color{teal}\hrule height 0.5pt} \smallskip
 
 Naive Bayes is a \textbf{classification} algorithm interested in
-selecting the \textbf{best hypothesis} $h$ given data $d$ \textbf{assuming that the features of each data point are all independent}  \\
+selecting the \textbf{best hypothesis} $h$ given data $X$ \textbf{assuming that the features of each data point are all independent}  \\
 
 \textbf{\underline{Representation:}} 
 The representation is based on Bayes Theorem:
 \vspace{-3pt}
-\[\boxed{P(Y|d) = \frac{P(d|Y) \times P(Y)}{P(d)}} \]
-With naive hypothesis, \(P(Y|d) = P(x_{1}, x_{2}, \cdots, x_{i} | \, Y) = P(x_{1} | Y) \times P(x_{1} | Y) \times \cdots P(x_{i} | Y) \) 
+\[\boxed{P(Y|X) = \frac{P(X|Y) \times P(Y)}{P(X)}} \]
+With naive hypothesis, \(P(Y|X) = P(x_{1}, x_{2}, \cdots, x_{i} | \, Y) = P(x_{1} | Y) \times P(x_{1} | Y) \times \cdots P(x_{i} | Y) \) 
 \vspace{-3pt}
-\[\boxed{P(d|Y) = \prod^{n}_{i=1} P(x_{i} | \, Y)} \]
+\[\boxed{P(X|Y) = \prod^{n}_{i=1} P(x_{i} | \, Y)} \]
 
 \vspace{3pt}
 The prediction is the maximum a \textbf{posterior hypothesis}:
 \vspace{-3pt}
-\[\boxed{\text{max}\left(P(Y|d)\right) = \text{max}\left(P(d|Y) \times P(Y)\right)} \] 
+\[\boxed{\text{max}\left(P(Y|X)\right) = \text{max}\left(P(X|Y) \times P(Y)\right)} \] 
 here, the denominator is not kept as it is only for normalization.
 
 \vspace{3pt}
@@ -1539,45 +1497,27 @@ here, the denominator is not kept as it is only for normalization.
 
 
 
-\vspace{3pt}
-\textbf{\underline{Data preparation:}} \\
-- Change numerical inputs to categorical (binning) or near Gaussian inputs (remove outliers, log \& boxcox transform) \\
-- Other distributions can be used instead of Gaussian \\
-- Log-transform of the probabilities can avoid overflow \\
-- Probabilities can be updated as data becomes available
 
 
-\vspace{3pt}
-\textbf{\underline{Advantages:}} \\
-+ Fast because of the calculations \\
-+ If the naive assumptions works can converge quicker than other models. Can be used on smaller training data.  \\
-+ Good for few categories variables
+
+% \vspace{3pt}
+% \subsubsection{Likelihood and Posterior} 
+% \[\boxed{\mathcolor{orange}{P(\theta |\textbf{y})} = \frac{\mathcolor{green}{P(\textbf{y}|\theta)} \, \mathcolor{purple}{P(\theta)} }{P(\textbf{y})}} \]
+% \vspace{-10pt}
+
+% • \mathcolor{purple}{$P(\theta)$} is the \textcolor{purple}{prior}
+% \\
+
+% • \mathcolor{green}{$P(y | \theta)$} is the \textcolor{green}{likelihood} – how likely is the data given params $\theta$ \\
+% • $P(y) = \int P(y | \theta) P(\theta) d\theta $ is a scaling factor (constant for fixed $y$) \\
+% • $\mathcolor{orange}{P(\theta | y)}$ is the \textcolor{orange}{posterior}.
 
 
-\vspace{3pt}
-\textbf{\underline{Usecase examples:}} \\
-- Article classification using binary word presence \\
-- Email spam detection using a similar technique
-
-
-\vspace{3pt}
-\subsubsection{Likelihood and Posterior} 
-\[\boxed{\mathcolor{orange}{P(\theta |\textbf{y})} = \frac{\mathcolor{green}{P(\textbf{y}|\theta)} \, \mathcolor{purple}{P(\theta)} }{P(\textbf{y})}} \]
-\vspace{-10pt}
-
-• \mathcolor{purple}{$P(\theta)$} is the \textcolor{purple}{prior}
-\\
-
-• \mathcolor{green}{$P(y | \theta)$} is the \textcolor{green}{likelihood} – how likely is the data given params $\theta$ \\
-• $P(y) = \int P(y | \theta) P(\theta) d\theta $ is a scaling factor (constant for fixed $y$) \\
-• $\mathcolor{orange}{P(\theta | y)}$ is the \textcolor{orange}{posterior}.
-
-
-\vspace{3pt}
-• We’re maximizing likelihood (ML estimator) \\
-• Can also maximize posterior (MAP estimator)\\
-\hspace{7pt} • When prior is constant, they’re the same\\
-\hspace{7pt} • With lots of data, they’re almost the same\\
+% \vspace{3pt}
+% • We’re maximizing likelihood (ML estimator) \\
+% • Can also maximize posterior (MAP estimator)\\
+% \hspace{7pt} • When prior is constant, they’re the same\\
+% \hspace{7pt} • With lots of data, they’re almost the same\\
 
 
 
@@ -1708,24 +1648,15 @@ measure between new data and support vectors:
 \end{enumerate}
 
 
-\vspace{3pt}
-\textbf{\underline{Data preparation:}} \\
-- SVM assumes numeric inputs, may require dummy transformation of categorical features
 
-\textbf{\underline{Advantages:}} \\
-+ Allow nonlinear separation with nonlinear Kernels \\
-+ Works good in high dimensional space \\
-+ Robust to multicollinearity and overfitting
-
-\textbf{\underline{Usecase examples:}} \\
-- Face detection from images \\
-- Target Audience Classification from tweets
-
-\vspace{2pt}
 
 \textbf{\textcolor{blue}{Hyperparameters}}: regularization parameter (C) and the kernel parameters (such as gamma for the RBF kernel).
 
 
+
+% \vspace*{\fill}
+
+% \columnbreak
 
 
 
@@ -1743,6 +1674,14 @@ $\rightarrow$ A large value of \textbf{k} make everything classified as the most
 
 $\rightarrow$ A simple approach to \textbf{select} \textbf{k} is set $\boxed{\text{k} = \sqrt{n}}$ or \textbf{cross-validating} on small subset of training data (validation data) by \textbf{varying} values of $k$ and \textbf{observing} training - validation error. \\
 
+$\rightarrow$ \textcolor{purple}{Minkowski Distance} = \(\boxed{\left(\sum| a_{i} - b_{i}|^{p}\right)^{\frac{1}{p}}} \) \\
+\hspace{10pt} - p=1 gives \textbf{Manhattan distance} \(\boxed{\sum|a_{i} - b_{i}|} \)  \\
+\hspace{10pt} - p=2 gives Euclidean distance \(\boxed{\sqrt{\sum(a_{i} - b_{i})^{2}}} \)\\
+
+\vspace{2pt}
+$\rightarrow$ \textcolor{purple}{Hamming Distance} - count of the differences between two vectors, often used to compare categorical variables.
+
+
 
 \begin{center}
     \begin{minipage}{\linewidth}
@@ -1755,47 +1694,22 @@ $\rightarrow$ A simple approach to \textbf{select} \textbf{k} is set $\boxed{\te
 
 
 
-$\rightarrow$ \textcolor{purple}{Minkowski Distance} = \(\boxed{\left(\sum| a_{i} - b_{i}|^{p}\right)^{\frac{1}{p}}} \) \\
-\hspace{10pt} - p=1 gives \textbf{Manhattan distance} \(\boxed{\sum|a_{i} - b_{i}|} \)  \\
-\hspace{10pt} - p=2 gives Euclidean distance \(\boxed{\sqrt{\sum(a_{i} - b_{i})^{2}}} \)\\
 
-\vspace{2pt}
-$\rightarrow$ \textcolor{purple}{Hamming Distance} - count of the differences between two vectors, often used to compare categorical variables.
 
 
 
 
  
-\textbf{Time complexity:}
-The distance calculation step requires quadratic time complexity, and the sorting of the calculated distances requires an \(O(N \text{log} N)\) time. Total process is an \(O(N^{3} \text{log} N)\)  \\
-\vspace{2pt}
-\textbf{Space complexity:}
-Since it stores all the pairwise distances and is sorted in memory on a machine, memory is also the problem. Usually, local machines will crash, if we have very large datasets.
+% \textbf{Time complexity:}
+% The distance calculation step requires quadratic time complexity, and the sorting of the calculated distances requires an \(O(N \text{log} N)\) time. Total process is an \(O(N^{3} \text{log} N)\)  \\
+% \vspace{2pt}
+% \textbf{Space complexity:}
+% Since it stores all the pairwise distances and is sorted in memory on a machine, memory is also the problem. Usually, local machines will crash, if we have very large datasets.
 
  
- \vspace{3pt}
- \textbf{\underline{Data preparation:}} \\
-- Rescale inputs using standardization or normalization \\
-- Address missing data for distance calculations \\
-- Dimensionality reduction or feature selection for COD
+ 
 
 
- \vspace{3pt}
- \textbf{\underline{Advantages:}} \\
-+ Effective if the training data is large \\
-+ No learning phase \\
-+ Robust to noisy data, no need to filter outliers
-
- \vspace{3pt}
- \textbf{\underline{Usecase examples:}} \\
-- Recommending products based on similar customers \\
-- Anomaly detection in customer behavior
-
-
-
-
-\vspace*{\fill}
-\columnbreak
 
 
 \subsubsection{Classification and Regression Trees (CART)} {\color{teal}\hrule height 0.5pt} \smallskip
@@ -1872,23 +1786,10 @@ $\bullet$ CART for \textcolor{blue}{classification }
     \vspace{-2pt}
 \end{enumerate}
 
-\textbf{\underline{Advantages}:} \\
-$\rightarrow$ Can take any type of variables and do not require any data prepraration \\
-$\rightarrow$ Simple to understand, interpret, visualize \\
-$\rightarrow$ Non-linear parameters don't effect its performance \\
 
-\vspace{3pt}
-\textbf{\underline{Disadvantages}:} \\
-$\rightarrow$ Overfitting (High variance) occurs, when noise data \\
-$\rightarrow$ DT can be unstable (use bagging or boosting) because of small variation in data
-
-\vspace{3pt}
 \textbf{\textcolor{blue}{Hyperparameters}}:  The most common \textbf{Stopping Criterion} for splitting is a minimum of \textbf{training observations per node},  maximum depth of the tree 
 
 
-% \vspace*{\fill}
-
-% \columnbreak
 
 \subsubsection{Ensemble Algorithms} {\color{teal}\hrule height 0.5pt} \smallskip
 
@@ -1949,7 +1850,7 @@ $\rightarrow$ It involves \textbf{sequentially} training of multiple models, whe
 
 $\bullet$ Uses the \textbf{same training samples} at each stage \\
 $\bullet$ "Weakness" =  Misclassified data points \\
-$\bullet$ \textbf{Learning Focus}: Primarily reduces bias by focusing on misclassified instances
+$\bullet$ \textbf{Learning Focus}: Primarily reduces bias (increases variance) by focusing on misclassified instances
 \textbf{Algorithm}:
 \vspace{-3pt}
 \begin{enumerate}
@@ -2008,9 +1909,54 @@ $\rightarrow$ \textbf{Model performance: }  \\
 \textbf{\textcolor{blue}{Hyperparameters}}: Learning Rate, Number of Trees, Maximum Depth, Min Child Weight, Subsample, Booster Type, Early Stopping Rounds
 
 
-\vspace*{\fill}
+\subsubsection{Data Preparation for Non-Linear Algorithms} {\color{teal}\hrule height 0.5pt} \smallskip
 
-\columnbreak
+\begin{enumerate}
+    \item \textbf{Data Transformation:} 
+    Non-linear algorithms can naturally model non-linear relationships without the need for data transformations, as they are capable of capturing complex patterns.
+
+    \item \textbf{Feature Engineering:} 
+    Non-linear models are less reliant on manual feature engineering. Algorithms like decision trees or neural networks can automatically capture feature interactions and non-linear relationships.
+
+    \item \textbf{Handling Outliers:} 
+    Non-linear algorithms, such as decision trees and support vector machines, are generally more robust to outliers compared to linear models.
+
+    \item \textbf{Rescaling:} 
+    Some non-linear models (e.g., neural networks, support vector machines) benefit from rescaling, while others (e.g., decision trees, random forests) do not require rescaling.
+
+    \item \textbf{Assumptions:} 
+    Non-linear algorithms do not assume a linear relationship between inputs and outputs, allowing them to model more complex relationships in the data without predefined structures.
+\end{enumerate}
+
+
+
+\subsubsection{Advantages of Non-Linear Algorithms} {\color{teal}\hrule height 0.5pt} \smallskip
+\begin{enumerate}
+    \item \textbf{Captures Complex Relationships:} 
+    Can model intricate patterns and interactions in the data that linear algorithms might miss.
+    
+    \item \textbf{Higher Flexibility:} 
+    Adaptable to various data types and structures (e.g., images, text).
+    
+    \item \textbf{Improved Accuracy:} 
+    Often yields better performance on non-linear datasets by fitting the data more closely.
+    
+    \item \textbf{Handles High Dimensionality:} 
+    Suitable for high-dimensional spaces, especially with techniques like kernel methods or neural networks.
+    
+    \item \textbf{No Assumption of Linearity:} 
+    Does not require prior knowledge of the relationship between input features and output, making it versatile.
+    
+    \item \textbf{Feature Engineering Not Always Necessary:} 
+    Some non-linear algorithms, like tree-based models, automatically capture interactions and non-linearities without explicit feature engineering.
+\end{enumerate}
+
+
+
+
+% \vspace*{\fill}
+
+% \columnbreak
 
 
 \section{Unsupervised Machine Learning} {\color{teal}\hrule height 1pt} \smallskip
@@ -2572,16 +2518,20 @@ $\rightarrow$ LSTM memorize the information for the long period of time. The dif
 
 %%%%%%%%%%%%%%%%% Time Series Analysis %%%%%%%%%%%%%%%%%%%%%%%
 \section{Time Series} {\color{teal}\hrule height 1pt} \smallskip
+Time Series is generally data which is collected over time and is dependent on it.
+
+\vspace{2pt}
+
 It is a random sequence $\{X_{t} \}$ of real values recorded at successive equally spaced points in time. \\
 
 $\rightarrow$ Not every data collected with respect to time represents a time series. \\
-\hspace{5pt} Methods of prediction \& forecasting, time based data is Time Series Modeling \\
+$\rightarrow$ Methods of prediction \& forecasting, time based data is Time Series Modeling \\
 
 \vspace{2pt}
 $\bullet$ \textbf{Examples} of time series: Stock Market Price, Passenger Count of airlines, Temperature over time, Monthly Sales Data, Quarterly/Annual Revenue, Hourly Weather Data/Wind Speed, IOT sensors in Industries and Smart Devices, Energy Forecasting
 
 \vspace{3pt}
-Difference between \textbf{Time Series} and \textbf{Regression} \\
+$\rightarrow$ Difference between \textbf{Time Series} and \textbf{Regression} \\
 $\bullet$ \textbf{Time Series} is time dependent. However the basic assumption of a linear regression model is that the observations are independent. \\
 $\bullet$ Along with an increasing or decreasing trend, most Time Series have some form of seasonality trends\\
 
@@ -2744,9 +2694,9 @@ $\rightarrow$ GAMs also provide regularized and interpretable solutions for regr
 
 
 
-\vspace*{\fill}
+% \vspace*{\fill}
 
-\columnbreak
+% \columnbreak
 
 %%%%%%%%%%%%%%%%%%%%%%%% Natural Language Processing %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Natural Language Processing} {\color{teal}\hrule height 1pt} \smallskip
@@ -3046,9 +2996,71 @@ $\bullet$ \textbf{Latent Semantic Analysis} (LSA) - identifies patterns using tf
 \vspace*{\fill}
 \columnbreak
 
+%%%%%%%%%%%%%%%%%%% Recommender System %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Recommender System} {\color{teal}\hrule height 1pt} \smallskip
+
+The Recommender System utilizes machine learning and data analysis to provide personalized suggestions to users. \\
+$\rightarrow$ It operates by collecting and analyzing user behavior, user preferences, and historical user-item interactions.
+
+\vspace{3pt}
+
+$\bullet$ Two main types of recommender system:
+\vspace{-3pt}
+\begin{itemize}[label={--},leftmargin=4mm]
+\item \textbf{Collaborative Filtering} - recommends what similar users like
+\vspace{-3pt}
+\item \textbf{Content Filtering} - recommends similar items
+\end{itemize}
+
+\vspace{-5pt}
+\begin{center}
+    \begin{minipage}{\linewidth}
+    \includegraphics[width=\textwidth]{figures/collaborative_content_recommender_system.png}
+    \end{minipage}
+\end{center}
+\vspace{-5pt}
 
 
 
+Collaborative filtering is more common and includes methods such as: \\
+$\bullet$ \textbf{Memory-based Approaches} - finds neighborhoods by using \textbf{rating data} to compute user and item similarity, measured using correlation or cosine similarity
+
+\begin{itemize}[label={--},leftmargin=4mm]
+\vspace{-3pt}
+\item \textbf{User-User} - similar users also liked...
+\vspace{-3pt}
+\begin{itemize}[label={--},leftmargin=4mm]
+    \vspace{-3pt}
+    \item Leads to more diverse recommendations, as opposed to just recommending popular items
+    \vspace{-3pt}
+    \item Suffers from sparsity, as the number of users who rate items is often low
+    \end{itemize}
+    \vspace{-1mm}
+\item \textbf{Item-Item} - similar users who liked this item also liked...
+    \vspace{-3pt}
+    \begin{itemize}[label={--},leftmargin=4mm]
+    \vspace{-3pt}
+    \item Efficient when there are more users than items, since the item neighborhoods update less frequently than users
+    \vspace{-3pt}
+    \item Similarity between items is often more reliable than similarity between users
+    \end{itemize}
+\end{itemize}
+\vspace{-1.5mm}
+\smallskip
+
+
+$\bullet$ \textbf{Model-based Approaches} - predict ratings of unrated items, through methods such as Bayesian networks, SVD, and clustering. Handles sparse data better than memory-based approaches.
+\begin{itemize}[label={--},leftmargin=4mm]
+\vspace{-3pt}
+\item \textbf{Matrix Factorization} - decomposes the user-item rating matrix into two lower-dimensional matrices representing the users and items, each with $k$ latent factors
+\end{itemize}
+
+
+
+$\rightarrow$ Recommender systems can also be combined through ensemble methods to improve performance.
+
+
+\vspace*{\fill}
 
 
 

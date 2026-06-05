@@ -30,7 +30,10 @@ sorting=ynt
 \usepackage{ragged2e}
 \usepackage{tabularx}
 
+\usepackage{enumitem}
+\setlist[enumerate,1]{left=6pt}  % Adjust 'left' to move further left or right
 
+\usepackage{csquotes}
 \usepackage{amsmath, amssymb, amsthm}
 \usepackage{blkarray} % For block array
 \DeclareMathOperator*{\argmin}{argmin}
@@ -180,7 +183,8 @@ sorting=ynt
     {\color{teal} \Large{\textbf{Machine Learning Cheatsheet}}} \\
    % {\Large{\textbf{Probability Cheatsheet}}} \\
     % comment out line with \color{blue} and uncomment above line for b&w
-   \copyright \ 2024 \  Robins Yadav
+   \copyright \ 2024 \  Robins Yadav \\
+    \today
 \end{center}
 
 
@@ -218,8 +222,10 @@ variables $X$ to output variable $y$, with an error $e$:
 
 Different algorithms make different assumptions about the
 \textbf{shape} and \textbf{structure} of $f$. Any algorithm can be either:
-\begin{itemize}
+\begin{itemize}[leftmargin=0.4cm]
+    \vspace{-2pt}
     \item \textbf{Paramteric (or Linear)}: simplify the mapping to a known linear combination form and learn its coefficients.
+    \vspace{-2pt}
     \item \textbf{Non-parametric (or Non-linear):} free to learn any functional form from the training data, while maintaining some ability to generalize.
 \end{itemize}
 
@@ -286,8 +292,8 @@ $\rightarrow$ \textbf{Generative Model}: It focuses on learning a probability di
     \begin{tabularx}{3.5in}{X|X}
     \textbf{\textcolor{purple}{Discriminative model}} & \textbf{\textcolor{purple}{Generative model}}\\
     \hline
-    \RaggedRight{\includegraphics[scale = .40]{figures/Discriminant_model_figure.PNG}}&
-    \RaggedRight{\includegraphics[scale = .36] {figures/Generative_model_figures.PNG}} \\
+    \RaggedRight{\includegraphics[scale = .06]{figures/Discriminant_model_figure.PNG}}&
+    \RaggedRight{\includegraphics[scale = .30] {figures/Generative_model_figures.PNG}} \\
     \hline
     Learns the decision boundary between classes &
     Learns the input distribution \\
@@ -329,7 +335,7 @@ $\rightarrow$ \textbf{Generative Model}: It focuses on learning a probability di
 
 In supervised learning, the \textbf{prediction (expected) error} $e$ is composed of the \textbf{bias}, the \textbf{variance} and the \textbf{irreducible} part.  
 \vspace{-3pt}
-\[\boxed{\text{Error}(x) =  \mathcolor{purple}{\left(\mathbb{E}[\hat{f}(x)] - f(x)\right)^{2}} + \mathcolor{orange}{\mathbb{E} \left[\hat{f}(x)- \mathbb{E}\left[\hat{f}(x)\right] \right]^{2}} + \sigma^{2}_{e}}\]
+\[\boxed{\text{Error}(x) =  \mathcolor{purple}{\left(\mathbb{E}[\hat{f}(x)] - f(x)\right)^{2}} + \mathcolor{orange}{\mathbb{E} \left[\hat{f}(x)- \mathbb{E}[\hat{f}(x)] \right]^{2}} + \sigma^{2}_{e}}\]
 \vspace{-5pt}
 
 $\rightarrow$ \textbf{\textcolor{purple}{Bias}} refers to \textbf{erroneous assumptions} made by the \textbf{model} about the data to make the \textbf{target function} $f$ easier to learn. \textbf{Mathematically}, how much do the expected predicted values differ from true values?
@@ -350,7 +356,7 @@ $\rightarrow$ Mixture models (probabilistic models) and \textbf{ensemble learnin
 $\rightarrow$ \textbf{Regularization - Dropout} During training, randomly set some activations to 0. This forces network to not rely on any one node.
 \vspace{-3pt}
 \begin{center}
-    \begin{minipage}{0.60\linewidth}
+    \begin{minipage}{0.70\linewidth}
         \includegraphics[width=\textwidth]{figures/regularization_dropout.PNG}
         % \caption{ML Production}
         % \label{fig:ML_Production}
@@ -363,11 +369,13 @@ $\bullet$ \textbf{Underfitting} or \textbf{High bias} means that the model is no
 
 $\bullet$ \textbf{Overfitting} or \textbf{High variance} means that the model learns too much from the available data but does not generalize well enough to predict on \textbf{new data}.
 
+$\bullet$ \textbf{Can a model with high bias ever outperform a model with low bias?} $\rightarrow$ If a low-bias model (complex model) overfits the training data, it may perform poorly on unseen data, whereas a high-bias model (simpler model) can generalize better. $\rightarrow$ When data is scarce or noisy, a high-bias model may provide more stable predictions, avoiding learning misleading patterns that a low-bias model might capture.
+
 
 \vspace{-3pt}
 \begin{center}
     \begin{minipage}{0.8\linewidth}
-        \includegraphics[width=\textwidth]{figures/Tradeoff_Learning_Curves.PNG}
+        \includegraphics[width=\textwidth]{figures/Tradeoff_Learning_Curve.PNG}
         % \caption{ML Production}
         % \label{fig:ML_Production}
     \end{minipage}
@@ -378,43 +386,52 @@ $\rightarrow$ The \textbf{training loss} goes down over time, achieving low erro
 $\rightarrow$ The \textbf{validation loss} goes down until a turning point is found, and it starts going up again. That \textbf{point} represents the \textbf{beginning} of \textbf{overfitting}. Therefore, \textbf{The training process should be stopped when the validation error trend changes from descending to ascending}.
 
 
-\vspace{-3pt}
+% \vspace{-3pt}
+% \begin{center}
+%     \begin{minipage}{\linewidth}
+%         \includegraphics[width=\textwidth]{figures/bias_variance_overfitting_underfitting.PNG}
+%         % \caption{ML Production}
+%         % \label{fig:ML_Production}
+%     \end{minipage}
+% \end{center}
+% \vspace{-6pt}
+
+
+% \begin{center}
+%     \begin{minipage}{0.9\linewidth}
+%         \includegraphics[width=\textwidth]{figures/bias_variance_overfitting_underfitting_LearningCurves.PNG}
+%         % \caption{ML Production}
+%         % \label{fig:ML_Production}
+%     \end{minipage}
+% \end{center}
+
+
+
+
+
+\vspace{-4pt}
 \begin{center}
     \begin{minipage}{\linewidth}
-        \includegraphics[width=\textwidth]{figures/bias_variance_overfitting_underfitting.PNG}
+        \includegraphics[width=\textwidth]{figures/model_performance.png}
         % \caption{ML Production}
         % \label{fig:ML_Production}
     \end{minipage}
 \end{center}
-\vspace{-6pt}
-
-
-\begin{center}
-    \begin{minipage}{0.9\linewidth}
-        \includegraphics[width=\textwidth]{figures/bias_variance_overfitting_underfitting_LearningCurves.PNG}
-        % \caption{ML Production}
-        % \label{fig:ML_Production}
-    \end{minipage}
-\end{center}
+\vspace{-4pt}
 
 
 
+% $\bullet$ Training loss vs. Validation loss:
+% \vspace{-3pt}
+% \begin{center}
+%     \begin{minipage}{0.60\linewidth}
+%         \includegraphics[width=\textwidth]{figures/Training_Validation_Loss.PNG}
+%         % \caption{ML Production}
+%         % \label{fig:ML_Production}
+%     \end{minipage}
+% \end{center}
 
-
-
-
-
-$\bullet$ Training loss vs. Validation loss:
-\vspace{-3pt}
-\begin{center}
-    \begin{minipage}{0.60\linewidth}
-        \includegraphics[width=\textwidth]{figures/Training_Validation_Loss.PNG}
-        % \caption{ML Production}
-        % \label{fig:ML_Production}
-    \end{minipage}
-\end{center}
-
-\vspace{-3pt}
+% \vspace{-3pt}
 
 $\rightarrow$ \textbf{Epochs:} One Epoch is when an ENTIRE dataset is passed forward and backward through the neural network only ONCE.
 
@@ -431,12 +448,32 @@ By analyzing the \textbf{learning curves}, you should be able to spot whether th
 
 \vspace{3pt}
 $\bullet$ \textcolor{teal}{\textbf{What is cross-validation? Why it's important?}} \\
-Cross-validation evaluates a model's performance. \\
-$\rightarrow$ The idea is to divide the dataset into $k$ subsets or "folds", train the model on $k-1$ of these folds, and test on the remaining fold to ensure that the model generalizes well to unseen data. \\
-$\rightarrow$ After evaluating on all k folds, performance metrics are averaged for a robust estimate of the model's effectiveness. \\
-$\rightarrow$ \textbf{K-Fold Cross-Validation}: The data is divided into k equally-sized folds. \\
-$\rightarrow$ \textbf{Stratified K-Fold}: Similar to K-Fold, but it maintains the proportion of classes in each fold, making it ideal for imbalanced datasets. \\
-$\rightarrow$ \textbf{Leave-One-Out Cross-Validation (LOOCV)}: A special case where k equals the number of data points, so each fold contains just one data point.
+Cross-validation is a statistical method used to assess the performance of a machine learning model by partitioning the data into subsets (called folds). The model is trained on some folds and tested on the remaining ones. \\
+
+$\rightarrow$ It reduces overfitting \& improves Model Evaluation \\
+
+
+$\rightarrow$ The idea is to divide the dataset into $k$ subsets or "folds", train the model on $k-1$ of these folds, and test on the remaining fold. 
+
+
+
+$\bullet$ \textbf{K-Fold Cross-Validation}: The data is divided into k equally-sized folds. 
+
+\vspace{-3mm}
+\begin{center}
+    \begin{minipage}{\linewidth}
+        \includegraphics[width=\textwidth]{figures/5-fold-cross-validation.png}
+        % \caption{ML Production}
+        % \label{fig:ML_Production}
+        % \end{minipage}
+    \end{minipage} 
+\end{center}
+\vspace{-3mm}
+
+
+
+$\bullet$ \textbf{Stratified K-Fold}: Similar to K-Fold, but it maintains the proportion of classes in each fold, making it ideal for imbalanced datasets. \\
+$\bullet$ \textbf{Leave-One-Out Cross-Validation (LOOCV)}: A special case where k equals the number of data points, so each fold contains just one data point.
 
 
 
@@ -570,7 +607,7 @@ $\rightarrow$ \textbf{Ablation}: An ablation study is turning off components of 
 An ETL workflow is crucial for consolidating and preparing data for analysis and reporting, ensuring accuracy, consistency, and availability for better decision-making.
 
 
-\begin{enumerate}[leftmargin=0.37cm]
+\begin{enumerate}[leftmargin=0.35cm]
     \item \textcolor{blue}{\textbf{Extract Phase}:} Retrieve raw data from sources like databases, files, or APIs using SQL queries, scripts, or connectors. Extract only the new or updated data since the last extraction to optimize performance and reduce load.  \\
    
 
@@ -590,14 +627,130 @@ $\rightarrow$ AWS Glue: Managed ETL service on AWS.\\
 $\rightarrow$ Apache NiFi: For data flow automation.
 
 
-
-
-
-
-
 \vspace*{\fill}
 
 
+\subsubsection{Accuracy vs Interpretability} {\color{teal}\hrule height 0.5pt} \smallskip
+
+
+
+\subsubsection{Accuracy vs Latency} {\color{teal}\hrule height 0.5pt} \smallskip
+
+
+
+
+
+
+
+\subsubsection{Data Science Life cycle} {\color{teal}\hrule height 0.5pt} \smallskip
+
+1. Understanding the Problem $\rightarrow$ 2. Data Collection $\rightarrow$ 3. Data checks \& Cleaning $\rightarrow$ 4. EDA $\rightarrow$ 5. Feature Engineering $\rightarrow$ 6. Modeling $\rightarrow$ 7. Evaluation $\rightarrow$ 8. Deployment $\rightarrow$ 9. Monitoring $\rightarrow$ 10. Creating Reports
+\begin{itemize}[leftmargin=0.35cm]
+\item \textcolor{blue}{\textbf{Data Exploration}:}
+    \vspace{-2pt}
+    \begin{itemize}[leftmargin=0.35cm]
+        \vspace{-2pt}
+        \item \textbf{Understand Data Types}: Identify the types and formats of data.
+        \vspace{-2pt}
+        \item \textbf{Descriptive Statistics}: Summarize data using statistical measures.
+        \vspace{-2pt}
+        \item \textbf{Data Visualization}: Create visualizations to uncover patterns, trends, and anomalies.
+        \vspace{-2pt}
+        \item \textbf{Correlation Analysis}: Examine relationships between variables.
+    \end{itemize}
+    
+    \item \textcolor{blue}{\textbf{Data Cleaning}:} 
+    \vspace{-2pt}
+    \begin{itemize}[leftmargin=0.35cm]
+        \vspace{-3pt}
+        \item \textbf{Handle Missing Values}: Impute or remove missing data.
+        \vspace{-3pt}
+        \item \textbf{Remove Outliers}: Identify and treat outliers.
+        \vspace{-3pt}
+        \item \textbf{Standardize Data}: Ensure consistent data formats.
+        \vspace{-3pt}
+        \item \textbf{Correct Errors}: Fix any identified errors in the data.
+    \end{itemize}
+    
+    \item \textcolor{blue}{\textbf{Feature Engineering}:}
+    \vspace{-2pt}
+    \begin{itemize}[leftmargin=0.35cm]
+        \vspace{-3pt}
+        \item \textbf{Create New Features}: Generate new features new features from existing ones based on domain knowledge and insights from data exploration (e.g., creating ratios, sums, or interaction terms).
+        \vspace{-3pt}
+        \item \textbf{Transform Features}: Apply transformations (e.g., scaling, encoding) to make data suitable for modeling.
+    \end{itemize}
+
+    \item \textcolor{blue}{\textbf{Feature Selection}:}
+    Improves model performance, reduce overfitting, and enhance interpretability. It involves selecting the most relevant features (variables) from the dataset. 
+    \vspace{-2pt}
+    \begin{itemize}[leftmargin=0.35cm]
+        \vspace{-3pt}
+        \item \textbf{Filter Methods}: Features are selected based on statistical measures (e.g., correlation, mutual information) independently of the machine learning model. 
+        \vspace{-2pt}
+        \begin{itemize}[leftmargin=0.35cm]
+            \vspace{-2pt}
+            \item \textbf{Correlation Coefficient}: Measures linear relationships between features and the target variable
+            \vspace{-2pt}
+            \item \textbf{Chi-Square Test}: Used for categorical data to test independence between features and the target
+            \vspace{-2pt}
+            \item \textbf{Mutual Information}: Measures the dependency between features and the target
+            \vspace{-2pt}
+            \item \textbf{Variance Threshold}: Removes features with low variance (e.g., constant features).
+        \end{itemize}
+        
+        \item \textbf{Wrapper Methods}: Features are selected by training and evaluating the model on different subsets of features. The process is guided by the model's performance (e.g., accuracy, F1-score). 
+        \vspace{-2pt}
+        \begin{itemize}[leftmargin=0.35cm]
+            \vspace{-2pt}
+            \item \textbf{Forward Selection}: Starts with no features and iteratively adds the best-performing feature
+            \vspace{-2pt}
+            \item \textbf{Backward Elimination}: Starts with all features and iteratively removes the least important feature
+            \vspace{-2pt}
+            \item \textbf{Recursive Feature Elimination (RFE)}: Recursively removes the least important features based on model weights (e.g., SVM or linear regression coefficients)
+        \end{itemize}
+        
+        \item \textbf{Embedded Methods}: Feature selection is integrated into the model training process. The model itself determines the importance of features during training.
+        \vspace{-2pt}
+        \begin{itemize}[leftmargin=0.35cm]
+            \vspace{-2pt}
+            \item \textbf{Lasso Regression (L1)}: Adds a penalty to the loss function, shrinking less important feature coefficients to zero
+            \vspace{-2pt}
+            \item \textbf{Ridge Regression (L2)}: Shrinks feature coefficients but does not eliminate them entirely
+            \vspace{-2pt}
+            \item \textbf{Decision Trees/Random Forests}: Use feature importance scores based on splits and information gain
+            \vspace{-2pt}
+            \item \textbf{XGBoost/LightGBM}: Provide built-in feature importance metrics.
+        \end{itemize}
+        
+        \item \textbf{Hybrid Methods}:
+    \end{itemize}
+\end{itemize}
+
+
+
+
+
+
+
+
+
+
+\vspace{-3mm}
+\begin{center}
+    \begin{minipage}{\linewidth}
+        \includegraphics[width=\textwidth]{figures/CI-CD with AWS and GitHub Actions.png}
+        % \caption{ML Production}
+        % \label{fig:ML_Production}
+        % \end{minipage}
+    \end{minipage} 
+\end{center}
+\vspace{-3mm}
+
+
+% \vspace*{\fill}
+
+% \columnbreak
 
 
 
@@ -621,7 +774,7 @@ $\rightarrow$ \textbf{False positive} (\textbf{Type II error}) — incorrectly d
 
 
 \begin{center}
-    \begin{minipage}{0.70\linewidth}
+    \begin{minipage}{0.80\linewidth}
         \includegraphics[width=\textwidth]{figures/Confusion_Matrix_1.PNG}
     \end{minipage}
 \end{center}
@@ -639,14 +792,14 @@ $\rightarrow$ $H_{1}$: Person is guilty  \\
 \end{center}
 
 \begin{center}
-    \begin{minipage}{0.56\linewidth}
+    \begin{minipage}{0.6\linewidth}
         \includegraphics[width=\textwidth]{figures/confusion_matrix_multi_class.PNG}
     \end{minipage}
 \end{center}
 
 
 
-\begin{enumerate}
+\begin{enumerate}[leftmargin=4mm]
     \item \textbf{Accuracy: } $\boxed{\frac{TP + TN}{TP + TN + FP + FN}}$ \\
     $\rightarrow$ Ratio of \textbf{correct predictions} over \textbf{total predictions}. \\
     \textbf{Estimate} of $\boxed{P[D=Y]}$,  probability of decision is equal to outcome.
@@ -683,20 +836,29 @@ $\rightarrow$ $H_{1}$: Person is guilty  \\
 
 $\bullet$ \textbf{ROC}-curve: The curve illustrates the trade-off between (TPR) true positive rate \textbf{(sensitivity or recall)} and the (FPR) false positive rate using classification thresholds $\alpha$.
 
+$\rightarrow$ We can think of the plot as the fraction of \textbf{correct predictions for the positive class} (y-axis) versus the fraction of \textbf{errors for the negative class} (x-axis).
 
-$\rightarrow$ Lowering the classification threshold classifies more items as positive, thus increasing both False Positives and True Positives.
+
+$\rightarrow$ Use ROC when you have a balanced dataset or when both false positives and false negatives have a similar impact on your results.
+\textbf{Example}: Email spam detection, where both spam and non-spam messages are of interest, and misclassifying either could lead to issues.
+
+
+
+
 
 \vspace{-3pt}
 
 \begin{center}
-    \begin{minipage}{0.75\linewidth}
+    \begin{minipage}{0.9\linewidth}
         \includegraphics[width=\textwidth]{figures/ROC_curve.PNG}
     \end{minipage}
 \end{center}
 
 \vspace{-5pt}
 
-\textbf{Note:} We can think of the plot as the fraction of \textbf{correct predictions for the positive class} (y-axis) versus the fraction of \textbf{errors for the negative class} (x-axis).
+$\rightarrow$ Lowering the classification threshold classifies more items as positive, thus increasing both False Positives and True Positives.
+
+
 
 \vspace{2pt}
 
@@ -730,12 +892,14 @@ $\bullet$ Area Under the ROC Curve \textbf{AUC}: To compute the points in an ROC
 
 
 \vspace{3pt}
-$\bullet$ \textbf{Precision-Recall} curve: Focuses on the correct prediction of the \textbf{minority} class, useful when data is \textbf{imbalanced}. Plot precision at different thresholds.
+$\bullet$ \textbf{Precision-Recall} curve: Use the PR curve when the dataset is imbalanced and primarily interested in the positive \textbf{minority} class.
+\textbf{Example}: Fraud detection, where only a tiny percentage of transactions are fraudulent, and we want to minimize missed fraud cases. Plot precision at different thresholds.
+
 
 \vspace{-5pt}
 \begin{center}
-    \begin{minipage}{0.75\linewidth}
-        \includegraphics[width=\textwidth]{figures/Precision_Curve.PNG}
+    \begin{minipage}{0.6\linewidth}
+        \includegraphics[width=\textwidth]{figures/Precision_Recall_curve.png}
     \end{minipage}
 \end{center}
 
@@ -747,76 +911,185 @@ $\bullet$ \textbf{Precision-Recall} curve: Focuses on the correct prediction of 
 
 \subsubsection{Regression Problems} {\color{teal}\hrule height 0.5pt} \smallskip
 
-\begin{enumerate}
-    \item \textbf{Mean Squared Error: } \(\boxed{\text{MSE} = \frac{1}{n} \sum_{i}(y_{i} - \hat{y_{i}})^{2}} \)
+\begin{enumerate}[leftmargin=4mm]
+    \item \textbf{Mean Squared Error: } use when large errors need to be penalized more, as it squares the differences. 
+    \vspace{-3pt}
+    \[\boxed{\text{MSE} = \frac{1}{n} \sum_{i}(y_{i} - \hat{y_{i}})^{2}} \]
     
-    \item \textbf{Root Mean Squared Error: } \(\boxed{\text{RMSE} = \sqrt{\frac{\sum^{N}_{i=1} (y_{i} - \hat{y_{i}})^{2}}{N}}}\)
+    \item \textbf{Root Mean Squared Error: } use for interpretability on the same scale, it’s helpful when outliers need moderate emphasis
+    \vspace{-3pt}
+    \[\boxed{\text{RMSE} = \sqrt{\frac{\sum^{N}_{i=1} (y_{i} - \hat{y_{i}})^{2}}{N}}}\]
     
-    \item \textbf{Mean Absolute Error: } \(\boxed{\text{MAE} = \frac{1}{n} \sum_{i} |y_{i}-\hat{y_{i}}| }\)
+    \item \textbf{Mean Absolute Error: } use when equal weight to all errors is desired, which is less sensitive to outliers. 
+    \vspace{-3pt}
+    \[\boxed{\text{MAE} = \frac{1}{n} \sum_{i} |y_{i}-\hat{y_{i}}| }\]
     
-    \item \textbf{Sum of Squared Error:} \(\boxed{\text{SSE} = \sum_{i} (y_{i} - \hat{y_{i}})^{2}}  \) 
     
-    \item \textbf{Total Sum of Squares:} \(\boxed{\text{SST} = \sum_{i} (y_{i} - \bar{y_{i}})^{2}}\)
     
     \item \textbf{$R^{2}$ Error : }  
+
+
+    $\bullet$ The \textbf{total sum of squares}: $\text{SS}_{\text{total}}$ = \(\sum_{i} (y_{i} - \bar{y})^{2} \) \\
+
+    $\bullet$ This scales with variance: var($Y$) = \( \frac{1}{n} \sum_{i} (y_{i} - \bar{y})^{2} \) \\
+    
+    $\bullet$ The \textbf{regression} sum of squares: \\
+    $\text{SS}_{\text{regression}}$ = \(\sum_{i} \hat{(y_{i}} - \bar{y})^{2} \), $\rightarrow$ nVar(predictions)
+    
+    $\bullet$ The \textbf{residual} sum of squares (squared errro): \\ 
+    $\text{SS}_{\text{residual}}$ = \(\sum_{i} (y_{i} - \hat{y_{i}})^{2} \), $\rightarrow$ nVar($\epsilon$) \\
+    
+    \vspace{2pt}
+    \textbf{\textcolor{blue}{Note: }} \(\bar{\epsilon} = 0, E[\hat{y}] = \bar{y} \)
     \vspace{-3pt}
+    \[\text{SS}_{\text{total}} = \text{SS}_{\text{regression}} + \text{SS}_{\text{residual}} \]
+    \vspace{-3pt}
+    \[R^{2} = 1 - \frac{\text{SS}_{\text{residual}}}{\text{SS}_{\text{total}}} = \frac{\text{SS}_{\text{regression}}}{\text{SS}_{\text{total}}} = \frac{nVar(\text{preds})}{nVar(Y)} = \frac{Var(\text{preds})}{Var(Y)}\]
+    \vspace{-3pt}
+    
+    $\rightarrow$ $R^{2}$ measures how well the predictor (\textbf{independent}) variable helps in understanding the \textbf{changes} in the outcome (\textbf{dependent}) variable. 
+    
+    
+    $\rightarrow$ \textbf{Goodness of Fit}: A higher $R^{2}$
+    value generally suggests a better fit of the model to the data, meaning the model's predictions are closer to the actual values. 
+    
+    
+    $\rightarrow$  \textbf{Explained Variance}: An $R^{2}$ of 1 indicates a perfect fit, where the model explains all the variability, while an $R^{2}$ of 0 indicates that the model explains none of the variability.
+    
+    $\rightarrow$ \textbf{$R^{2}$ is not valid for nonlinear models} as 
+    \vspace{-2pt}
+    \[\boxed{\text{SS}_{\text{residual}} + \text{SS}_{\text{error}} \neq \text{SS}_{\text{total}}}\]
+    \vspace{-3pt}
+
+    \vspace{-4pt}
     \[\boxed{R^{2} = 1 - \frac{\text{MSE (model)}}{\text{MSE(baseline)}}} \hspace{15pt} \boxed{R^{2} = 1 - \frac{\text{SSE}}{\text{SST}}} \] 
     
+    $\rightarrow$ \textbf{Drawback}: R-squared will always increase when a new predictor variable is added to the regression model, that's why \textbf{adjusted} $R^{2}$ used
+
     
     \item \textbf{Adjusted} $R^{2}$ :
     \vspace{-3pt}
     \[\boxed{R^{2}_{a} =  1 - \left[ \left( \frac{n-1}{n-k-1} \right) (1-R^{2})   \right]} \] 
+
+
+
+
+
 \end{enumerate}
 
-\subsubsection{Variance, \texorpdfstring{\(R^{2}\)}, and the Sum of Squares}  {\color{teal}\hrule height 0.5pt} \smallskip
-
-$\bullet$ The \textbf{total sum of squares}: $\text{SS}_{\text{total}}$ = \(\sum_{i} (y_{i} - \bar{y})^{2} \) \\
-
-$\bullet$ This scales with variance: var($Y$) = \( \frac{1}{n} \sum_{i} (y_{i} - \bar{y})^{2} \) \\
-
-$\bullet$ The \textbf{regression} sum of squares: \\
-$\text{SS}_{\text{regression}}$ = \(\sum_{i} \hat{(y_{i}} - \bar{y})^{2} \), $\rightarrow$ nVar(predictions)
-
-$\bullet$ The \textbf{residual} sum of squares (squared errro): \\ 
-$\text{SS}_{\text{residual}}$ = \(\sum_{i} (y_{i} - \hat{y_{i}})^{2} \), $\rightarrow$ nVar($\epsilon$) \\
-
-\vspace{2pt}
-\textbf{\textcolor{blue}{Note: }} \(\bar{\epsilon} = 0, E[\hat{y}] = \bar{y} \)
-\vspace{-3pt}
-\[\text{SS}_{\text{total}} = \text{SS}_{\text{regression}} + \text{SS}_{\text{residual}} \]
-\vspace{-3pt}
-\[R^{2} = 1 - \frac{\text{SS}_{\text{residual}}}{\text{SS}_{\text{total}}} = \frac{\text{SS}_{\text{regression}}}{\text{SS}_{\text{total}}} = \frac{nVar(\text{preds})}{nVar(Y)} = \frac{Var(\text{preds})}{Var(Y)}\]
-\vspace{-3pt}
-
-$\rightarrow$  \textbf{Explained Variance}: $R^{2}$ quantifies how much of the variability in the outcome (\textbf{dependent}) variable can be explained by the predictor (\textbf{independent}) variables. 
 
 
-$\rightarrow$ \textbf{Goodness of Fit}: A higher $R^{2}$
-value generally suggests a better fit of the model to the data, meaning the model's predictions are closer to the actual values. 
 
-$\rightarrow$ An $R^{2}$ of 1 indicates a perfect fit, where the model explains all the variability, while an $R^{2}$ of 0 indicates that the model explains none of the variability.
 
-$\rightarrow$ \textbf{$R^{2}$ is not valid for nonlinear models} as 
+
+
+\subsection{Important Plots} {\color{teal}\hrule height 0.5pt} \smallskip
+
+\textbf{\textcolor{blue}{KS Plot}}
 \vspace{-2pt}
-\[\boxed{\text{SS}_{\text{residual}} + \text{SS}_{\text{error}} \neq \text{SS}_{\text{total}}}\]
-\vspace{-3pt}
-
-$\rightarrow$ \textbf{Drawback}: R-squared will always increase when a new predictor variable is added to the regression model, that's why \textbf{adjusted} $R^{2}$ used
-
-% \begin{minipage}{\linewidth}
-% % \begin{figure}[h!]
-%     \centering
-%     % \begin{minipage}[b]{\textwidth}
-%     \includegraphics[width=\textwidth]{figures/Residual_variance.PNG}
-%     % \caption{ML Production}
-%     % \label{fig:ML_Production}
-%     % \end{minipage}
-% % \end{figure}
-% \end{minipage}
+\begin{itemize}[leftmargin=4mm]
+    \vspace{-2pt}
+    \item It is used to assess the distributional differences.
+    \vspace{-2pt}
+    \item The core idea is to measure the maximum distance between the cumulative distribution functions (CDF) of two distributions.
+    \vspace{-2pt}
+    \item The lower the maximum distance, the more likely they belong to the same distribution.
+    \vspace{-2pt}
+    \item Thus, instead of a “plot”, it is mainly interpreted as a “statistical test” to determine distributional differences.
+\end{itemize}
 
 
 
 
+
+
+
+\textbf{\textcolor{blue}{SHAP Plot}}
+\vspace{-2pt}
+\begin{itemize}[leftmargin=4mm]
+    \item It summarizes feature importance to a model’s predictions by considering interactions/dependencies between them.
+    \vspace{-2pt}
+    \item It is useful in determining how different values (low or high) of a feature affect the overall output.
+\end{itemize}
+
+
+
+
+\textbf{\textcolor{blue}{ROC Curve}}
+\vspace{-2pt}
+\begin{itemize}[leftmargin=4mm]
+    \item It depicts the tradeoff between the true positive rate (good performance) and the false positive rate (bad performance) across different classification thresholds.
+\end{itemize}
+
+
+\textbf{\textcolor{blue}{Precision Recall Plot}}
+\vspace{-2pt}
+\begin{itemize}[leftmargin=4mm]
+    \item It depicts the tradeoff between Precision and Recall across different classification thresholds.
+\end{itemize}
+
+
+\textbf{\textcolor{blue}{QQ Plot}}
+\vspace{-2pt}
+\begin{itemize}[leftmargin=4mm]
+    \item It assesses the distributional similarity between observed data and theoretical distribution.
+    \vspace{-2pt}
+    \item It plots the quantiles of the two distributions against each other.
+    \item Deviations from the straight line indicate a departure from the assumed distribution.
+\end{itemize}
+
+
+\textbf{\textcolor{blue}{Cumulative Explained Variance}}
+\vspace{-2pt}
+\begin{itemize}[leftmargin=4mm]
+    \item It is useful in determining the number of dimensions we can reduce our data to while preserving max variance during PCA.
+\end{itemize}
+
+
+
+
+\textbf{\textcolor{blue}{Elbow Curve}}
+\vspace{-2pt}
+\begin{itemize}[leftmargin=4mm]
+    \item The plot helps identify the optimal number of clusters for the k-means algorithm.
+    \vspace{-2pt}
+    \item The point of the elbow depicts the ideal number of clusters.
+\end{itemize}
+
+
+
+\textbf{\textcolor{blue}{Silhouette Curve}}
+\vspace{-2pt}
+\begin{itemize}[leftmargin=4mm]
+    \item The Elbow curve is often ineffective when you have plenty of clusters.
+    \vspace{-2pt}
+    \item Silhouette Curve is a better alternative, as depicted above.
+\end{itemize}
+
+
+
+
+\textbf{\textcolor{blue}{Gini impurity vs. Entropy}}
+\vspace{-2pt}
+\begin{itemize}[leftmargin=4mm]
+    \item They are used to measure the impurity or disorder of a node or split in a decision tree.
+    \vspace{-2pt}
+    \item The plot compares Gini impurity and Entropy across different splits.
+    \vspace{-2pt}
+    \item This provides insights into the tradeoff between these measures.
+\end{itemize}
+
+
+
+\textbf{\textcolor{blue}{Partial Dependency Plot}}
+\vspace{-2pt}
+\begin{itemize}[leftmargin=4mm]
+    \item Depicts the dependence between target and features.
+    \vspace{-2pt}
+    \item A plot between the target and one feature forms $\rightarrow$ 1-way PDP.
+    \vspace{-2pt}
+    \item A plot between the target and two feature forms $\rightarrow$ 2-way PDP.
+\end{itemize}
 
 
 
@@ -896,7 +1169,7 @@ The cost updating process is repeated until convergence (minimum found).
 \vspace{-7pt}
 \begin{center}
     \begin{minipage}{0.75\linewidth}
-        \includegraphics[width=\textwidth]{figures/gradient_decent.PNG}
+        \includegraphics[width=\textwidth]{figures/gradient_decent.png}
     \end{minipage}    
 \end{center}
 \vspace{-5pt}
@@ -932,11 +1205,18 @@ Here, $\beta_{j}$ is the $j$-th coefficient and $x_{j}$ is the $j$-th feature.
 
 \[ \boxed{ \underset{\vec{\beta}} {\arg\min} \sum_{i} \left(y_{i} - \hat{y_{i}}  \right)^2} \]
 
-\begin{center}
-    \begin{minipage}{0.75\linewidth}
-    \includegraphics[width=\textwidth]{figures/ordinary_least_square.PNG}
-\end{minipage}
-\end{center}
+
+\vspace{-4pt}
+\begin{flushleft}
+    \begin{tabular}{p{0.4\linewidth}p{0.4\linewidth}}
+        \includegraphics[scale=0.32]{figures/ordinary_least_square.png} &
+        \includegraphics[scale=0.32]{figures/ridge_regression.png}
+    \end{tabular}
+\end{flushleft}
+\vspace{-4pt}
+
+
+
 
 
 \textbf{Goal: }least-squares solution to : \(\boxed{X \Vec{\beta} = \hat{y} }\) \\
@@ -956,7 +1236,7 @@ Here, $\beta_{j}$ is the $j$-th coefficient and $x_{j}$ is the $j$-th feature.
 
 
 
-$\rightarrow$ Least squares generalizes into \textbf{minimizing loss functions}. \\
+
 $\rightarrow$ This is the heart of machine learning, particularly supervised learning.
 
 
@@ -987,7 +1267,7 @@ training data given the model
 
 \vspace{2pt}
 \subsubsection{Maximum Likelihood Estimation (\textbf{MLE})} {\color{teal}\hrule height 0.5pt} \smallskip
-In MLE, the goal is to estimate the parameters (or coefficients) of a probability distribution by finding the values that \textbf{maximize} the likelihood of the observed data.
+In MLE, the goal is to estimate the parameters (or coefficients) of a probability distribution that maximize the \textbf{likelihood} $P(x_{i}|\theta)$ of the observed data.
 
 \vspace{3pt}
 $\bullet$ \textbf{Likelihood Function}: The likelihood function measures the probability of the observed data given the parameters. It helps to evaluate how well different parameters explain the observed data.
@@ -1073,7 +1353,7 @@ Model log likelihood is sum over training data. Applicable to \textbf{any} model
 
 
 \subsubsection{Bayesian Estimation - Maximum a Posterior (\textbf{MAP})} {\color{teal}\hrule height 0.5pt} \smallskip
-\textbf{MAP} estimation seeks to find the parameters $\theta$ that maximize the posterior distribution, which assumes a "prior distribution \( P(\theta) \)"
+In \textbf{MAP}, the goal is to estimate the parameters $\theta$ that maximize the \textbf{posterior} $P(\theta | x_{i})$ distribution i.e. maximizes the product of \textbf{prior} $P(\theta)$ and \textbf{likelihood} $P(x_{i}|\theta)$
 
 
 \vspace{-3pt}
@@ -1158,17 +1438,28 @@ $\rightarrow$ Linear models are remarkably capable of transforming many non-line
 Here, $n$ is total no. of observation, $\hat{y}_{i}$ is dependent variable, $x_{ij}$ is explanatory variable of $j$-th features of the $i$-th observation.
 $\beta_{0}$ is intercept or usually called \textbf{bias} coefficient. \\
 
-
+\vspace{3pt}
+$\bullet$ \textbf{\textcolor{blue}{Training Time}:} \(O(np^{2}+p^{3})\) \\
+$\bullet$ \textbf{\textcolor{blue}{Inference Time}:} \(O(p)\) \\
+$\bullet$ \textbf{\textcolor{blue}{Hyperparameters}:} L1/L2 penalty, Solver, Fit intercept
+\vspace{3pt}
 
 \textbf{\underline{Assumptions}:} \\
-$\rightarrow$  Linear models make \textbf{four} key assumptions necessary for inferential
-validity. \\
-• \textbf{Linearity} — outcome $y$ and predictor $X$ have linear relationship. \\
-• \textbf{Independence} — observations are independent of each other\\
-- Independent variables (features) are not highly correlated with each other $\rightarrow$ \textbf{Low multicollinearity} \\
-• \textbf{Normal errors} — residuals are normally distributed - \textbf{check} with Q-Q plots.\textbf{ Violation} means line (in Q-Q plots) still fits but p-value and CIs are unreliable\\
-• \textbf{Equal variance} — residuals have constant variance (called
-homoskedasticity; violation is heteroskedasticity) - \textbf{check} scatterplot or regplot between residuals vs. fitted. \textbf{Violations} means model is failing to capture a systematic effect. $\rightarrow$  These violations are problem only for inference not for prediction
+Linear models make \textbf{four} key assumptions for inferential validity i.e. linearity, independence, erros are normally distributed, errors have constant variance. 
+\vspace{-2pt}
+\begin{itemize}[leftmargin=0.4cm]
+    \vspace{-2pt}
+    \item \textbf{Linearity}: outcome $y$ and predictor $X$ have linear relationship.
+    \vspace{-2pt}
+    \item \textbf{Independence}: observations are independent of each other \\
+    - Independent variables (features) should not be highly correlated with each other $\rightarrow$ \textbf{Low multicollinearity}
+    \vspace{-2pt}
+    \item \textbf{Normal errors}: This violation means residuals deviate from the straight line. This suggests erros are not normally distributed. \textbf{What to do?} - Transform the response variable, use robist regression methods, check for outliers. \textbf{ Violation} means line (in Q-Q plots) still fits but p-value and CIs are unreliable
+    \vspace{-2pt}
+    \item \textbf{Equal variance (homoskedasticity)}: The spread of residuals changes as fitted value increase. This violates the constant variance assumption \textbf{Violations} means model is failing to capture a systematic effect. $\rightarrow$  These violations are problem only for inference not for prediction
+    \vspace{-2pt}
+\end{itemize}
+
 
 
 
@@ -1199,7 +1490,7 @@ homoskedasticity; violation is heteroskedasticity) - \textbf{check} scatterplot 
 \vspace{-5pt}
 \[\boxed{\underset{\vec{\beta}} {\arg\min} \sum_{i} \left(y_{i} - \hat{y_{i}}  \right)^2} \]
 
-\vspace{-15pt}
+\vspace{-5pt}
 
 \begin{center}
     \begin{minipage}{0.60\linewidth}
@@ -1226,21 +1517,20 @@ $\rightarrow$ Standardize numeric variables when using regularization because to
 $\rightarrow$ \textbf{Multicollinearity} $\rightarrow$ correlated predictors. \textbf{Problem}: Which coefficient gets the common effect? To \textbf{solve}: Loss and Regularization comes. \\
 
 
-\begin{itemize}
-
+\begin{itemize}[leftmargin=0.4cm]
      \item \textbf{Ridge Regression} (L2 regularization): where OLS is modified to minimize the \textbf{squared} sum of the coefficients 
-     \vspace{-4pt}
+     \vspace{-3pt}
     \[ \boxed{\sum^{n}_{i=1} (y_{i} - \beta_{0} - \sum^{p}_{j=1} \beta_{j} x_{ij})^{2} + \lambda \sum^{p}_{j=1} \beta^{2}_{j} = RSS + \lambda \sum^{p}_{j=1} \beta^{2}_{j}} \]
     \vspace{-7pt}
     
    $\rightarrow$ Prevents the weights from getting too large (L2 norm). If lambda is \textbf{very large then it will add too much weight} and it will lead to \textbf{under-fit}.
-   \vspace{-5pt}
+   \vspace{-2pt}
    \[ \boxed{ \lambda \propto \frac{1} {\text{model variance}}}  \]
     
-    \item \textbf{Lasso Regression} (L1 regularization) : where OLS is modified to minimize the sum of the coefficients 
+    \item \textbf{Lasso Regression} (L1 regularization): where OLS is modified to minimize the sum of the coefficients 
     \vspace{-3pt}
     \[ \boxed{\sum^{n}_{i=1} (y_{i} - \beta_{0} - \sum^{p}_{j=1} \beta_{j} x_{ij})^{2} + \lambda \sum^{p}_{j=1} \left| \beta_{j} \right| = RSS + \lambda \sum^{p}_{j=1} \left| \beta_{j} \right|}  \]
-    \vspace{-10pt}
+    \vspace{-6pt}
      
     where $p$ is the no. features (or dimensions), $\lambda \geq 0$ is a tuning parameters to be determined. 
     
@@ -1254,15 +1544,158 @@ $\rightarrow$ L1 is less likely to shrink coefficients to 0. Therefore L1 regula
 
 
 
+\vspace{-5pt}
+
+\begin{center}
+    \begin{minipage}{\linewidth}
+        \includegraphics[width=\textwidth]{figures/ols_result.png}
+    \end{minipage}   
+\end{center}
+
+
+\vspace{-5pt}
+
+\begin{itemize}[leftmargin=0.4cm]
+    \item \textbf{Model Fit:}
+    \vspace{-2pt}
+    \begin{itemize}[leftmargin=0.4cm]
+        \vspace{-2pt}
+        \item The model explains 99.9\% of the variance in the dependent variable (\texttt{Y}), as indicated by the \textbf{R-squared} value of \textbf{0.999}.
+        \vspace{-2pt}
+        \item The \textbf{Adjusted R-squared} is also 0.999, showing a very strong fit even after accounting for the number of predictors.
+        \vspace{-2pt}
+    \end{itemize}
+
+    \item \textbf{Significance:}
+    \vspace{-2pt}
+    \begin{itemize}[leftmargin=0.4cm]
+        \vspace{-2pt}
+        \item The overall model is highly statistically significant, as indicated by the \textbf{F-statistic} of \textbf{4.234e+04} and a near-zero \textbf{p-value} (\texttt{4.63e-39}).
+        \vspace{-2pt}
+    \end{itemize}
+
+    \item \textbf{Coefficients:}
+    \vspace{-2pt}
+    \begin{itemize}[leftmargin=0.4cm]
+        \vspace{-2pt}
+        \item The intercept (\texttt{const}) is \textbf{-0.093}, but it is not statistically significant (\textbf{p = 0.222}).
+        \vspace{-2pt}
+        \item Predictors \texttt{X1} and \texttt{X2} are both highly significant (\textbf{p $<$ 0.0001}) with coefficients \textbf{0.2050} and \textbf{0.4100}, respectively.
+        \vspace{-2pt}
+        \item This implies a positive linear relationship between \texttt{X1} and \texttt{Y}, and between \texttt{X2} and \texttt{Y}.
+        \vspace{-2pt}
+    \end{itemize}
+
+    \item \textbf{Residual Diagnostics:}
+    \vspace{-2pt}
+    \begin{itemize}[leftmargin=0.4cm]
+        \vspace{-2pt}
+        \item The residuals appear to be reasonably well-behaved:
+        \vspace{-2pt}
+        \begin{itemize}[leftmargin=0.4cm]
+            \vspace{-2pt}
+            \item The \textbf{Omnibus test p-value} is \textbf{0.070}, indicating no strong evidence of non-normality in the residuals.
+            \vspace{-2pt}
+            \item The \textbf{Durbin-Watson statistic} is \textbf{1.456}, suggesting some mild positive autocorrelation in the residuals.
+            \vspace{-2pt}
+            \item The \textbf{Jarque-Bera test p-value} is \textbf{0.177}, also supporting the normality of residuals.
+            \vspace{-2pt}
+        \end{itemize}
+        \vspace{-2pt}
+    \end{itemize}
+
+    \item \textbf{Multicollinearity:}
+    \vspace{-2pt}
+    \begin{itemize}[leftmargin=0.4cm]
+        \vspace{-2pt}
+        \item The \textbf{condition number} is extremely high (\texttt{2.08e+16}), indicating potential multicollinearity. This is expected since \texttt{X2} is a linear transformation of \texttt{X1}.
+        \vspace{-2pt}
+    \end{itemize}
+
+    \item \textbf{Key Takeaway:}
+    \vspace{-2pt}
+    \begin{itemize}[leftmargin=0.4cm]
+        \vspace{-2pt}
+        \item The model provides an excellent fit with statistically significant predictors (\texttt{X1} and \texttt{X2}). However, there may be multicollinearity issues due to the linear dependence between \texttt{X1} and \texttt{X2}, which could affect the interpretation of individual coefficients.
+        \vspace{-2pt}
+    \end{itemize}
+    \vspace{-2pt}
+\end{itemize}
+
+
+
+
 
 
 
 
 \subsubsection{Logistic Regression} {\color{teal}\hrule height 0.5pt} \smallskip
+In logistic regression, a linear output is converted into a probability between 0 and 1 using the sigmoid or logistic function\(\text{f}(x) = \frac{1}{1+e^{-x}}\). 
+
+\vspace{-3pt}
+\[\hat{y_{i}} = g^{-1}\left(\beta_{0} + \beta_{1} x_{i1} + \beta_{2} x_{i2} \cdots + \beta_{p} x_{ip} \right) \]
+\vspace{-5pt}
+\[\boxed{\hat{y}_{i} = g^{-1}\left(\beta_{0} + \sum_{j=1}^{p} \beta_{j} x_{ij}  \right)}\]
+
+Here, $g$ is a link function 
+\\
+
+$\rightarrow$ \textbf{Counts}: Poision regression, log link func \\
+$\rightarrow$ \textbf{Binary}: Logistic regression, logit link  func and $g^{-1}$ is logistic func \\
+
+
+\vspace{3pt}
+$\bullet$ \textbf{\textcolor{blue}{Training Time}:} \(O(np^{2}+p^{3})\) \\
+$\bullet$ \textbf{\textcolor{blue}{Inference Time}:} \(O(p)\) \\
+$\bullet$ \textbf{\textcolor{blue}{Hyperparameters}:} L1/L2 penalty, Solver, Class Weight
+
+
+\vspace{-4pt}
+\[\boxed{P(y_{i}=1|X) = \text{logistic} \left(\beta_{0} + \sum_{j} \beta_{j} x_{ij} \ \right) = \frac{e^{\beta_{0} + \beta_{1}x_{1} + \cdots + \beta_{i} x_{i}}}{1 + e^{\beta_{0} + \beta_{1}x_{1} + \cdots + \beta_{i} x_{i}}}}  \]
+
+\vspace{-3pt}
+
+
+\textbf{\textcolor{blue}{Note :} Coefficients} are linearly related to odds, such that a one unit increase in $x_{1}$ affects odds by $e^{\beta_{1}}$. \\
 
 
 
-\textcolor{blue}{\textbf{Log-Odds} and \textbf{Logistics}} 
+\vspace{-5pt}
+\begin{center}
+    \begin{minipage}{\linewidth}
+    \includegraphics[width=\textwidth]{figures/logistic_function_regression.png}
+    \end{minipage}
+\end{center}
+
+\vspace{-5pt}
+
+
+
+\textbf{\underline{Assumptions:}}
+\begin{itemize}[leftmargin=0.4cm]
+    \vspace{-2pt}
+    \item Linear relationship between $X$ and log-odds of $Y$
+    \vspace{-2pt}
+    \item  Observations must be independent to each other
+    \vspace{-2pt}
+    \item Low multicollinearity
+    \vspace{-2pt}
+\end{itemize}
+
+
+
+\vspace{2pt}
+\textbf{\underline{Learning:}} Learning the logistic regression coefficients is done by: \\
+
+$\rightarrow$ \textbf{Minimizing} the \textbf{logistic loss function} 
+\vspace{-5pt}
+\[\boxed{\underset{\vec{\beta}} {\arg\min} \sum_{i} \text{log}\big(1+\text{exp}(-y_{i} \vec{\beta}x_{i}) \big)} \] 
+$\rightarrow$ \textbf{Maximizing} the \textbf{log likelihood} of the training data given the model 
+\vspace{-5pt}
+\[\boxed{\underset{\vec{\beta}} {\arg\max} \sum_{i} \text{log} \hspace{2pt} P\left(y_{i} | x_{i}, \vec{\beta} \right)} \]
+
+
+\textcolor{blue}{Notes:} \textbf{Log-Odds} and \textbf{Logistics}
 
 \vspace{2pt}
 $\bullet$ \textbf{Odds} \\
@@ -1280,6 +1713,8 @@ $\bullet$ \textbf{Log Odds} or \textbf{logit} $\rightarrow$
 \vspace{3pt}
 $\bullet$ \textbf{Logistic}: The inverse of the logit (logit$^-1$): 
 \vspace{-3pt}
+
+
 \[\boxed{\text{logistic}(x) = \frac{1}{1+e^{-x}} = \frac{e^{x}}{e^{x} +1} }\]
 
 \vspace{-3pt}
@@ -1303,64 +1738,6 @@ $\rightarrow$ The logistic and logit functions convert between probabilities and
 
 
 
-\vspace{3pt}
-$\bullet$ \textbf{General Linear Models (GLMs)}: 
-\vspace{-3pt}
-\[\hat{y_{i}} = g^{-1}\left(\beta_{0} + \beta_{1} x_{i1} + \beta_{2} x_{i2} \cdots + \beta_{p} x_{ip} \right) \]
-\vspace{-5pt}
-\[\boxed{\hat{y}_{i} = g^{-1}\left(\beta_{0} + \sum_{j=1}^{p} \beta_{j} x_{ij}  \right)}\]
-
-Here, $g$ is a link function 
-\\
-
-$\bullet$ \textbf{Counts}: Poision regression, log link func \\
-$\bullet$ \textbf{Binary}: Logistic regression, logit link  func and $g^{-1}$ is logistic func \\
-
-
-$\rightarrow$ In logistic regression, a linear output is converted into a probability between 0 and 1 using the sigmoid or logistic function. 
-\vspace{-4pt}
-\[\boxed{P(y_{i}=1|X) = \hat{y}_{i} = \text{logistic} \left(\beta_{0} + \sum_{j} \beta_{j} x_{ij} \ \right)} \]
-
-\vspace{-3pt}
-\[\boxed{ p(X) = \frac{e^{\beta_{0} + \beta_{1}x_{1} + \cdots + \beta_{i} x_{i}}}{1 + e^{\beta_{0} + \beta_{1}x_{1} + \cdots + \beta_{i} x_{i}}}  = p(y = 1 \, | \, X)}\] \
-
-
-
-
-\textbf{\textcolor{blue}{Note :} Coefficients} are linearly related to odds, such that a one unit increase in $x_{1}$ affects odds by $e^{\beta_{1}}$. \\
-
-\textbf{\textcolor{blue}{Note :}} The \textbf{coefficients in logistic regression are interpreted} in terms of their effect on the log-odds of the outcome, and the exponentiated coefficients (odds ratios) provide a clearer understanding of the change in odds associated with each predictor.
-
-
-
-\vspace{-5pt}
-\begin{center}
-    \begin{minipage}{0.86\linewidth}
-    \includegraphics[width=\textwidth]{figures/logistic_function_regression.PNG}
-    \end{minipage}
-\end{center}
-
-\vspace{-5pt}
-The representation below is an equation with binary output, which actually models the probability of default class: 
-
-
-\vspace{2pt}
-\textbf{\underline{Assumptions:}} \\
-- Linear relationship between $X$ and log-odds of $Y$ \\
-- Observations must be independent to each other \\
-- Low multicollinearity \\
-
-
-
-\vspace{2pt}
-\textbf{\underline{Learning:}} Learning the logistic regression coefficients is done by: \\
-
-$\rightarrow$ \textbf{Minimizing} the \textbf{logistic loss function} 
-\vspace{-5pt}
-\[\boxed{\underset{\vec{\beta}} {\arg\min} \sum_{i} \text{log}\big(1+\text{exp}(-y_{i} \vec{\beta}x_{i}) \big)} \] 
-$\rightarrow$ \textbf{Maximizing} the \textbf{log likelihood} of the training data given the model 
-\vspace{-5pt}
-\[\boxed{\underset{\vec{\beta}} {\arg\max} \sum_{i} \text{log} \hspace{2pt} P\left(y_{i} | x_{i}, \vec{\beta} \right)} \]
 
 
 
@@ -1413,7 +1790,7 @@ The class with largest \textbf{discriminant value} is the \textbf{output class}.
 \end{enumerate}
 
 
-\subsubsection{Data preparation for Linear Algorithm} {\color{teal}\hrule height 0.5pt} \smallskip
+\subsubsection{Data preparation for Linear Algorithms} {\color{teal}\hrule height 0.5pt} \smallskip
 
 \begin{enumerate}
     \item \textbf{Data Transformation:} 
@@ -1465,6 +1842,14 @@ All Nonlinear Algorithms are non-parametric and more flexible. They are not sens
 
 Naive Bayes is a \textbf{classification} algorithm interested in
 selecting the \textbf{best hypothesis} $h$ given data $X$ \textbf{assuming that the features of each data point are all independent}  \\
+
+
+\vspace{3pt}
+$\bullet$ \textbf{\textcolor{blue}{Training Time}:} \(O(np)\) \\
+$\bullet$ \textbf{\textcolor{blue}{Inference Time}:} \(O(p)\) \\
+$\bullet$ \textbf{\textcolor{blue}{Hyperparameters}:} Alpha, Binarize, Fit Prior
+
+
 
 \textbf{\underline{Representation:}} 
 The representation is based on Bayes Theorem:
@@ -1536,24 +1921,32 @@ here, the denominator is not kept as it is only for normalization.
 % \end{center}
 
 
-% \vspace*{\fill}
-% \columnbreak
+\vspace*{\fill}
+\columnbreak
 
 
 \subsubsection{Support Vector Machines} {\color{teal}\hrule height 0.5pt} \smallskip
 
 SVM is a go-to for high performance with little tuning. Compares extreme values in your dataset. \\
 
-\vspace{3pt}
 
-In SVM, a \textbf{hyperplane} (or decision boundary: $w^{T}x - b = 0$) is selected to \textbf{separate the points} in the input variables space by their class, with the \textbf{largest margin}. The closest datapoints (defining the margin) are called the
-\textbf{support vectors}. \\
+
+
+\vspace{3pt}
+$\rightarrow$ The \textbf{goal} of a support vector machine is to find the optimal \textbf{hyperplane} (or decision boundary: $w^{T}x - b = 0$) to separate the data points by their class, with the 
+textbf{largest margin}. he closest datapoints (defining the margin) are called the  \textbf{support vectors}.
+
 
 % But real data cannot be perfectly separated, that is why a
 % $C$ defines the amount of violation of the margin allowed. The lower $C$, the more sensitive SVM is to training data. \\
 
 \vspace{3pt}
-$\rightarrow$ The \textbf{goal} of a support vector machine is to find the optimal separating hyperplane which maximizes the \textbf{margin} of the training data.
+$\bullet$ \textbf{\textcolor{blue}{Training Time}:}  \\
+$\bullet$ \textbf{\textcolor{blue}{Inference Time}:}  \\
+$\bullet$ \textbf{\textcolor{blue}{Hyperparameters}:}  regularization parameter (C) and the kernel parameters (such as gamma for the RBF kernel).
+
+
+
 
 \vspace{-10pt}
 \begin{center}
@@ -1613,7 +2006,7 @@ The\textbf{ first term} is the regularization term, which is a technique to avoi
 
 
 \vspace{3pt}
-$\rightarrow$ \textbf{Kernel : } A kernel is a way of computing the dot product of two vectors $\textbf{x}x$ and $\textbf{y}y$ in some (possibly very high dimensional) feature space, which is why kernel functions are sometime called "generalized dot product". The kernel trick is a method of using a linear classifier to solve a non-linear problem by transforming linearly inseparable data to linearly separable ones in a higher dimension.\\
+$\rightarrow$ \textbf{Kernel : } A kernel is a way of computing the dot product of two vectors $\textbf{x}x$ and $\textbf{y}y$ in some (possibly very high dimensional) feature space, which is why kernel functions are sometime called \enquote{generalized dot product}. The kernel trick is a method of using a linear classifier to solve a non-linear problem by transforming linearly inseparable data to linearly separable ones in a higher dimension.\\
 
 \vspace{3pt}
 Given a feature mapping $\phi$, we define the kernel $K$ as follows:
@@ -1650,51 +2043,88 @@ measure between new data and support vectors:
 
 
 
-\textbf{\textcolor{blue}{Hyperparameters}}: regularization parameter (C) and the kernel parameters (such as gamma for the RBF kernel).
 
 
 
-% \vspace*{\fill}
+\vspace*{\fill}
 
-% \columnbreak
+\columnbreak
 
 
 
 
 \subsubsection{K-Nearest Neighbors} {\color{teal}\hrule height 0.5pt} \smallskip
 
-\textbf{If you are similar to your neighbors, you are one of them.}
-KNN uses the \textbf{entire training data}, \textbf{no training} is required. 
+The K-Nearest Neighbors (KNN) algorithm is a non-parametric method used for classification and regression. KNN uses the \textbf{entire training data}, \textbf{no training} is required. 
 
+\vspace{3pt}
+$\bullet$ \textbf{\textcolor{blue}{Training Time}: \(O(1)\)}  \\
+$\bullet$ \textbf{\textcolor{blue}{Inference Time}: \(O(np)\)}  \\
+$\bullet$ \textbf{\textcolor{blue}{Hyperparameters}:}  N Neighbors, Weights, Algorithm ('kd\_tree', 'brute')
 
-\textbf{\textcolor{blue}{Note: }} Higher $k$ $\rightarrow$ higher the bias, Lower $k$ $\rightarrow$ higher the variance.
 
 $\bullet$ \textbf{Choice of \textbf{k} is very critical} $\rightarrow$ A small value of \textbf{k} means that noise will have a higher influence on the result. 
-$\rightarrow$ A large value of \textbf{k} make everything classified as the most probable class and also computationally expensive.\\
+$\rightarrow$ A large value of \textbf{k} make everything classified as the most probable class leads to computationally expensive.
 
-$\rightarrow$ A simple approach to \textbf{select} \textbf{k} is set $\boxed{\text{k} = \sqrt{n}}$ or \textbf{cross-validating} on small subset of training data (validation data) by \textbf{varying} values of $k$ and \textbf{observing} training - validation error. \\
+\vspace{2pt}
+\textbf{\textcolor{blue}{Note: }} Higher $k$ $\rightarrow$ higher the bias, Lower $k$ $\rightarrow$ higher the variance.
 
-$\rightarrow$ \textcolor{purple}{Minkowski Distance} = \(\boxed{\left(\sum| a_{i} - b_{i}|^{p}\right)^{\frac{1}{p}}} \) \\
-\hspace{10pt} - p=1 gives \textbf{Manhattan distance} \(\boxed{\sum|a_{i} - b_{i}|} \)  \\
-\hspace{10pt} - p=2 gives Euclidean distance \(\boxed{\sqrt{\sum(a_{i} - b_{i})^{2}}} \)\\
+
+
+$\rightarrow$ A simple approach to \textbf{select} \textbf{k} is set \(\text{k} = \sqrt{n}\) or \textbf{cross-validating} on small subset of training data (validation data) by \textbf{varying} values of $k$ and \textbf{observing} training - validation error. \\
+
+
+\vspace{3pt}
+Let's say we want to classify (classification) the grey point into a class (lime green, green, or orange) or predict the value (regression) of the grey point.
+\vspace{-3pt}
+\begin{center}
+    \begin{minipage}{0.4\linewidth}
+    \includegraphics[width=\textwidth]{figures/knn_data.png}
+    \end{minipage}
+\end{center}
+\vspace{-3pt}
+\begin{enumerate}
+    \vspace{-2pt}
+    \item Select $k$ no. of nearest neighbours for making predictions. Assume \(k=4\) closest points the KNN algorithm will consider
+    \vspace{-2pt}
+    \item Find the \textbf{distance} from the new data (grey) point to all data points in the dataset. Select only \(k=4\) \textbf{nearest} (minimum distance) data points.   
+
+    \vspace{-4pt}
+    \begin{flushleft}
+        \begin{tabular}{p{0.45\linewidth}p{0.4\linewidth}}
+            \includegraphics[scale=0.6]{figures/knn_data_distance.png} &
+            \includegraphics[scale=0.6]{figures/knn_data_4_nearest_points.png}
+        \end{tabular}
+    \end{flushleft}
+    \vspace{-4pt}
+    \item Make a Prediction: 
+    \vspace{-2pt}
+    \begin{itemize}[leftmargin=0.4cm]
+    \vspace{-2pt}
+        \item For \textbf{Classification}:  
+        Assign the class label that is most frequent among the \( k \) nearest neighbors.
+        \vspace{-2pt}
+        \item For \textbf{Regression}:  
+        Take the average of the values among the \( k \) nearest neighbors to predict a continuous outcome.
+        \vspace{-2pt}
+    \end{itemize}
+
+\end{enumerate}
+
+
+
+
+
+
+
+
+
+$\rightarrow$ \textcolor{purple}{Minkowski Distance} = \(\boxed{\left(\sum| x_{i} - y_{i}|^{p}\right)^{\frac{1}{p}}} \) \\
+\hspace{10pt} - p=1 gives \textbf{Manhattan} distance used for discrete or categorical data: \[\boxed{d = \sum_{i=1}^n |x_i - y_i|} \]  \\
+\hspace{10pt} - p=2 gives \textbf{Euclidean} distance used for continuous data, \[\boxed{d = \sqrt{\sum_{i=1}^n (x_i - y_i)^2}} \]\\
 
 \vspace{2pt}
 $\rightarrow$ \textcolor{purple}{Hamming Distance} - count of the differences between two vectors, often used to compare categorical variables.
-
-
-
-\begin{center}
-    \begin{minipage}{\linewidth}
-    \includegraphics[width=\textwidth]{figures/knn_steps.PNG}
-    \end{minipage}
-\end{center}
-
-
-
-
-
-
-
 
 
 
@@ -1712,9 +2142,17 @@ $\rightarrow$ \textcolor{purple}{Hamming Distance} - count of the differences be
 
 
 
-\subsubsection{Classification and Regression Trees (CART)} {\color{teal}\hrule height 0.5pt} \smallskip
+\subsubsection{Decision Tree} {\color{teal}\hrule height 0.5pt} \smallskip
 
-Decision Tree is a \textbf{Supervised learning} technique that can be used for both \textbf{Classification} and \textbf{Regression} problems. 
+Decision Tree is a \textbf{Supervised learning} technique that can be used for both \textbf{Classification} and \textbf{Regression} problems.\\
+
+\vspace{3pt}
+$\bullet$ \textbf{\textcolor{blue}{Training Time}}: Avg: \(O(T \cdot n\text{log}(n))\) \hspace{2pt} Worst: \(O(n^{2})\)  \\
+$\bullet$ \textbf{\textcolor{blue}{Inference Time}}:  Avg: \(O(T \cdot n\text{log}(n))\) \hspace{2pt} Worst: \(O(n)\)  \\
+$\bullet$ \textbf{\textcolor{blue}{Hyperparameters}:} \textbf{Stopping Criterion} for splitting, Minimum of \textbf{training observations per node},  Maximum depth of the tree \\
+$T$ is no. of Trees
+
+
 
 
 
@@ -1727,67 +2165,62 @@ Decision Tree is a \textbf{Supervised learning} technique that can be used for b
 \vspace{-7pt}
 
 
-Here, each \textbf{node} represents a question about the data, and the \textbf{branches} from each node represent the possible answers.
+$\bullet$ Each \textbf{node} represents a question about the data, and the \textbf{branches} from each node represent the possible answers. \\
+$\bullet$ The splitting process handles multicollinearity and outliers. \\
+$\bullet$ Trees are prone to high variance, so tune through CV.
 
-
-$\rightarrow$ \textbf{Root Node}: It is the very first node (parent node), and denotes the whole population, and gets split into two or more Decision nodes based on the feature values. \\
-$\rightarrow$ \textbf{Decision Node}: At each decision node, the algorithm chooses the best feature and threshold to split the data, aiming to create the most homogeneous subsets. They have \textbf{multiple} branches.  \\
-
-$\rightarrow$ This process continues until a stopping condition is met (like maximum depth or pure leaves). \\
-
-$\rightarrow$ \textbf{Leaf Node}: The final predictions are made at the leaf nodes, which represent the outcome of those \textbf{decisions}.
-
-$\rightarrow$ \textbf{Sub-Tree}: A branch is a subdivision of a complete tree. 
-
-
-\vspace{3pt}
-At each leaf node, CART predicts the most frequent category, assuming false negative and false positive costs are the same. \\
-
-$\rightarrow$ The splitting process handles multicollinearity and outliers. \\
-$\rightarrow$ Trees are prone to high variance, so tune through CV.
-
-\vspace{2pt}
-\textcolor{blue}{Note:} In decision trees, the \textbf{depth of the tree} determines the variance. Decision trees are commonly pruned to control variance
-
-
-\vspace{3pt} 
-
-
-$\bullet$ CART for \textcolor{blue}{regression } \textbf{minimizes SSE} by splitting data into sub-regions and predicting the average value at leaf nodes. The complexity parameter $cp$ only keeps splits that reduce loss by at least $cp$ (small $cp$ $\rightarrow$ deep tree). 
-
-\vspace{2pt}
-$\bullet$ CART for \textcolor{blue}{classification }
-\textbf{minimizes the sum of region impurity}, where $p_{i}$ is the probability of a sample being in category $i$. Possible measures, each with a max impurity of 0.5.
-\\
-
-- \( \boxed{\text{Gini Impurity / Gini Index / Gini Coefficient} = 1 - \sum(p_{i})^{2}} \) \\
-- \(\boxed{
-\text{Cross Entropy} = \sum(p_{i})\text{log}_{2}(p_{i})} \)
-
-
-
-\vspace{3pt}
-\textbf{\textcolor{blue}{Procedure}}:
-\vspace{-3pt}
+\vspace{-2pt}
 \begin{enumerate}
-    \item Calculate entropy of the \textbf{outcome} classes (c) \(\boxed{E(T) = \sum^{c}_{i=1} -p_{i} \, \text{log}_{2}p_{i}} \)
     \vspace{-2pt}
-    \item The dataset is split on the different attributes. The entropy of each branch is calculated. Then it is added proportionally to get \textbf{total entropy for the split}. The resulting entropy is subtracted from the entropy before the split.
-    \vspace{-3pt}
-    \[\boxed{\text{Gain}(T,X) = \text{Entropy}(T) - \text{Entropy}(T, X) }\]
-    \vspace{-10pt}
-    \item Choose attributes with \textbf{largest information Gain} as the \textbf{decision node}, divide the dataset by its branches and repeat the same process on \textbf{every branch}.
+    \item \textbf{Root Node}: It starts with a \textbf{root node} (the entire dataset) and splits into two or more Decision nodes based on the feature values.
     \vspace{-2pt}
-    \item A branch with \textbf{entropy of 0} is a leaf node
+    \item \textbf{Decision Node}: At each decision node, the algorithm chooses the best feature and threshold to split the data, aiming to create the most homogeneous subsets. They have \textbf{multiple} branches.
     \vspace{-2pt}
-    \item A branch with \textbf{entropy more than 0} needs futher splitting.
+    \item \textbf{Leaf Node}: The final predictions are made at the leaf nodes, which represent the outcome of those \textbf{decisions}
     \vspace{-2pt}
-    \item ID3 algorithm is run recursively on the \textbf{non-leaf branches}, until all data is classified
+    \item Make a prediction:
     \vspace{-2pt}
+    \begin{itemize}[leftmargin=0.4cm]
+        \vspace{-2pt}
+        \item For \textbf{classification}, it aims to minimize impurity measures like \textbf{Gini Index} or \textbf{Entropy} at each split. It keeps splitting the data until the groups (leaf nodes) are similar or meet certain limits, like maximum depth or minimum number of samples.
+        \vspace{-2pt}
+        \item For \textbf{regression}, partition the data into subsets that minimize the difference between the predicted and actual values using measures like the Mean Squared Error (MSE). Each leaf shows the average value of the target in that group.
+        \vspace{-2pt}
+    \end{itemize}
 \end{enumerate}
 
 
-\textbf{\textcolor{blue}{Hyperparameters}}:  The most common \textbf{Stopping Criterion} for splitting is a minimum of \textbf{training observations per node},  maximum depth of the tree 
+
+
+$\bullet$ \textbf{Sub-Tree}: A branch is a subdivision of a complete tree. 
+
+
+
+$\bullet$ \textbf{Gini Index:} Measures the likelihood of incorrect class \(\boxed{1 - \sum(p_{i})^{2}} \) \\
+$\bullet$ \textbf{Entropy:} Measures disorder in the group (used in Information Gain). Entropy of the \textbf{outcome} classes (c) = \(\boxed{E(T) = \sum^{c}_{i=1} -p_{i} \, \text{log}_{2}p_{i}} \) \\
+$\bullet$ \(\text{Information Gain}(T,X) = \text{Entropy}(T) - \text{Entropy}(T, X) \)
+
+% \vspace{3pt}
+% \textbf{\textcolor{blue}{Procedure}}:
+% \vspace{-3pt}
+% \begin{enumerate}
+%     \item Calculate entropy of the \textbf{outcome} classes (c) \(\boxed{E(T) = \sum^{c}_{i=1} -p_{i} \, \text{log}_{2}p_{i}} \)
+%     \vspace{-2pt}
+%     \item The dataset is split on the different attributes. The entropy of each branch is calculated. Then it is added proportionally to get \textbf{total entropy for the split}. The resulting entropy is subtracted from the entropy before the split.
+%     \vspace{-3pt}
+%     \[\boxed{\text{Gain}(T,X) = \text{Entropy}(T) - \text{Entropy}(T, X) }\]
+%     \vspace{-10pt}
+%     \item Choose attributes with \textbf{largest information Gain} as the \textbf{decision node}, divide the dataset by its branches and repeat the same process on \textbf{every branch}.
+%     \vspace{-2pt}
+%     \item A branch with \textbf{entropy of 0} is a leaf node
+%     \vspace{-2pt}
+%     \item A branch with \textbf{entropy more than 0} needs futher splitting.
+%     \vspace{-2pt}
+%     \item ID3 algorithm is run recursively on the \textbf{non-leaf branches}, until all data is classified
+%     \vspace{-2pt}
+% \end{enumerate}
+
+
 
 
 
@@ -1827,7 +2260,12 @@ $\rightarrow$ \textbf{\textcolor{blue}{Bootstrapping}} is drawing random \textbf
 \textcolor{teal}{\textbf{Random Forest}} \\
 $\rightarrow$\textbf{ Bagged Decision Trees}: Each DT may contain different no. of rows and different no. of features. \\
 $\rightarrow$ Individual DTs may face \textbf{overfitting} i.e. have \textbf{low bias} (complex model) but \textbf{high variance}, by ensembling a lot of DTs we are going to \textbf{reduce the variance}, while not increasing the bias. \\ 
-\textbf{\textcolor{blue}{Hyperparameters}}: number of trees, maximum depth of the trees 
+
+$\bullet$ \textbf{\textcolor{blue}{Training Time}}: \(O(T \cdot n\text{log}(n))\)   \\
+$\bullet$ \textbf{\textcolor{blue}{Inference Time}}:  \(O(T \cdot \text{log}(n))\)  \\
+$\bullet$ \textbf{\textcolor{blue}{Hyperparameters}:} \textbf{Stopping Criterion} for splitting, Minimum of \textbf{training observations per node},  Maximum depth of the tree \\
+$T$ is no. of Trees
+
 
 \vspace{7pt}
 $\bullet$ \textbf{\textcolor{purple}{Boosting}} \\
@@ -1909,21 +2347,37 @@ $\rightarrow$ \textbf{Model performance: }  \\
 \textbf{\textcolor{blue}{Hyperparameters}}: Learning Rate, Number of Trees, Maximum Depth, Min Child Weight, Subsample, Booster Type, Early Stopping Rounds
 
 
+\subsubsection{Cases where Random Forest \& XGBoost does work well} {\color{teal}\hrule height 0.5pt} \smallskip
+\begin{itemize}[leftmargin=0.4cm]
+        \vspace{-2pt}
+        \item \textbf{Small Datasets}: They may overfit due to their complexity.
+        \vspace{-2pt}
+        \item \textbf{High-Dimensional Sparse Data}: Performance can degrade (e.g., text data).
+        \vspace{-2pt}
+        \item \textbf{Linear Relationships}: Simpler models like linear regression may perform better.
+        \vspace{-2pt}
+        \item \textbf{Interpretability}: They are less interpretable compared to simpler models.
+        \vspace{-2pt}
+        \textbf{Computational Resources}: They can be resource-intensive for very large datasets or real-time applications.
+    \end{itemize}
+In such cases, simpler models or specialized algorithms (e.g., SVMs, neural networks) may be more suitable.
+
+
 \subsubsection{Data Preparation for Non-Linear Algorithms} {\color{teal}\hrule height 0.5pt} \smallskip
 
 \begin{enumerate}
     \item \textbf{Data Transformation:} 
     Non-linear algorithms can naturally model non-linear relationships without the need for data transformations, as they are capable of capturing complex patterns.
-
+    \vspace{-2pt}
     \item \textbf{Feature Engineering:} 
     Non-linear models are less reliant on manual feature engineering. Algorithms like decision trees or neural networks can automatically capture feature interactions and non-linear relationships.
-
+    \vspace{-2pt}
     \item \textbf{Handling Outliers:} 
     Non-linear algorithms, such as decision trees and support vector machines, are generally more robust to outliers compared to linear models.
-
+    \vspace{-2pt}
     \item \textbf{Rescaling:} 
     Some non-linear models (e.g., neural networks, support vector machines) benefit from rescaling, while others (e.g., decision trees, random forests) do not require rescaling.
-
+    \vspace{-2pt}
     \item \textbf{Assumptions:} 
     Non-linear algorithms do not assume a linear relationship between inputs and outputs, allowing them to model more complex relationships in the data without predefined structures.
 \end{enumerate}
@@ -1934,19 +2388,19 @@ $\rightarrow$ \textbf{Model performance: }  \\
 \begin{enumerate}
     \item \textbf{Captures Complex Relationships:} 
     Can model intricate patterns and interactions in the data that linear algorithms might miss.
-    
+    \vspace{-2pt}
     \item \textbf{Higher Flexibility:} 
     Adaptable to various data types and structures (e.g., images, text).
-    
+    \vspace{-2pt}
     \item \textbf{Improved Accuracy:} 
     Often yields better performance on non-linear datasets by fitting the data more closely.
-    
+    \vspace{-2pt}
     \item \textbf{Handles High Dimensionality:} 
     Suitable for high-dimensional spaces, especially with techniques like kernel methods or neural networks.
-    
+    \vspace{-2pt}
     \item \textbf{No Assumption of Linearity:} 
     Does not require prior knowledge of the relationship between input features and output, making it versatile.
-    
+    \vspace{-2pt}
     \item \textbf{Feature Engineering Not Always Necessary:} 
     Some non-linear algorithms, like tree-based models, automatically capture interactions and non-linearities without explicit feature engineering.
 \end{enumerate}
@@ -2015,11 +2469,18 @@ The objective of K-means clustering is to \textbf{minimize} total \textbf{intra-
 \vspace{-3pt}
 
 
-Here, $K$ is No. of clusters, $n$ is No. of cases, $C_{j}$ is centroid for cluster $j$
+Here, $K$ is No. of clusters, $n$ is No. of observation, $C_{j}$ is centroid for cluster $j$
+
+
+\vspace{3pt}
+$\bullet$ \textbf{\textcolor{blue}{Training Time}}: \(O(l \cdot k \cdot n \cdot p)\) \\
+$\bullet$ \textbf{\textcolor{blue}{Inference Time}}:  \(O(1)\) \\
+$\bullet$ \textbf{\textcolor{blue}{Hyperparameters}:} N Clusters, Mas Iteration, Init
+
 
 \vspace{-10pt}
 \begin{center}
-    \begin{minipage}{0.6\linewidth}
+    \begin{minipage}{0.4\linewidth}
     \includegraphics[width=\textwidth]{figures/K_means_clustering.PNG}
     \end{minipage}
 \end{center}
@@ -2029,14 +2490,13 @@ Here, $K$ is No. of clusters, $n$ is No. of cases, $C_{j}$ is centroid for clust
 
 
 \begin{enumerate}
-    \item Divide data into $K$ clusters or groups.
+    \item Let's say we divide data into $K$ clusters or groups.
     \vspace{-3pt}
-    \item Randomly select \textbf{centroid} for each of these $K$ clusters.
+    \item Randomly select \textbf{centroids} for each of these $K$ clusters.
     \vspace{-3pt}
-    \item Assign data points to their closest cluster
-    \textbf{centroid} according to Euclidean/ Square Euclidean/Manhattan/Cosine
+    \item Calculate the distance from \textbf{each} data point to the centroid of all $K$ clusters, and then assign \textbf{each} data point to its \textbf{closest} cluster centroid.(distance: Euclidean/ Square Euclidean/Manhattan/Cosine)
     \vspace{-3pt}
-    \item Calculate the \textbf{centroids} of the newly formed clusters.
+    \item Find the \textbf{centroids} of the newly formed clusters using Geometric Means.
     \vspace{-3pt}
     \item Repeat steps 3 and 4 until the \textbf{same centroids} (convergences) are assigned to each cluster.
     \vspace{-3pt}
@@ -2044,7 +2504,7 @@ Here, $K$ is No. of clusters, $n$ is No. of cases, $C_{j}$ is centroid for clust
 
 
 \begin{center}
-    \begin{minipage}{\linewidth}
+    \begin{minipage}{0.8\linewidth}
     \includegraphics[width=\textwidth]{figures/k_means_cluster_update.PNG}
     \end{minipage}
 \end{center}
@@ -2052,7 +2512,7 @@ Here, $K$ is No. of clusters, $n$ is No. of cases, $C_{j}$ is centroid for clust
 $\rightarrow$ K-means \textbf{always converges} (mostly to local minimum not to global minimum) \\
 
 $\bullet$ \textbf{How to choose $K$ number of clusters in K-Means algorithm?} \\
-$\rightarrow$ The maximum possible number of clusters will be equal to the number of observations in the dataset.
+$\rightarrow$ The \textbf{maximum} possible number of clusters will be equal to the \textbf{number of observations} (records) in the dataset.
 
 
 
@@ -2134,9 +2594,9 @@ PCA combines highly correlated variables into a new, smaller set of constructs c
 
 \underline{Procedure:}
 \begin{enumerate}
-    \item\textbf{ Standarize} the data: \(\boxed{Z = \frac{X-mean}{SD} } \)
+    \item\textbf{Standarize} the data: \(\boxed{Z = \frac{X-\text{mean}}{SD} } \)
     \vspace{-2pt}
-    \item Calculate \textbf{covariance-matrix} of the standarized data 
+    \item Calculate \textbf{covariance-matrix} of the standardized data 
     \vspace{-2pt}
     \[\boxed{V = \text{cov}(Z^{T})} \]
     \vspace{-2pt}
@@ -2146,7 +2606,7 @@ PCA combines highly correlated variables into a new, smaller set of constructs c
     \vspace{-2pt}
     \item Feature vectors;  It is simply the matrix that has columns, the eigen-vectors of the components that we decide to keep.
     \vspace{-2pt}
-    \item Project data $\rightarrow$ \(\boxed{Z_{\text{new}} = \text{vectors}^{T} \cdot Z^{T}}\)
+    \item Project data to principle component $\rightarrow$ \(\boxed{Z_{\text{new}} = \text{vectors}^{T} \cdot Z^{T}}\)
     \vspace{-2pt}
 \end{enumerate}
 
@@ -2168,16 +2628,14 @@ PCA combines highly correlated variables into a new, smaller set of constructs c
 
 \vspace*{\fill}
 
-
-
 \columnbreak
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Neural Network %%%%%%%%%%%%%%%%%%%%%%
 \section{Neural Network} {\color{teal}\hrule height 1pt} \smallskip
 
 A neural network is a type of machine learning model that mimics the structure and function of the human brain to recognize patterns, make decisions, and learn from data. 
-\vspace{-5pt}
 
+\vspace{-5pt}
 \begin{center}
     \begin{minipage}{0.85\linewidth}
     \includegraphics[width=\textwidth]{figures/nn3.JPG}
@@ -2192,25 +2650,21 @@ $\rightarrow$ \textbf{Hidden Layers}: Layers between the input and output layers
 
 $\rightarrow$ \textbf{Output Layer}: The final layer that produces the network's output, such as a prediction or classification.
 
+\vspace{3pt}
 $\bullet$ \textbf{Perceptron} - the foundation of a neural network, and it is a single-layer neural network. An Artificial Neuron is a basic building block of a neural network. \\
 
 $\bullet$ \textbf{Neural Network} - a multi-layer \textbf{perceptron} 
 
+
 \vspace{-5pt}
-\begin{center}
-    \begin{minipage}{0.6\linewidth}
-    \includegraphics[width=\textwidth]{figures/perceptron_artificial_neuron.png}
-    \end{minipage}
-\end{center}
+\begin{flushleft}
+    \begin{tabular}{p{0.55\linewidth}p{0.3\linewidth}}
+        \includegraphics[scale=0.5]{figures/perceptron_artificial_neuron.png} &
+        \includegraphics[scale=0.66]{figures/perceptron_artificial_neuron_equation.png}
+    \end{tabular}
+\end{flushleft}
 
 
-\vspace{-7pt}
-\begin{center}
-    \begin{minipage}{0.5\linewidth}
-    \includegraphics[width=\textwidth]{figures/perceptron_artificial_neuron_equation.png}
-    \end{minipage}
-\end{center}
-\vspace{-5pt}
 
 
 
@@ -2230,7 +2684,7 @@ $\rightarrow$ \textbf{Activation Function}: decides whether a neuron should be a
 \vspace{-5pt}
 
 
-\vspace{-1mm}
+\vspace{-5pt}
 \begin{center}
 \begin{tabular}{c|c|c}
           Sigmoid & ReLU & Tanh\\
@@ -2238,15 +2692,14 @@ $\rightarrow$ \textbf{Activation Function}: decides whether a neuron should be a
          \rule{0pt}{3ex}
          $\frac{1}{1+e^{-z}} $  & max$(0,z)$ & $\frac{e^z - e^{-z}}{e^z + e^{-z}}$\\
            &   &  \vspace{-2mm}\\
-
+           
          \hline
          \includegraphics[scale = .047]{figures/sigmoid1.JPG} &
          \includegraphics[scale = .047]{figures/relu.JPG} &
          \includegraphics[scale = .047]{figures/tanh.JPG}
-
 \end{tabular}
 \end{center}
-
+\vspace{-5pt}
 
 
 
@@ -2266,7 +2719,7 @@ $\bullet$  \textbf{Forward Propagation:} The input data is passed through the ne
 
 \vspace{2pt}
 
-$\bullet$ \textbf{Backpropagation:} Backpropagation is an algorithm used in neural networks to adjust the internal weights and biases to minimize the error calculated by the loss function. 
+$\bullet$ \textbf{Backpropagation:} Backpropagation is an algorithm used in neural networks to \textbf{adjust the internal weights and biases} to \textbf{minimize the error} calculated by the loss function. 
 \vspace{-3pt}
 \begin{itemize}[label={--},leftmargin=4mm]
 \item \textbf{Regression Loss}: Mean Squared Error/Squared loss/ L2 loss, Mean Absolute Error/ L1 loss, Huber Loss 
@@ -2296,25 +2749,6 @@ The common loss functions are summed up in the table below:
 $\rightarrow$ During training, the network uses a supervised learning method where the difference (error) between the network's predicted output and the known expected output is calculated. This error is then propagated back through the network via backpropagation to compute the gradient of the loss function with respect to each weight. An optimization algorithm, such as gradient descent, uses these gradients to update the weights and biases, reducing the error and improving the model's accuracy over time.
 
 
-
-
-
-\vspace{2pt}
-$\bullet$ \textbf{Training:} The process of forward propagation, loss calculation, and backpropagation is repeated over many iterations, allowing the network to learn from the data and improve its accuracy.
-
-$\bullet$ To prevent \textbf{overfitting}, regularization can be applied by:
-\vspace{-3pt}
-\begin{itemize}[label={--},leftmargin=6mm]
-\itemsep -.4mm
-\item Stopping training when validation performance drops
-\item \textbf{Dropout} - randomly drop some nodes during training to prevent over-reliance on a single node
-\item Embedding weight penalties into the objective function
-\item \textbf{Batch Normalization} - stabilizes learning by normalizing inputs to a layer
-\end{itemize}
-
-
-
-
 \vspace{-5pt}
 
 \begin{center}
@@ -2324,6 +2758,25 @@ $\bullet$ To prevent \textbf{overfitting}, regularization can be applied by:
 \end{center}
 
 \vspace{-5pt}
+
+
+\vspace{2pt}
+$\bullet$ \textbf{Training:} The process of forward propagation, loss calculation, and backpropagation is repeated over many iterations, allowing the network to learn from the data and improve its accuracy.
+
+$\bullet$ To prevent \textbf{overfitting}, regularization can be applied by:
+\vspace{-3pt}
+\begin{itemize}[label={--},leftmargin=6mm]
+\itemsep -.4mm
+\item By stopping training when validation performance drops
+\item \textbf{Dropout} - randomly drop some nodes during training to prevent over-reliance on a single node
+\item Embedding weight penalties into the objective function
+\item \textbf{Batch Normalization} - stabilizes learning by normalizing inputs to a layer
+\end{itemize}
+
+
+
+
+
 
 
 
@@ -2367,9 +2820,9 @@ $\rightarrow$ Now, the output obtained from above is fed into a \textbf{fully co
 \textbf{\textcolor{blue}{Question}}: Describe the difference between \textbf{batch normalization} and \textbf{layer normalization}.
 
 
-\vspace*{\fill}
+% \vspace*{\fill}
 
-\columnbreak
+% \columnbreak
 
 
 
@@ -2387,7 +2840,7 @@ Recurrent Neural Networks (RNNs) are designed to process sequences of data such 
 \vspace{-5pt}
 
 \begin{center}
-    \begin{minipage}{0.75\linewidth}
+    \begin{minipage}{0.9\linewidth}
     \includegraphics[width=\textwidth]{figures/RNNLoop.png}
     \end{minipage}
 \end{center}
@@ -2426,7 +2879,7 @@ And, also for the non-convex problem, the RNN model training confuse between loc
 \vspace{-5pt}
 
 \begin{center}
-    \begin{minipage}{0.75\linewidth}
+    \begin{minipage}{1\linewidth}
     \includegraphics[width=\textwidth]{figures/RNNBackprop.png}
     \end{minipage}
 \end{center}
@@ -2436,7 +2889,7 @@ $\bullet$ Vanishing gradient problem for RNNs. The sensitivity increases as the 
 \vspace{-5pt}
 
 \begin{center}
-    \begin{minipage}{0.75\linewidth}
+    \begin{minipage}{1\linewidth}
     \includegraphics[width=\textwidth]{figures/LSTMBackprop.png}
     \end{minipage}
 \end{center}
@@ -2486,7 +2939,7 @@ $\bullet$ Preservation of gradient information by LSTM. The sensitivity of the o
 
 
 
-$\rightarrow$ LSTM memorize the information for the long period of time. The difference between RNN and LSTM are: RNN cell has only \textbf{one} $\tanh$ layer while LSTM cell has \textbf{four} layers: forget gate layer, store gate layer, new cell state layer, output layer, and previous cell state as shown in Figure below.
+$\rightarrow$ LSTM memorize the information for the long period of time. The difference between RNN and LSTM are: RNN cell has only \textbf{one} $\tanh$ layer while LSTM cell has \textbf{four} layers: forget gate layer, store gate layer, new cell state layer, output layer, and previous cell state.
 
 % $\rightarrow$ The forget layer is responsible for deciding what information to retain from the previous cell state, and what information is to be forgotten or removed 
 % \[f_{t} = \sigma(W_{t}.[h_{t-1},x_{t}] + b_{f}) \]
@@ -2513,190 +2966,15 @@ $\rightarrow$ LSTM memorize the information for the long period of time. The dif
 
 
 
-
-
-
-%%%%%%%%%%%%%%%%% Time Series Analysis %%%%%%%%%%%%%%%%%%%%%%%
-\section{Time Series} {\color{teal}\hrule height 1pt} \smallskip
-Time Series is generally data which is collected over time and is dependent on it.
-
-\vspace{2pt}
-
-It is a random sequence $\{X_{t} \}$ of real values recorded at successive equally spaced points in time. \\
-
-$\rightarrow$ Not every data collected with respect to time represents a time series. \\
-$\rightarrow$ Methods of prediction \& forecasting, time based data is Time Series Modeling \\
-
-\vspace{2pt}
-$\bullet$ \textbf{Examples} of time series: Stock Market Price, Passenger Count of airlines, Temperature over time, Monthly Sales Data, Quarterly/Annual Revenue, Hourly Weather Data/Wind Speed, IOT sensors in Industries and Smart Devices, Energy Forecasting
-
-\vspace{3pt}
-$\rightarrow$ Difference between \textbf{Time Series} and \textbf{Regression} \\
-$\bullet$ \textbf{Time Series} is time dependent. However the basic assumption of a linear regression model is that the observations are independent. \\
-$\bullet$ Along with an increasing or decreasing trend, most Time Series have some form of seasonality trends\\
-
-\vspace{3pt}
-\textcolor{blue}{\textbf{Note}:}\\
-$\rightarrow$ Predicting a time series using regression techniques is not a good approach. \\
-$\rightarrow$ Time series forecasting is the use of a model to predict future values based on previously observed values.
-
-
-\vspace{5pt}
-$\rightarrow$ A stochastic process is defined as a collection of random variables $X=\{X_{t} \hspace{2pt}: t \in T\}$ defined on a common probability space, taking values in a common set $S$ (the state space), and indexed by a set $T$, often either $N$ or $[0, \infty)$ and thought of as time (discrete or continuous respectively) (Oliver, 2009).
-
-
-
-\subsection{Time Series Statistical Models} {\color{teal}\hrule height 0.5pt} \smallskip
-
-A \textbf{time series model} specifies the joint distribution of the sequence $\{X_{t} \}$ of random variables; e.g., 
-\vspace{-3pt}
-\[P\left(X_{1} \leq x_{1}, \ldots, X_{t} \leq x_{t}\right) \hspace{3pt} \text{for all} \hspace{3pt} t \hspace{3pt} \text{and} \hspace{3pt} x_{1},\ldots, x_{t} \]
-
-Typically, a time series model can be described as 
-\vspace{-3pt}
-\[X_{t} = m_{t} + s_{t} + Y_{t} \]
-
-where $m_{t}$: trend component; $s_{t}$: seasonal component; $Y_{t}$: Zero-mean error 
-
-\vspace{3pt}
-\textcolor{blue}{Note:} The following are some zero-mean models \\
-
-$\rightarrow$ \textbf{iid noise}: The simplest time series model is the one with no trend or seasonal component, and the observations $X_{t}$s are simply independent and identically distribution random variables with zero mean. Such a sequence of random variable $\{X_{t}\}$ is referred to as \textbf{iid noise}.
-\vspace{-3pt}
-\[P\left(X_{1} \leq x_{1}, \ldots, X_{t} \leq x_{t} \right) = \prod_{t} P \left(X_{t} \leq x_{t}\right) = \prod_{t} F(x_{t})\] where $F(\cdot)$ is the cdf of each $X_{t}$. Further $E(X_{t}) = 0$ for all $t$. We denote such sequence as $X_{t} \sim \text{IID}(0, \sigma^{2})$. IID noise is not interesting for forecasting since $X_{t}|X_{1}, \ldots, X_{t-1} = X_{t}$. \\
-
-$\rightarrow$ \textbf{iid noise} example: A \textbf{binary (discrete) process} $\{X_{t} \}$ is a sequence of iid random variables $X_{t}$s with 
-\vspace{-3pt}
-\[P(X_{t} = 1) = 0.5, \hspace{5pt} P(X_{t} = -1) = 0.5 \]
-
-\vspace{3pt}
-$\rightarrow$ \textbf{Gaussian Noise} example:A \textbf{continues process}: Gaussian noise $\{X_{t}\}$ is a sequence of iid normal random variables with zero mean and $\sigma^{2}$ variance; i.e., \(X_{t} \sim N (0, \sigma^{2})\) \\
-
-
-\vspace{3pt}
-$\rightarrow$ \textbf{Random walk}: The random walk $\{S_{t}, t=0,1,2, \ldots \}$ (starting at zero, $S_{0} = 0$) is obtained by cumulatively summing (or "integrating") random variables; i.e., $S_{0}=0$ and $S_{t} = X_{1} + \cdots + X_{t}, \hspace{5pt} \text{for} \hspace{2pt} t=1,2,\ldots$ \\
-where $\{X_{t} \}$ is iid noise with zero mean and $\sigma^{2}$ variance. Note that by differencing, we can recover $X_{t}$; i.e.,
-\vspace{-3pt}
-\[\nabla  S_{t} = S_{t} - S_{t-1} = X_{t} \]
-
-\vspace{-3pt}
-Further, we have
-\vspace{-3pt}
-\[E(S_{t}) =  E\left( \sum_{t} X_{t} \right) = \sum_{t} E(X_{t}) = \sum_{i} 0 = 0\]
-\vspace{-3pt}
-\[\text{Var}(S_{t}) = \text{Var}\left(\sum_{t} X_{t} \right) = \sum_{t} \text{Var}(X_{t}) = t\sigma^{2} \]
-
-
-$\rightarrow$ \textbf{White Noise}: We say $\{X_{t} \}$ is a white noise; i.e., $X_{t} \sim \text{WN}(0, \sigma^{2})$, if $\{X_{t} \}$ is uncorrelated, i.e., $\text{Cov}\left(X_{t_{1}}, X_{t_{2}}\right) = 0 $ for any $t_{1}$ and $t_{2}$ with E$[X_{t}] = 0$ and $\text{Var}(X_{t} = \sigma^{2})$. \\
-
-\vspace{3pt}
-\textcolor{blue}{\textbf{Note:}} Every $\text{IID}(0, \sigma^{2})$ sequence is $\text{WN}(0, \sigma^{2})$ but not conversely. \\
-
-
-\vspace{5pt}
-
-$\bullet$ \textbf{Moving Average Smoother} This is an essentially non-parametric method for trend estimation. It takes averages of observations around $t$; i.e., it smooths the series. For example, let 
-\vspace{-3pt}
-\[X_{t} = \frac{1}{3}\left(W_{t-1} + W_{t} + W_{t+1} \right)\]
-which is a three-point moving average of the white noise series $W_{t}$. 
-
-\vspace{2pt}
-$\rightarrow$ \textbf{AR(1)} model (\textbf{Autoregression} of order 1): Let
-\vspace{-3pt}
-\[X_{t} = 0.6X_{t-1} + W_{t} \]
-where $W_{t}$ is a white noise series. It represents a regression or prediction of the current value $X_{t}$ of a time series as a function of the past two values of the series.
-
-
-
-
-\subsection{Stationary Process} {\color{teal}\hrule height 0.5pt} \smallskip
-
-
-
-
-
-
-
-
-Extracts characteristics from time-sequenced data, which may exhibit the following characteristics:
-\begin{itemize}[label={--},leftmargin=4mm]
-\vspace{-3pt}
-\item \textbf{Stationarity} - statistical properties such as mean, variance, auto-correlation are constant over time, an autocovariance that does not depend on time, and no trend or seasonality
-\vspace{-3pt}
-\item \textbf{Non-Stationary} - There are 2 major reasons behind the non-stationary of a Time Series 
-\vspace{-3pt}
-    \begin{itemize}
-        \vspace{-3pt}
-        \item Trend - varying mean over time (mean is not constant)
-        \vspace{-3pt}
-        \item Seasonality - variations at specific time-frames (standard deviation is not constant)
-    \end{itemize}
-    
-\item \textbf{Trend} - Trend is a general direction in which something is developing or changing.
-\vspace{-3pt}
-\item \textbf{Seasonality} - Any predictable change or pattern in a time series that recurs or repeats over a specific time period (calendar times) occurring at regular intervals less than a year
-\vspace{-3pt}
-\item \textbf{Cyclicality} - variations without a fixed time length, occurring in periods of greater or less than one year
-\vspace{-3pt}
-\item \textbf{Autocorrelation} - degree of linear similarity between current and lagged values
-\end{itemize}
-
-
-$\bullet$ CV must account for the time aspect, such as for each fold $F_x$:
-\begin{itemize}[label={--},leftmargin=4mm]
-\vspace{-3pt}
-\item \textbf{Sliding Window} - train $F_1$, test $F_2$, then train $F_2$, test $F_3$
-\vspace{-3pt}
-\item \textbf{Forward Chain} - train $F_1$, test $F_2$, then train $F_1, F_2$, test $F_3$
-\end{itemize}
-
-$\bullet$ \textbf{Exponential Smoothing} - uses an exponentially decreasing weight to observations over time, and takes a moving average. The time $t$ output is $s_t = \alpha x_t + (1-\alpha)s_{t-1}$, where  $0 < \alpha < 1$.
-\smallskip
-
-$\bullet$ \textbf{Double Exponential Smoothing} - applies a recursive exponential filter to capture trends within a time series
-    \begin{center}
-    \vspace{-2.5mm}
-    $s_t = \alpha x_t + (1-\alpha)(s_{t-1} + b_{t-1})$\\
-    $b_t = \beta (s_t - s_{t-1}) + (1-\beta)b_{t-1}$\\
-    \vspace{-2mm}
-    \end{center}
-Triple exponential smoothing adds a third variable
-$\gamma$ that accounts for seasonality.
-\smallskip
-
-$\bullet$ \textbf{ARIMA} - models time series using three parameters $(p,d,q)$:
-
-\begin{itemize}[label={--},leftmargin=4mm]
-\vspace{-3pt}
-\item \textbf{Autoregressive} - the past $p$ values affect the next value
-\vspace{-3pt}
-\item \textbf{Integrated} - values are replaced with the difference between current and previous values, using the difference degree $d$ (0 for stationary data, and 1 for non-stationary)
-\vspace{-3pt}
-\item \textbf{Moving Average} - the number of lagged forecast errors and the size of the moving average window $q$
-\end{itemize}
-
-$\bullet$ \textbf{SARIMA} - models seasonality through four additional seasonality-specific parameters: $P$, $D$, $Q$, and the season length $s$
-\smallskip
-
-$\bullet$ \textbf{Prophet} - additive model that uses non-linear trends to account for multiple seasonalities such as yearly, weekly, and daily. \\
-$\rightarrow$ Robust to missing data and handles outliers well.\\ 
-$\rightarrow$ Can be represented as: $y(t) = g(t) + s(t) + h(t) + \epsilon(t)$, with four distinct components for the growth over time, seasonality, holiday effects, and error. This specification is similar to a generalized additive model.
-\smallskip
-
-$\bullet$ \textbf{Generalized Additive Model} - combine predictive methods while preserving additivity across variables, in a form such as
-$y = \beta_0 + f_1(x_1) + \cdots + f_m(x_m)$, where functions can be non-linear. \\
-$\rightarrow$ GAMs also provide regularized and interpretable solutions for regression and classification problems.
-
-
-\vspace{5pt}
-\textcolor{blue}{\textbf{Tutorial}:} \href{https://www.kaggle.com/code/prashant111/complete-guide-on-time-series-analysis-in-python}{\textbf{Complete Guide on Time Series Analysis in Python}}
-
-
-
-
 % \vspace*{\fill}
+% \columnbreak
+
+% \pagebreak
+
+\vspace*{\fill}
 
 % \columnbreak
+\pagebreak
 
 %%%%%%%%%%%%%%%%%%%%%%%% Natural Language Processing %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Natural Language Processing} {\color{teal}\hrule height 1pt} \smallskip
@@ -2725,7 +3003,7 @@ $\rightarrow$ GAMs also provide regularized and interpretable solutions for regr
 \end{center}
 \vspace{-7pt}
 
-\textbf{Challenges in NLP}\\
+
 
 
 
@@ -2745,78 +3023,79 @@ $\bullet$ The 3 stages of an NLP pipeline are: Text Processing $\rightarrow$ Fea
 
 
 
-\subsubsection{Text Processing} {\color{teal}\hrule height 0.5pt} \smallskip
+\subsection{Text Processing in NLP} {\color{teal}\hrule height 0.5pt} \smallskip
 
 
 Take raw input text, clean it, normalize it, and convert it into a form that is suitable for feature extraction. \\
 \textbf{Libraries}: nltk, spacy
 
+Text Acquisitionß, Tokenization, Lowercasing, Stopword Removal, Stemming or Lemmatization, Part-of-Speech (POS) Tagging, Named Entity Recognition (NER), Text Vectorization, Feature Scaling and Selection.
 
-\begin{itemize}[label={--},leftmargin=4mm]
-\vspace{-3pt}
-\item \textbf{Lower casing}
-\vspace{-3pt}
+\begin{enumerate}[leftmargin=4mm]
+    \item \textbf{Text Cleaning}: 
+    \vspace{-2pt}
+    \begin{itemize}[label={--},leftmargin=4mm]
+    \item Removing punctuations, tags, URLs, etc depends on the problem
+    \vspace{-2pt}
+    \item Convert chat words used in social media to a normal word
+    \vspace{-2pt}
+    \item Spelling correction using libraries like TextBlob
+    \vspace{-2pt}
+    \end{itemize}
 
-\item Removing other stuff like: punctuations, tags, URLs, etc depends on the problem
-\vspace{-3pt}
+    \item \textbf{Tokenization} - splits text into individual words (tokens) and word fragments.
+    \vspace{-2pt}
+    \begin{itemize}[label={--},leftmargin=4mm]
+    \item \textbf{Sentence-level} tokenization involves splitting a text into individual sentences.
+    \vspace{-2pt}
+    \item \textbf{Word-level} tokenization involves splitting each sentence into individual words or tokens.
+    \vspace{-2pt}
+    \end{itemize}
 
-\item Convert \textbf{chat words} used in social media to a normal word 
-\vspace{-3pt}
+    \item \textbf{Lower casing}
+    \vspace{-2pt}
+    \item \textbf{Stop words} - removes common and irrelevant words (\emph{the, is}) \\
+    $\rightarrow$ Do \textbf{not} remove stop words when using \textbf{POS Tagging} in text processing. \\
+    $\rightarrow$ Removing stopwords can hurt model performance because some words carry crucial meaning, like "not" in sentiment analysis. In tasks like translation or text generation, stopwords help maintain sentence structure.
+    \vspace{-2pt}
+    
+    \item \textbf{Lemmatization} - reduces words to its base form based on dictionary definition (\emph{am, are, is} $\to$ \emph{be})
+    \vspace{-2pt}
+    
+    \item \textbf{Stemming} - reduces words to its base form without context (\emph{ended} $\to$ \emph{end})
+    \vspace{-2pt}
 
-\item Spelling correction using libraries like \textbf{TextBlob}
-\vspace{-3pt}
+    \item \textbf{POS Tagging} (optional)
+    \vspace{-5pt}
+    \begin{center}
+        \begin{minipage}{0.7\linewidth}
+        \includegraphics[width=\textwidth]{figures/nlp_pos_tagging.png}
+        \end{minipage}
+    \end{center}
+    \vspace{-7pt}
 
-\item \textbf{Stop words} - removes common and irrelevant words (\emph{the, is}) \\
-\textbf{Note}: Do \textbf{not} remove stop words when using \textbf{POS Tagging} in text processing.
-\vspace{-3pt}
+    \item \textbf{Parse Tree} (optional)
+    \vspace{-2pt}
+    \item \textbf{Coreference Resolution} (optional)
+   \vspace{-2pt}
 
-
-\item \textbf{Tokenization} - splits text into individual words (tokens) and word fragments. \\
-$\bullet$ \textbf{Sentence-level} tokenization involves splitting a text into individual sentences. \\
-$\bullet$ \textbf{Word-level} tokenization involves splitting each sentence into individual words or tokens.
-\vspace{-3pt}
-
-
-
-\item \textbf{Lemmatization} - reduces words to its base form based on dictionary definition (\emph{am, are, is} $\to$ \emph{be})
-\vspace{-3pt}
-
-\item \textbf{Stemming} - reduces words to its base form without context (\emph{ended} $\to$ \emph{end})
-\vspace{-3pt}
-
-\item Language Detection
-\vspace{-3pt}
-\end{itemize}
-
-
-
-
-
-\subsubsection{Advance Text Processing}  {\color{teal}\hrule height 0.5pt} \smallskip
-
-\begin{itemize}[label={--},leftmargin=4mm]
-\item \textbf{POS Tagging}
-
-
-\vspace{-7pt}
-\begin{center}
-    \begin{minipage}{0.7\linewidth}
-    \includegraphics[width=\textwidth]{figures/nlp_pos_tagging.png}
-    \end{minipage}
-\end{center}
-\vspace{-7pt}
-
-\item \textbf{Parse Tree}
-
-\item \textbf{Coreference Resolution}
+   \item \textbf{Named Entity Recognition (NER)} (Optional): Detect entities like names, locations, and organizations in the text.
+    
+\end{enumerate}
 
 
-\end{itemize}
 
 
-\subsubsection{Feature Extraction}  {\color{teal}\hrule height 0.5pt} \smallskip
 
-$\rightarrow$ Feature Extraction = Text Representation =  Text Vectorization \\
+
+
+
+
+
+
+\subsubsection{Text Vectorization}  {\color{teal}\hrule height 0.5pt} \smallskip
+
+$\rightarrow$ Text Vectorization = Text Representation = Feature Extraction  \\
 
 \vspace{3pt}
 \textbf{Common Terms}:\\
@@ -2840,9 +3119,9 @@ $\bullet$ Word
 $\rightarrow$ Most conventional machine learning techniques work on the features – generally numbers that describe a document in relation to the corpus that contains it – created by either Bag-of-Words, TF-IDF, or generic (custom) feature engineerings such as \textbf{document length}, \textbf{word polarity}, and metadata (for instance, if the text has associated \textbf{tags} or \textbf{scores}). \\
 
 \vspace{3pt}
-\textbf{Note}: Deep learning does \textbf{not} require to do \textbf{feature engineering} 
+\textbf{Note}: Deep learning does \textbf{not} require to do \textbf{feature engineering} or \textbf{text vectorization}.
 
-\begin{itemize}[label={--},leftmargin=4mm]
+\begin{itemize}[leftmargin=4mm]
 
 \item \textbf{Bag-of-words} - counts the number of times each word or $n$-gram (combination of n words) appears in a document.
 \vspace{-3pt}
@@ -2855,6 +3134,10 @@ $\rightarrow$ Most conventional machine learning techniques work on the features
     \end{minipage}
 \end{center}
 \vspace{-5pt}
+
+\textbf{Question:} \textbf{If two sentences have the same words but in a different order, will a bag-of-words model treat them as the same? Why or why not?} Yes, Since BoW represents text as a collection of word counts or occurrences, sentences with the same words in different orders will have identical vector representations, losing any meaning derived from word sequence.
+
+
 
 \item $\boldsymbol{n}$\textbf{-gram} - predicts the next term in a sequence of $n$ terms based on Markov chains
 \vspace{-3pt}
@@ -2875,7 +3158,7 @@ $\rightarrow$ \textbf{Markov Chain} - stochastic and memoryless process that pre
 
 \item \textbf{tf-idf} - In contrast, with TF-IDF, we weight each word by its importance. To evaluate a word’s significance, we consider two things: 
 \vspace{-3pt}
-\begin{enumerate}
+\begin{enumerate}[leftmargin=0.34cm]
     \item \textbf{Term Frequency}: How important is the word in the document? 
     \(\text{TF(word in a document)} = \frac{\text{Number of occurrences of that word in document}}{\text{Number of words in document}}  \)
     \vspace{-3pt}
@@ -2899,6 +3182,7 @@ $\frac{A\cdot B}{||A||||B||} $, which ranges from o to 1
 \end{center}
 \vspace{-5pt}
 
+TF-IDF creates features for each document based on how often each word shows up in a document versus the entire corpus.
 
 \vspace{3pt}
 $\rightarrow$ \textbf{CountVectorizer} - Bag of Words \\
@@ -2912,7 +3196,7 @@ $\rightarrow$ \textbf{TfidfVectorizer} - Bag of Words AND TF-IDF values \\
 
 
 
-
+\textbf{Questions: Why can't we just use TF-IDF for deep learning-based NLP models?} Because TF-IDF is a fixed feature extraction method that doesn't capture the complex, contextual relationships between words. 
 
 
 
@@ -2980,16 +3264,35 @@ $\bullet$ \textbf{Subject-Object Identification} - classifies sentences as eithe
 
 
 \subsubsection{Topic Modelling}  {\color{teal}\hrule height 0.5pt} \smallskip
-Captures the underlying themes that appear in documents\\
-$\bullet$ \textbf{Latent Dirichlet Allocation} (LDA) - generates $k$ topics by first assigning each word to a random topic, then iteratively updating assignments based on parameters $\alpha$, the mix of topics per document, and $\beta$, the distribution of words per topic \\
+Captures the underlying themes that appear in documents
 
-$\bullet$ \textbf{Latent Semantic Analysis} (LSA) - identifies patterns using tf-idf scores and reduces data to $k$ dimensions through SVD
+\vspace{3pt}
 
-\vspace{10pt}
+$\bullet$ \textbf{Latent Dirichlet Allocation} (LDA) - This is a probabilistic approach
+\vspace{-3pt}
+\begin{enumerate}
+\vspace{-2pt}
+    \item \textbf{Input}: Document-Term Matrix, number of topics, number of iterations
+\vspace{-2pt}
 
-\href{https://www.youtube.com/watch?v=ruyyyRp79uQ&list=PLkz_y24mlSJarFAx94xU17AJ7QJNG1Erl}{\textbf{NLP Tutorial}}
+    \item Library like \textbf{Genism} will go through the process of finding the best word distribution for each topic and best topic distribution for each document.
+\vspace{-2pt}
 
-\href{https://www.youtube.com/watch?v=1fvQU5yPjFs&list=PLKnIA16_RmvZo7fp5kkIth6nRTeQQsjfX&index=8}{Duplicate Question Pairs - Quora Questions Pairs: NLP Pipeline}
+    \item  \textbf{Output}: The top words in each topic. It is your job as a human to interpret this and see if the results makes sense. If not, try altering the parameters - terms in the document-term matrix, number of topics, number of iterations, etc, Stop when the topics make sense
+\vspace{-2pt}
+\end{enumerate}
+
+
+
+$\bullet$ \textbf{Latent Semantic Analysis} (LSA) - This is matrix factorization approach - identifies patterns using tf-idf scores and reduces data to $k$ dimensions through SVD
+
+
+
+
+
+
+
+
 
 
 
@@ -3060,7 +3363,15 @@ $\bullet$ \textbf{Model-based Approaches} - predict ratings of unrated items, th
 $\rightarrow$ Recommender systems can also be combined through ensemble methods to improve performance.
 
 
+
+
 \vspace*{\fill}
+
+% \columnbreak
+\pagebreak
+
+
+
 
 
 
@@ -3105,9 +3416,9 @@ $\rightarrow$ Recommender systems can also be combined through ensemble methods 
 %%% ATTRIBUTIONS
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\begin{center}
-    Last Updated \today
-\end{center}
+% \begin{center}
+%     Last Updated \today
+% \end{center}
 
 
 \end{multicols*}
